@@ -1,16 +1,60 @@
 {
+  "proxy": "http://localhost:3001",
   "name": "fit-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0": "^2.9.1",
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-plugin-prettier": "^2.4.0",
+    "eslint-plugin-react": "^7.5.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "jest": "^22.0.0",
+    "massive": "^4.5.0",
+    "material-ui": "^0.20.0",
+    "moment": "^2.20.0",
+    "node-sass-chokidar": "0.0.3",
+    "passport": "^0.4.0",
+    "passport-auth0": "^0.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-promise-middleware": "^5.0.0",
+    "victory": "^0.24.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start":
+      "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\" \"npm run watch-css\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/styles/scss -o src/styles/css",
+    "watch-css":
+      "npm run build-css && node-sass-chokidar src/styles/scss/*.scss -o src/styles/css/ --watch --recursive"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "nodemonConfig": {
+    "ignore": ["src/*", "build/*"],
+    "delay": "1500"
+  },
+  "engines": {
+    "node": "8.9.1"
   }
 }
