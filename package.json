@@ -36,15 +36,12 @@
     "victory": "^0.24.3"
   },
   "scripts": {
-    "start":
-      "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\"",
+    "start": "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-css":
-      "node-sass-chokidar  src/styles/scss/styles.scss -o src/styles/css",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar src/styles/scss/*.scss -o src/styles/css/ --watch --recursive"
+    "build-css": "node-sass-chokidar  src/styles/scss/styles.scss -o src/styles/css",
+    "watch-css": "npm run build-css && node-sass-chokidar src/styles/scss/*.scss -o src/styles/css/ --watch --recursive"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0-beta.0",
@@ -54,7 +51,10 @@
     "eslint-plugin-standard": "^3.0.1"
   },
   "nodemonConfig": {
-    "ignore": ["src/*", "build/*"],
+    "ignore": [
+      "src/*",
+      "build/*"
+    ],
     "delay": "1500"
   }
 }
