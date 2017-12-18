@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start":
-      "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\" \"npm run watch-css\"",
+      "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -53,8 +53,5 @@
   "nodemonConfig": {
     "ignore": ["src/*", "build/*"],
     "delay": "1500"
-  },
-  "engines": {
-    "node": "8.9.1"
   }
 }
