@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import "./Landing.scss";
 
 import woman from "./woman.jpg";
+import runner from "./runner.jpg";
 
 import Paper from "material-ui/Paper";
 import BottomNav from "./BottomNav";
 import AppBar from "material-ui/AppBar";
 import FlatButton from "material-ui/FlatButton";
+
 // import NavBar from "../NavBar/Navbar";
 
 export default class Landing extends Component {
