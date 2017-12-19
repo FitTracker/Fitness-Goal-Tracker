@@ -6,12 +6,18 @@ import woman from "./woman.jpg";
 import Paper from "material-ui/Paper";
 import BottomNav from "./BottomNav";
 import AppBar from "material-ui/AppBar";
+import FlatButton from "material-ui/FlatButton";
+// import NavBar from "../NavBar/Navbar";
 
 export default class Landing extends Component {
   constructor(props) {
     super(props);
 
     this.state = {};
+    this.Login = this.Login.bind(this);
+  }
+  Login() {
+    window.location.href = "http://localhost:3001/api/fitbit/login";
   }
 
   render() {
@@ -23,6 +29,7 @@ export default class Landing extends Component {
               background: `grey`
             }}
             title="Fit Tracker"
+            iconElementRight={<FlatButton label="Login" onClick={this.Login} />}
             // cant get it to read sass colors
           />
         </div>

@@ -132,7 +132,7 @@ app.get(
 app.get(
   "/api/fitbit/callback",
   passport.authenticate("fitbit", {
-    successRedirect: "http://localhost:3000/"
+    successRedirect: "http://localhost:3000/dashboard"
   })
 );
 
@@ -198,3 +198,4 @@ function getOrCreatUserStrava(
   console.log("profile", profile);
   return done(null, profile);
 }
+// what is the problem
