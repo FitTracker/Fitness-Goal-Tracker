@@ -70,8 +70,8 @@ passport.use(
   )
 );
 
-//testing auth stuff for FITBIT
-app.get("/api/test", (req, res) => {
+// testing auth stuff for FITBIT
+app.get("/api/fitbit/currentdata", (req, res) => {
   request.get(
     {
       url: `https://api.fitbit.com/1/user/-/profile.json`,
@@ -119,7 +119,7 @@ app.get(
 app.get(
   "/api/fitbit/callback",
   passport.authenticate("fitbit", {
-    successRedirect: "http://localhost:3000/"
+    successRedirect: "http://localhost:3000/dashboard"
   })
 );
 
@@ -138,6 +138,7 @@ app.get(
     successRedirect: "http://localhost:3000/"
   })
 );
+
 // CATCH-ALL TO SERVE FRONT END FILES
 const path = require("path");
 app.get("*", (req, res) => {
@@ -148,7 +149,7 @@ app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
 
-//--------------------- Separating for readability
+// --------------------- Separating for readability
 
 function getOrCreatUserFitbit(
   accessToken,
@@ -177,3 +178,4 @@ function getOrCreatUserStrava(
   console.log("profile", profile);
   return done(null, profile);
 }
+// what is the problem
