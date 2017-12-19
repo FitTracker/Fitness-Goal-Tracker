@@ -58,6 +58,35 @@ passport.use(
   )
 );
 
+app.get("/api/strava/test", (req, res) => {
+  request.get(
+    {
+      url: `https://www.strava.com/api/v3/athletes/${stravaId}/stats`,
+      headers: { Authorization: "Bearer " + stravaToken },
+      json: true
+    },
+    (error, response, body) => {
+      console.log(req.session);
+      console.log(body);
+      res.json(body);
+    }
+  );
+});
+
+app.get(
+  "/api/strava/login",
+  passport.authenticate("strava", {
+    scope: ["public"]
+  })
+);
+
+app.get(
+  "/api/strava/callback",
+  passport.authenticate("strava", {
+    successRedirect: "http://localhost:3000/"
+  })
+);
+
 // FITBIT STRATEGY
 passport.use(
   new FitBitStrategy(
@@ -70,31 +99,15 @@ passport.use(
   )
 );
 
-//testing auth stuff for FITBIT
-app.get("/api/test", (req, res) => {
+// testing auth stuff for FITBIT
+app.get("/api/fitbit/currentdata", (req, res) => {
   request.get(
     {
-      url: `https://api.fitbit.com/1/user/-/profile.json`,
+      url: `https://api.fitbit.com/1/user/-/activities.json`,
       headers: { Authorization: "Bearer " + fitbitToken },
       json: true
     },
     (error, response, body) => {
-      console.log(body);
-      res.json(body);
-    }
-  );
-});
-
-app.get("/api/strava/test", (req, res) => {
-  request.get(
-    {
-      url: `https://www.strava.com/api/v3/athletes/${stravaId}/stats`,
-      headers: { Authorization: "Bearer " + stravaToken },
-      json: true
-    },
-    (error, response, body) => {
-      console.log(req.session);
-      console.log(body);
       res.json(body);
     }
   );
@@ -123,21 +136,6 @@ app.get(
   })
 );
 
-// STRAVA ENDPOINTS
-
-app.get(
-  "/api/strava/login",
-  passport.authenticate("strava", {
-    scope: ["public"]
-  })
-);
-
-app.get(
-  "/api/strava/callback",
-  passport.authenticate("strava", {
-    successRedirect: "http://localhost:3000/"
-  })
-);
 // CATCH-ALL TO SERVE FRONT END FILES
 const path = require("path");
 app.get("*", (req, res) => {
@@ -148,7 +146,7 @@ app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
 
-//--------------------- Separating for readability
+// --------------------- Separating for readability
 
 function getOrCreatUserFitbit(
   accessToken,
@@ -158,9 +156,32 @@ function getOrCreatUserFitbit(
   done
 ) {
   fitbitToken = accessToken;
-  console.log("token", fitbitToken);
   console.log("profile", profile);
-  return done(null, profile);
+
+  app
+    .get("db")
+    .getUserByFitbitId([profile.id])
+    .then(response => {
+      console.log(response);
+      if (!response[0]) {
+        app
+          .get("db")
+          .createUserFromFitbitLogin([
+            profile.id,
+            profile._json.user.firstName,
+            profile._json.user.lastName,
+            profile._json.user.avatar,
+            profile._json.user.dateOfBirth,
+            profile._json.user.height,
+            profile._json.user.weight
+          ])
+          .then(created => {
+            return done(null, created[0]);
+          });
+      } else {
+        return done(null, response[0]);
+      }
+    });
 }
 
 function getOrCreatUserStrava(
