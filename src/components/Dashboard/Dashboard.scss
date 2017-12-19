@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  height: 57px;
+  line-height: 57px;
+  background: #1a7de1;
+  font-size: $l-size;
+  color: $off-white;
+}
+
+.dash-nav {
+  display: flex;
+  text-decoration: none;
+  list-style-type: none;
+}

@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: 0 auto; }
 
 html {
   font-size: 62.5%; }
@@ -18,9 +19,6 @@ button:disabled {
 
 .is-active {
   font-weight: bold; }
-
-.nav {
-  color: red; }
 
 .splash {
   width: 100%;
@@ -84,3 +82,16 @@ button:disabled {
     width: 100%; }
   .main {
     height: 50%; } }
+
+header {
+  display: flex;
+  height: 57px;
+  line-height: 57px;
+  background: #1a7de1;
+  font-size: 3.2rem;
+  color: #f7f7ff; }
+
+.dash-nav {
+  display: flex;
+  text-decoration: none;
+  list-style-type: none; }
