@@ -47,45 +47,45 @@ passport.deserializeUser((obj, done) => {
 
 // STRAVA STRATEGY
 
-passport.use(
-  new StravaStrategy(
-    {
-      clientID: process.env.STRAVA_CLIENT,
-      clientSecret: process.env.STRAVA_SECRET,
-      callbackURL: "http://localhost:3001/api/strava/callback"
-    },
-    getOrCreatUserStrava
-  )
-);
+// passport.use(
+//   new StravaStrategy(
+//     {
+//       clientID: process.env.STRAVA_CLIENT,
+//       clientSecret: process.env.STRAVA_SECRET,
+//       callbackURL: "http://localhost:3001/api/strava/callback"
+//     },
+//     getOrCreatUserStrava
+//   )
+// );
 
-app.get("/api/strava/test", (req, res) => {
-  request.get(
-    {
-      url: `https://www.strava.com/api/v3/athletes/${stravaId}/stats`,
-      headers: { Authorization: "Bearer " + stravaToken },
-      json: true
-    },
-    (error, response, body) => {
-      console.log(req.session);
-      console.log(body);
-      res.json(body);
-    }
-  );
-});
+// app.get("/api/strava/test", (req, res) => {
+//   request.get(
+//     {
+//       url: `https://www.strava.com/api/v3/athletes/${stravaId}/stats`,
+//       headers: { Authorization: "Bearer " + stravaToken },
+//       json: true
+//     },
+//     (error, response, body) => {
+//       console.log(req.session);
+//       console.log(body);
+//       res.json(body);
+//     }
+//   );
+// });
 
-app.get(
-  "/api/strava/login",
-  passport.authenticate("strava", {
-    scope: ["public"]
-  })
-);
+// app.get(
+//   "/api/strava/login",
+//   passport.authenticate("strava", {
+//     scope: ["public"]
+//   })
+// );
 
-app.get(
-  "/api/strava/callback",
-  passport.authenticate("strava", {
-    successRedirect: "http://localhost:3000/"
-  })
-);
+// app.get(
+//   "/api/strava/callback",
+//   passport.authenticate("strava", {
+//     successRedirect: "http://localhost:3000/"
+//   })
+// );
 
 // FITBIT STRATEGY
 passport.use(
@@ -99,7 +99,7 @@ passport.use(
   )
 );
 
-// testing auth stuff for FITBIT
+// GET CURRENT LIFETIME STATS FITBIT
 app.get("/api/fitbit/currentdata", (req, res) => {
   request.get(
     {
@@ -108,7 +108,28 @@ app.get("/api/fitbit/currentdata", (req, res) => {
       json: true
     },
     (error, response, body) => {
-      res.json(body);
+      if (error) {
+        res.status(500).json("we messed up");
+      }
+      console.log(body);
+      console.log(req.session);
+      app
+        .get("db")
+        .addCurrentDataToLifetimeStatsTable([
+          body.lifetime.total.distance,
+          body.lifetime.total.steps,
+          req.session.passport.user.id
+        ])
+        .then(currentstats => {
+          app
+            .get("db")
+            .getAllGoalsForUser([req.session.passport.user.id])
+            .then(goals => {
+              console.log("goals", goals);
+              res.status(200).json({ currentstats, goals });
+            });
+        })
+        .catch(console.log);
     }
   );
 });
@@ -137,16 +158,19 @@ app.get(
 );
 
 // CATCH-ALL TO SERVE FRONT END FILES
+
 const path = require("path");
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/../build/index.html"));
 });
+
 const port = process.env.PORT || 3001;
+
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
 
-// --------------------- Separating for readability
+// --------------------- Separating for readability---------------------------
 
 function getOrCreatUserFitbit(
   accessToken,
@@ -156,13 +180,11 @@ function getOrCreatUserFitbit(
   done
 ) {
   fitbitToken = accessToken;
-  console.log("profile", profile);
 
   app
     .get("db")
     .getUserByFitbitId([profile.id])
     .then(response => {
-      console.log(response);
       if (!response[0]) {
         app
           .get("db")
@@ -184,18 +206,18 @@ function getOrCreatUserFitbit(
     });
 }
 
-function getOrCreatUserStrava(
-  accessToken,
-  refreshToken,
-  extraParams,
-  profile,
-  done
-) {
-  stravaId = profile._json.id;
-  stravaToken = accessToken;
-  console.log("stravaId", stravaId);
-  console.log("token", accessToken);
-  console.log("profile", profile);
-  return done(null, profile);
-}
+// function getOrCreatUserStrava(
+//   accessToken,
+//   refreshToken,
+//   extraParams,
+//   profile,
+//   done
+// ) {
+//   stravaId = profile._json.id;
+//   stravaToken = accessToken;
+//   console.log("stravaId", stravaId);
+//   console.log("token", accessToken);
+//   console.log("profile", profile);
+//   return done(null, profile);
+// }
 // what is the problem
