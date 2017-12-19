@@ -1,0 +1,1 @@
+INSERT INTO fittracker_users(fitbit_id, first_name, last_name, avatar, dob, height_cm, weight_kg) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id, fitbit_id, first_name, last_name, avatar, dob, height_cm, weight_kg;
