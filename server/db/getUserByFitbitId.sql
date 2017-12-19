@@ -1,0 +1,1 @@
+SELECT * FROM fittracker_users WHERE fitbit_id = $1;
