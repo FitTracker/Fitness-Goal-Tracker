@@ -51,7 +51,7 @@ button:disabled {
 
 .mid-card h1 {
   color: #383f51;
-  font-size: 2.5em;
+  font-size: 1.8rem;
   font-weight: bold; }
 
 .card-p {
@@ -74,16 +74,6 @@ button:disabled {
 
 .banner {
   color: #383f51; }
-
-.bottom-portion {
-  width: 100%;
-  height: 30vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #f7f7ff;
-  font-size: 1.5em;
-  font-weight: bold; }
 
 @media (max-width: 1025px) {
   .main {
