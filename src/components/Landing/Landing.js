@@ -4,7 +4,7 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <p>Welcome</p>
+        <p>I am a landing</p>
       </div>
     );
   }
