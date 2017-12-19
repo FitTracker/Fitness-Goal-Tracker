@@ -455,7 +455,7 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url("https://cdn.pixabay.com/photo/2017/12/10/14/50/loopster-3010073_960_720.jpg");
+  background-image: url("/runner");
   background-attachment: fixed;
   background-attachment: fixed;
   background-position: center;
