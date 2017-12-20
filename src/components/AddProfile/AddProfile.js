@@ -31,6 +31,8 @@ class AddProfile extends Component {
 
   handleFirstName(name) {
     this.setState({ firstName: name });
+
+    console.log(this.state.firstName);
   }
 
   handleLastName(name) {
