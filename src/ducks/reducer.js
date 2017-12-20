@@ -1,10 +1,4 @@
 import axios from "axios";
-import moment from "moment";
-
-// IGNORE THIS CONSTANT
-const minDate = new Date();
-minDate.setFullYear(minDate.getFullYear());
-minDate.setHours(0, 0, 0, 0);
 
 let initialState = {
   currentStats: [],
@@ -17,7 +11,7 @@ let initialState = {
 
 // CONSTANTS
 const GET_GOALS_DATA = "GET_GOALS_DATA";
-const SUBMIT_NEW_GOAL = "SUBMIT_NEW_GOAL";
+const UPDATE_GOALS = "UPDATE_GOALS";
 
 // REDUCER
 export default function(state = initialState, action) {
@@ -37,6 +31,12 @@ export default function(state = initialState, action) {
     case GET_GOALS_DATA + "_REJECTED":
       console.log(action.payload);
       break;
+    case UPDATE_GOALS:
+      console.log("action", action);
+      return Object.assign({}, state, {
+        goals: action.payload
+      });
+      break;
     default:
       return state;
   }
@@ -50,5 +50,12 @@ export function getCurrentGoalsAndData() {
     payload: axios.get("/api/fitbit/currentdata").then(response => {
       return response;
     })
+  };
+}
+
+export function updateGoals(goalsArray) {
+  return {
+    type: UPDATE_GOALS,
+    payload: goalsArray
   };
 }
