@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 // MATERIAL-UI
 import { Tabs, Tab } from "material-ui/Tabs";
-import Slider from "material-ui/Slider";
+import FontIcon from "material-ui/FontIcon";
+import MapsPersonPin from "material-ui/svg-icons/maps/person-pin";
 // ICONS
 import IconHourglassEmpty from "material-ui/svg-icons/action/hourglass-empty";
 import IconTimer from "material-ui/svg-icons/image/timer";
@@ -42,19 +43,19 @@ function handleActive(tab) {
 
 const TimeNav = () => (
   <Tabs>
-    <Tab label="Timer">
+    <Tab icon={<IconHourglassEmpty />} label="Timer">
       <div>
         <h2 style={styles.headline}>Timer</h2>
         <TimerComponent />
       </div>
     </Tab>
-    <Tab label="Stopwatch">
+    <Tab icon={<IconTimer />} label="Stopwatch">
       <div>
         <h2 style={styles.headline}>Stopwatch</h2>
         <StopwatchComponent />
       </div>
     </Tab>
-    <Tab label="Interval">
+    <Tab icon={<IconTimeLapse />} label="Interval">
       <div>
         <h2 style={styles.headline}>Interval</h2>
         <IntervalComponent />
