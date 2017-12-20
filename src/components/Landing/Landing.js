@@ -8,12 +8,6 @@ import Paper from "material-ui/Paper";
 import BottomNav from "./BottomNav";
 
 export default class Landing extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     return (
       <div>

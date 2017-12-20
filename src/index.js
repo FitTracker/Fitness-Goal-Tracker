@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import { BrowserRouter } from "react-router-dom";
+import store from "./ducks/store/configureStore";
+import { Provider } from "react-redux";
+
 import App from "./components/App/App.js";
 
 const muiTheme = getMuiTheme({
@@ -15,11 +18,13 @@ const muiTheme = getMuiTheme({
 });
 ReactDOM.render(
   <div className="container">
-    <BrowserRouter>
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <App />
-      </MuiThemeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <App />
+        </MuiThemeProvider>
+      </BrowserRouter>
+    </Provider>
   </div>,
   document.getElementById("root")
 );
