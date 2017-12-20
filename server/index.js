@@ -62,7 +62,7 @@ passport.deserializeUser((obj, done) => {
 });
 
 // GET CURRENT LIFETIME STATS FITBIT
-app.get("/api/fitbit/currentdata", (req, res, next, fitbitToken) => {
+app.get("/api/fitbit/currentdata", (req, res) => {
   request.get(
     {
       url: `https://api.fitbit.com/1/user/-/activities.json`,
