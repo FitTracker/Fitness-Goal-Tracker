@@ -488,3 +488,49 @@ header {
 
 .SideNavlogo {
   color: blue; }
+<<<<<<< HEAD
+
+.profile-view {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.profile-wrapper {
+  height: 60%;
+  width: 60%;
+  display: flex;
+  justify-content: center; }
+
+.profile-pic {
+  border-radius: 50%;
+  height: 175px;
+  width: 175px; }
+
+.profile-top,
+.profile-mid,
+.profile-buttons {
+  height: 33%;
+  width: 100%; }
+
+.profile-top {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.profile-mid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end; }
+
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.profile-input {
+  margin: 15px; }
+=======
+>>>>>>> master
