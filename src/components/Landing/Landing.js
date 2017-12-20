@@ -6,35 +6,17 @@ import runner from "./runner.jpg";
 
 import Paper from "material-ui/Paper";
 import BottomNav from "./BottomNav";
-import AppBar from "material-ui/AppBar";
-import FlatButton from "material-ui/FlatButton";
-
-// import NavBar from "../NavBar/Navbar";
 
 export default class Landing extends Component {
   constructor(props) {
     super(props);
 
     this.state = {};
-    this.Login = this.Login.bind(this);
-  }
-  Login() {
-    window.location.href = "http://localhost:3001/api/fitbit/login";
   }
 
   render() {
     return (
       <div>
-        <div className="top-nav">
-          <AppBar
-            style={{
-              background: `grey`
-            }}
-            title="Fit Tracker"
-            iconElementRight={<FlatButton label="Login" onClick={this.Login} />}
-            // cant get it to read sass colors
-          />
-        </div>
         <div className="splash">
           <div className="splash-main">
             <img className="main" src={woman} alt="main" />
@@ -45,7 +27,12 @@ export default class Landing extends Component {
 
           <p className="card-p">All your fitness apps in one place</p>
         </div>
-        <div className="middle-container">
+        <div
+          className="middle-container"
+          style={{
+            backgroundImage: `url(${runner})`
+          }}
+        >
           <Paper
             style={{
               height: "auto",

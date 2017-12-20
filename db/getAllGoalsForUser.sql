@@ -1,0 +1,1 @@
+SELECT * FROM user_goals WHERE user_id = $1;

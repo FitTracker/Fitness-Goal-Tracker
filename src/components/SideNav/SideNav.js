@@ -6,6 +6,7 @@ import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
 import injectTapEventPlugin from "react-tap-event-plugin";
+import FlatButton from "material-ui/FlatButton";
 
 injectTapEventPlugin();
 
@@ -13,6 +14,11 @@ class SideNav extends Component {
   constructor(props) {
     super(props);
     this.state = { open: false };
+    this.Login = this.Login.bind(this);
+  }
+
+  Login() {
+    window.location.href = "http://localhost:3001/api/fitbit/login";
   }
 
   handleClose = () => this.setState({ open: false });
@@ -22,10 +28,11 @@ class SideNav extends Component {
       <div>
         <AppBar
           title="Hello, User."
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          // iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonClick={() =>
             this.setState({ open: !this.state.open })
           }
+          iconElementRight={<FlatButton label="Login" onClick={this.Login} />}
         />
         <Drawer
           open={this.state.open}
