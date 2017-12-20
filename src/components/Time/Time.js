@@ -25,7 +25,7 @@ const favoritesIcon = (
   <FontIcon className="material-icons">(timer icon)</FontIcon>
 );
 
-class BottomNavigationExampleSimple extends Component {
+class TimeSubNavigation extends Component {
   state = {
     selectedIndex: 0
   };
@@ -54,16 +54,10 @@ class BottomNavigationExampleSimple extends Component {
             />
           </BottomNavigation>
         </Paper>
-        <h2> (Views below will swap out when clicking menu icons) </h2>
-        <br />
         <TimerComponent />
-        <br />
-        <StopwatchComponent />
-        <br />
-        <IntervalComponent />
       </div>
     );
   }
 }
 
-export default BottomNavigationExampleSimple;
+export default TimeSubNavigation;

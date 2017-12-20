@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard/Dashboard.js";
 import Badges from "./components/Badges/Badges.js";
 import Friends from "./components/Friends/Friends.js";
 import Goals from "./components/Goals/Goals.js";
-import Timer from "./components/Timer/Timer.js";
+import Time from "./components/Time/Time.js";
 import NotFound from "./components/NotFound/NotFound.js";
 import AddProfile from "./components/AddProfile/AddProfile";
 
@@ -18,7 +18,7 @@ export default (
     <Route path="/friends" component={Friends} />
     <Route path="/goals" component={Goals} />
     <Route path="/badges" component={Badges} />
-    <Route path="/timer" component={Timer} />
+    <Route path="/time" component={Time} />
     <Route path="/create-profile" component={AddProfile} />
     <Route path="*" component={NotFound} />
   </Switch>
