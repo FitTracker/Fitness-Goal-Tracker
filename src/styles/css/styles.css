@@ -488,7 +488,6 @@ header {
 
 .SideNavlogo {
   color: blue; }
-<<<<<<< HEAD
 
 .profile-view {
   height: 100vh;
@@ -532,5 +531,6 @@ header {
 
 .profile-input {
   margin: 15px; }
-=======
->>>>>>> master
+
+.watch {
+  background: white; }

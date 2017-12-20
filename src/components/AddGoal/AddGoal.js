@@ -28,7 +28,6 @@ class AddGoal extends Component {
       goalAmount: null,
       amountError: ""
     };
-    console.log(this.state);
   }
 
   handleOpen = () => {
