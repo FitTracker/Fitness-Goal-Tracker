@@ -38,11 +38,35 @@ app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
+// GOALS ENDPOINTS
+app.post("/api/goals", (req, res, next) => {
+  console.log(req.session);
+  console.log(req.body);
+  app
+    .get("db")
+    .getLatestFitbitLifetimeStats([req.session.passport.user.id])
+    .then(stats => {
+      console.log(stats);
+      app
+        .get("db")
+        .createNewGoal([
+          req.session.passport.user.id,
+          req.body.goalType,
+          req.body.goalType === "distance"
+            ? Number(stats[0].distance_km) + req.body.goalAmount
+            : stats[0].steps + req.body.goalAmount,
+          req.body.goalType === "distance"
+            ? stats[0].distance_km
+            : stats[0].steps,
+          req.body.goalStartDate,
+          req.body.goalEndDate
+        ])
+        .then(goals => {
+          res.status(200).json(goals);
+        })
+        .catch(console.log);
+    })
+    .catch(console.log);
 });
 
 // STRAVA STRATEGY
@@ -99,6 +123,13 @@ passport.use(
   )
 );
 
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
 // GET CURRENT LIFETIME STATS FITBIT
 app.get("/api/fitbit/currentdata", (req, res) => {
   request.get(
@@ -111,8 +142,6 @@ app.get("/api/fitbit/currentdata", (req, res) => {
       if (error) {
         res.status(500).json("we messed up");
       }
-      console.log(body);
-      console.log(req.session);
       app
         .get("db")
         .addCurrentDataToLifetimeStatsTable([
