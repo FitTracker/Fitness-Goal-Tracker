@@ -38,13 +38,6 @@ app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
-});
-
 // STRAVA STRATEGY
 
 // passport.use(
@@ -98,6 +91,13 @@ passport.use(
     getOrCreatUserFitbit
   )
 );
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
 
 // GET CURRENT LIFETIME STATS FITBIT
 app.get("/api/fitbit/currentdata", (req, res) => {
