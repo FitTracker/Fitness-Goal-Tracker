@@ -5,14 +5,15 @@ const cors = require("cors");
 const session = require("express-session");
 const massive = require("massive");
 const passport = require("passport");
-const StravaStrategy = require("passport-strava-oauth2").Strategy;
+// const StravaStrategy = require("passport-strava-oauth2").Strategy;
 const FitBitStrategy = require("passport-fitbit-oauth2").FitbitOAuth2Strategy;
 const request = require("request");
 let fitbitToken;
-let stravaToken;
-let stravaId;
+// let stravaToken;
+// let stravaId;
 
 // IMPORT CONTROLLERS
+const goalsController = require("./controllers/goalsController");
 
 // BEGIN SERVER
 const app = express();
@@ -39,77 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // GOALS ENDPOINTS
-app.post("/api/goals", (req, res, next) => {
-  console.log(req.session);
-  console.log(req.body);
-  app
-    .get("db")
-    .getLatestFitbitLifetimeStats([req.session.passport.user.id])
-    .then(stats => {
-      console.log(stats);
-      app
-        .get("db")
-        .createNewGoal([
-          req.session.passport.user.id,
-          req.body.goalType,
-          req.body.goalType === "distance"
-            ? Number(stats[0].distance_km) + req.body.goalAmount
-            : stats[0].steps + req.body.goalAmount,
-          req.body.goalType === "distance"
-            ? stats[0].distance_km
-            : stats[0].steps,
-          req.body.goalStartDate,
-          req.body.goalEndDate
-        ])
-        .then(goals => {
-          res.status(200).json(goals);
-        })
-        .catch(console.log);
-    })
-    .catch(console.log);
-});
-
-// STRAVA STRATEGY
-
-// passport.use(
-//   new StravaStrategy(
-//     {
-//       clientID: process.env.STRAVA_CLIENT,
-//       clientSecret: process.env.STRAVA_SECRET,
-//       callbackURL: "http://localhost:3001/api/strava/callback"
-//     },
-//     getOrCreatUserStrava
-//   )
-// );
-
-// app.get("/api/strava/test", (req, res) => {
-//   request.get(
-//     {
-//       url: `https://www.strava.com/api/v3/athletes/${stravaId}/stats`,
-//       headers: { Authorization: "Bearer " + stravaToken },
-//       json: true
-//     },
-//     (error, response, body) => {
-//       console.log(req.session);
-//       console.log(body);
-//       res.json(body);
-//     }
-//   );
-// });
-
-// app.get(
-//   "/api/strava/login",
-//   passport.authenticate("strava", {
-//     scope: ["public"]
-//   })
-// );
-
-// app.get(
-//   "/api/strava/callback",
-//   passport.authenticate("strava", {
-//     successRedirect: "http://localhost:3000/"
-//   })
-// );
+app.post("/api/goals", goalsController.createGoal);
 
 // FITBIT STRATEGY
 passport.use(
@@ -131,7 +62,7 @@ passport.deserializeUser((obj, done) => {
 });
 
 // GET CURRENT LIFETIME STATS FITBIT
-app.get("/api/fitbit/currentdata", (req, res) => {
+app.get("/api/fitbit/currentdata", (req, res, next, fitbitToken) => {
   request.get(
     {
       url: `https://api.fitbit.com/1/user/-/activities.json`,
@@ -188,10 +119,10 @@ app.get(
 
 // CATCH-ALL TO SERVE FRONT END FILES
 
-const path = require("path");
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../build/index.html"));
-});
+// const path = require("path");
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/../build/index.html"));
+// });
 
 const port = process.env.PORT || 3001;
 
@@ -250,3 +181,45 @@ function getOrCreatUserFitbit(
 //   return done(null, profile);
 // }
 // what is the problem
+
+// STRAVA STRATEGY
+
+// passport.use(
+//   new StravaStrategy(
+//     {
+//       clientID: process.env.STRAVA_CLIENT,
+//       clientSecret: process.env.STRAVA_SECRET,
+//       callbackURL: "http://localhost:3001/api/strava/callback"
+//     },
+//     getOrCreatUserStrava
+//   )
+// );
+
+// app.get("/api/strava/test", (req, res) => {
+//   request.get(
+//     {
+//       url: `https://www.strava.com/api/v3/athletes/${stravaId}/stats`,
+//       headers: { Authorization: "Bearer " + stravaToken },
+//       json: true
+//     },
+//     (error, response, body) => {
+//       console.log(req.session);
+//       console.log(body);
+//       res.json(body);
+//     }
+//   );
+// });
+
+// app.get(
+//   "/api/strava/login",
+//   passport.authenticate("strava", {
+//     scope: ["public"]
+//   })
+// );
+
+// app.get(
+//   "/api/strava/callback",
+//   passport.authenticate("strava", {
+//     successRedirect: "http://localhost:3000/"
+//   })
+// );
