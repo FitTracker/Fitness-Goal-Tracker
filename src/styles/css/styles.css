@@ -390,8 +390,7 @@ template {
   display: none; }
 
 * {
-  box-sizing: border-box;
-  margin: 0 auto; }
+  box-sizing: border-box; }
 
 html {
   font-size: 62.5%; }
@@ -486,3 +485,6 @@ header {
   display: flex;
   text-decoration: none;
   list-style-type: none; }
+
+.SideNavlogo {
+  color: blue; }
