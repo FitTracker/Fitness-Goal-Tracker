@@ -9,6 +9,7 @@ import Friends from "./components/Friends/Friends.js";
 import Goals from "./components/Goals/Goals.js";
 import Timer from "./components/Timer/Timer.js";
 import NotFound from "./components/NotFound/NotFound.js";
+import AddProfile from "./components/AddProfile/AddProfile";
 
 export default (
   <Switch>
@@ -18,6 +19,7 @@ export default (
     <Route path="/goals" component={Goals} />
     <Route path="/badges" component={Badges} />
     <Route path="/timer" component={Timer} />
+    <Route path="/create-profile" component={AddProfile} />
     <Route path="*" component={NotFound} />
   </Switch>
 );
