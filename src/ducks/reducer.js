@@ -6,12 +6,14 @@ let initialState = {
   currentSteps: [],
   goals_end: [],
   goals_start: [],
+  userBadges: [],
   testSteps: 500000
 };
 
 // CONSTANTS
 const GET_GOALS_DATA = "GET_GOALS_DATA";
 const UPDATE_GOALS = "UPDATE_GOALS";
+const GET_BADGES = "GET_BADGES";
 
 // REDUCER
 export default function(state = initialState, action) {
@@ -37,6 +39,18 @@ export default function(state = initialState, action) {
         goals: action.payload
       });
       break;
+    case GET_BADGES + "_PENDING":
+      return Object.assign({}, state, { isLoading: true });
+      break;
+    case GET_BADGES + "_FULFILLED":
+      return Object.assign({}, state, {
+        userBadges: action.payload.data,
+        isLoading: false
+      });
+      break;
+    case GET_BADGES + "_REJECTED":
+      console.log(action.payload);
+      break;
     default:
       return state;
   }
@@ -57,5 +71,15 @@ export function updateGoals(goalsArray) {
   return {
     type: UPDATE_GOALS,
     payload: goalsArray
+  };
+}
+
+export function getBadges() {
+  return {
+    type: GET_BADGES,
+    action: axios.get("/api/badges").then(response => {
+      console.log(response);
+      return response;
+    })
   };
 }
