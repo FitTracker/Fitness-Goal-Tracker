@@ -7,6 +7,7 @@ import { Card, CardHeader, CardActions } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 import IconButton from "material-ui/IconButton";
 import Dialog from "material-ui/Dialog/Dialog";
+import TextField from "material-ui/TextField";
 
 class FriendCard extends Component {
   constructor(props) {
@@ -30,40 +31,52 @@ class FriendCard extends Component {
       />,
       <FlatButton
         id="goal-submit"
-        label="Follow!"
+        label="Unfollow"
         primary={true}
         keyboardFocused={true}
         onClick={this.handleSubmit}
       />
     ];
 
-    const { title, count, avatar, handleUpvote, id } = this.props;
-    return (
-      <div className="card-container" onClick={this.handleToggle}>
+    const {
+      title,
+      count,
+      avatar,
+      handleUpvote,
+      id,
+      firstName,
+      lastName,
+      city,
+      state
+    } = this.props;
+    return <div className="card-container" onClick={this.handleToggle}>
         <Card>
           <div className="friend-card-header">
-            <CardHeader
-              title={title}
-              avatar={avatar}
-              style={{ paddingBottom: 0 }}
-            />
+            <CardHeader title={title} avatar={avatar} style={{ paddingBottom: 0 }} />
           </div>
           <CardActions style={{ paddingTop: 0 }}>
-            <IconButton
-              iconClassName="fa fa-hand-o-up"
-              onClick={() => this.props.handleUpvote(id)}
-            />
+            <IconButton iconClassName="fa fa-hand-o-up" onClick={() => this.props.handleUpvote(id)} />
             <span> {`${count} upvotes`} </span>
           </CardActions>
         </Card>
-        <Dialog
-          actions={actions}
-          modal={false}
-          open={this.state.profileOpen}
-          onRequestClose={this.handleToggle}
-        />
-      </div>
-    );
+        <Dialog actions={actions} modal={false} open={this.state.profileOpen} onRequestClose={this.handleToggle} actionsContainerStyle={{textAlign: 'center'}} >
+          <div>
+            <Card className="friend-profile">
+              <div className="profile-top">
+                <img className="profile-pic" src={avatar} />
+              </div>
+              <form>
+                <div className="profile-mid">
+                  <TextField className="profile-input profile-name" value={firstName} floatingLabelText="First Name" floatingLabelFixed={true} disabled={false} style={{ color: "black" }} />
+                  <TextField className="profile-input profile-lastName" value={lastName} floatingLabelText="Last Name" floatingLabelFixed={true} disabled={false} />
+                  <TextField className="profile-input profile-city" value={city} floatingLabelText="City" floatingLabelFixed={true} disabled={false} />
+                  <TextField className="profile-input profile-state" value={state} floatingLabelText="State" floatingLabelFixed={true} disabled={false} />
+                </div>
+              </form>
+            </Card>
+          </div>
+        </Dialog>
+      </div>;
   }
 }
 
