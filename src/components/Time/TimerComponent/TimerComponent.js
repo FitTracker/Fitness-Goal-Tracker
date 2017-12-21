@@ -9,36 +9,34 @@ import ResetIcon from "material-ui/svg-icons/av/loop";
 
 // COMPONENTS
 import NumInput from "../TimerComponent/NumInput/NumInput";
+import { clearInterval } from "timers";
 
 const buttonStyle = {
   marginRight: 20
 };
 
-// const paperStyle = {
-//   height: 100,
-//   width: 100,
-//   margin: 20,
-//   textAlign: "center",
-//   display: "inline-block"
-// };
-
+const formattedSeconds = sec =>
+  Math.floor(sec / 60) + ":" + ("0" + sec % 60).slice(-2);
 class TimerComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      countingDown: false,
-      initialDuration: `00:01:00`,
-      userInput: 60
+      secondsRemaining: 11,
+      countingDown: false
+      // initialDuration: `00:01:00`
     };
+    this.decrementer = null;
   }
 
   startTimer = () => {
     console.log(`Clicked Start`);
-
-    this.setState({
-      countingDown: true
-    });
+    setInterval(() => {
+      var newCount = this.state.secondsRemaining - 1;
+      newCount >= 0
+        ? this.setState({ secondsRemaining: newCount })
+        : clearInterval(this.state.secondsRemaining);
+    }, 1000);
   };
 
   pauseTimer = () => {
@@ -51,12 +49,13 @@ class TimerComponent extends Component {
   resetTimer = () => {
     console.log(`Clicked Reset`);
     this.setState({
-      initialDuration: `00:00:00`,
+      // initialDuration: `00:00:00`,
       countingDown: false
     });
   };
 
   render() {
+    console.log(this.state.secondsRemaining);
     let buttons;
     const { countingDown } = this.state;
 
@@ -84,10 +83,10 @@ class TimerComponent extends Component {
 
     return (
       <div className="timer-wrapper">
-        <p className="timer-title"> {this.state.initialDuration} </p>
+        <p className="timer-title"> {this.state.secondsRemaining} </p>
         <hr />
         {/*
-        <Timer countDown startTime={this.state.userInput} />
+        <Timer countDown startTime={60} />
         <br />
         <TextField hintText="Hint Text" />
 */}
