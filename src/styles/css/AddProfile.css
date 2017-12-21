@@ -6,7 +6,7 @@
   align-items: center; }
 
 .profile-wrapper {
-  height: 60%;
+  height: 70%;
   width: 60%;
   display: flex;
   justify-content: center; }
@@ -37,6 +37,14 @@
   display: flex;
   justify-content: center;
   align-items: center; }
+
+@media all and (max-width: 952px) {
+  .profile-wrapper {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center; } }
 
 .profile-input {
   margin: 15px; }
