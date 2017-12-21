@@ -40,6 +40,10 @@ class SideNav extends Component {
           onRequestChange={open => this.setState({ open })}
         >
           <div className="SideNavlogo">Fittr</div>
+
+          <Link to="/create-profile">
+            <MenuItem onTouchTap={this.handleClose}>Profile</MenuItem>
+          </Link>
           <Link to="/dashboard">
             <MenuItem onTouchTap={this.handleClose}>Dashboard</MenuItem>
           </Link>
