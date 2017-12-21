@@ -12,8 +12,7 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
-}
+  /* 2 */ }
 
 /* Sections
    ========================================================================== */
@@ -21,8 +20,7 @@ html {
  * Remove the margin in all browsers (opinionated).
  */
 body {
-  margin: 0;
-}
+  margin: 0; }
 
 /**
  * Add the correct display in IE 9-.
@@ -33,8 +31,7 @@ footer,
 header,
 nav,
 section {
-  display: block;
-}
+  display: block; }
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -42,8 +39,7 @@ section {
  */
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
-}
+  margin: 0.67em 0; }
 
 /* Grouping content
    ========================================================================== */
@@ -55,15 +51,13 @@ figcaption,
 figure,
 main {
   /* 1 */
-  display: block;
-}
+  display: block; }
 
 /**
  * Add the correct margin in IE 8.
  */
 figure {
-  margin: 1em 40px;
-}
+  margin: 1em 40px; }
 
 /**
  * 1. Add the correct box sizing in Firefox.
@@ -75,8 +69,7 @@ hr {
   height: 0;
   /* 1 */
   overflow: visible;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -86,8 +79,7 @@ pre {
   font-family: monospace, monospace;
   /* 1 */
   font-size: 1em;
-  /* 2 */
-}
+  /* 2 */ }
 
 /* Text-level semantics
    ========================================================================== */
@@ -99,8 +91,7 @@ a {
   background-color: transparent;
   /* 1 */
   -webkit-text-decoration-skip: objects;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
@@ -112,24 +103,21 @@ abbr[title] {
   text-decoration: underline;
   /* 2 */
   text-decoration: underline dotted;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
 b,
 strong {
-  font-weight: inherit;
-}
+  font-weight: inherit; }
 
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 b,
 strong {
-  font-weight: bolder;
-}
+  font-weight: bolder; }
 
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -141,30 +129,26 @@ samp {
   font-family: monospace, monospace;
   /* 1 */
   font-size: 1em;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Add the correct font style in Android 4.3-.
  */
 dfn {
-  font-style: italic;
-}
+  font-style: italic; }
 
 /**
  * Add the correct background and color in IE 9-.
  */
 mark {
   background-color: #ff0;
-  color: #000;
-}
+  color: #000; }
 
 /**
  * Add the correct font size in all browsers.
  */
 small {
-  font-size: 80%;
-}
+  font-size: 80%; }
 
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
@@ -175,16 +159,13 @@ sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
 
 sub {
-  bottom: -0.25em;
-}
+  bottom: -0.25em; }
 
 sup {
-  top: -0.5em;
-}
+  top: -0.5em; }
 
 /* Embedded content
    ========================================================================== */
@@ -193,30 +174,26 @@ sup {
  */
 audio,
 video {
-  display: inline-block;
-}
+  display: inline-block; }
 
 /**
  * Add the correct display in iOS 4-7.
  */
 audio:not([controls]) {
   display: none;
-  height: 0;
-}
+  height: 0; }
 
 /**
  * Remove the border on images inside links in IE 10-.
  */
 img {
-  border-style: none;
-}
+  border-style: none; }
 
 /**
  * Hide the overflow in IE.
  */
 svg:not(:root) {
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 /* Forms
    ========================================================================== */
@@ -236,8 +213,7 @@ textarea {
   line-height: 1.15;
   /* 1 */
   margin: 0;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Show the overflow in IE.
@@ -246,8 +222,7 @@ textarea {
 button,
 input {
   /* 1 */
-  overflow: visible;
-}
+  overflow: visible; }
 
 /**
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
@@ -256,8 +231,7 @@ input {
 button,
 select {
   /* 1 */
-  text-transform: none;
-}
+  text-transform: none; }
 
 /**
  * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
@@ -269,8 +243,7 @@ html [type="button"],
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Remove the inner border and padding in Firefox.
@@ -280,8 +253,7 @@ button::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
   border-style: none;
-  padding: 0;
-}
+  padding: 0; }
 
 /**
  * Restore the focus styles unset by the previous rule.
@@ -290,15 +262,13 @@ button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
+  outline: 1px dotted ButtonText; }
 
 /**
  * Correct the padding in Firefox.
  */
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
+  padding: 0.35em 0.75em 0.625em; }
 
 /**
  * 1. Correct the text wrapping in Edge and IE.
@@ -318,8 +288,7 @@ legend {
   padding: 0;
   /* 3 */
   white-space: normal;
-  /* 1 */
-}
+  /* 1 */ }
 
 /**
  * 1. Add the correct display in IE 9-.
@@ -329,15 +298,13 @@ progress {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Remove the default vertical scrollbar in IE.
  */
 textarea {
-  overflow: auto;
-}
+  overflow: auto; }
 
 /**
  * 1. Add the correct box sizing in IE 10-.
@@ -348,16 +315,14 @@ textarea {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
+  height: auto; }
 
 /**
  * 1. Correct the odd appearance in Chrome and Safari.
@@ -367,16 +332,14 @@ textarea {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
-  /* 2 */
-}
+  /* 2 */ }
 
 /**
  * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
  */
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
+  -webkit-appearance: none; }
 
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
@@ -386,8 +349,7 @@ textarea {
   -webkit-appearance: button;
   /* 1 */
   font: inherit;
-  /* 2 */
-}
+  /* 2 */ }
 
 /* Interactive
    ========================================================================== */
@@ -397,15 +359,13 @@ textarea {
  */
 details,
 menu {
-  display: block;
-}
+  display: block; }
 
 /*
  * Add the correct display in all browsers.
  */
 summary {
-  display: list-item;
-}
+  display: list-item; }
 
 /* Scripting
    ========================================================================== */
@@ -413,15 +373,13 @@ summary {
  * Add the correct display in IE 9-.
  */
 canvas {
-  display: inline-block;
-}
+  display: inline-block; }
 
 /**
  * Add the correct display in IE.
  */
 template {
-  display: none;
-}
+  display: none; }
 
 /* Hidden
    ========================================================================== */
@@ -429,35 +387,28 @@ template {
  * Add the correct display in IE 10-.
  */
 [hidden] {
-  display: none;
-}
+  display: none; }
 
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
   background: #f7f7ff;
   font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
-  line-height: 1.4;
-}
+  line-height: 1.4; }
 
 button {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 button:disabled {
-  cursor: default;
-}
+  cursor: default; }
 
 .is-active {
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .splash {
   width: 100%;
@@ -465,20 +416,17 @@ button:disabled {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .splash-main {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .main {
-  width: 100%;
-}
+  width: 100%; }
 
 .mid-card {
   min-height: 80vh;
@@ -487,18 +435,15 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f7f7ff;
-}
+  background-color: #f7f7ff; }
 
 .mid-card h1 {
   color: #383f51;
-  font-size: 1.8rem;
-  font-weight: bold;
-}
+  font-size: 5.8rem;
+  font-weight: bold; }
 
 .card-p {
-  color: #383f51;
-}
+  color: #383f51; }
 
 .middle-container {
   min-height: 100vh;
@@ -513,27 +458,20 @@ button:disabled {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .banner {
-  color: #383f51;
-}
+  color: #383f51; }
 
 @media (max-width: 1025px) {
   .main {
-    height: 65%;
-  }
-}
+    height: 65%; } }
 
 @media (max-width: 376px) {
   .splash-main {
-    width: 100%;
-  }
+    width: 100%; }
   .main {
-    height: 50%;
-  }
-}
+    height: 50%; } }
 
 header {
   display: flex;
@@ -541,70 +479,145 @@ header {
   line-height: 57px;
   background: #1a7de1;
   font-size: 3.2rem;
-  color: #f7f7ff;
-}
+  color: #f7f7ff; }
 
 .dash-nav {
   display: flex;
   text-decoration: none;
-  list-style-type: none;
-}
+  list-style-type: none; }
 
 .SideNavlogo {
-  color: blue;
-}
+  color: blue; }
 
 .profile-view {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .profile-wrapper {
   height: 60%;
   width: 60%;
   display: flex;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .profile-pic {
   border-radius: 50%;
   height: 175px;
-  width: 175px;
-}
+  width: 175px; }
 
 .profile-top,
 .profile-mid,
 .profile-buttons {
   height: 33%;
-  width: 100%;
-}
+  width: 100%; }
 
 .profile-top {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .profile-mid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
-}
+  align-items: flex-end; }
 
 .profile-buttons {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .profile-input {
-  margin: 15px;
-}
+  margin: 15px; }
 
-.watch {
+.timer-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content; }
+
+.timer-title {
+  font-size: 5.8rem;
+  margin-bottom: 1px; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Better text styling */
+  font: bold 14px Arial, sans-serif; }
+
+.NumInput {
+  width: 325px;
+  height: auto;
+  margin: 100px auto;
+  padding: 20px 20px 9px;
+  border-radius: 3px;
+  /* Using box shadows to create 3D effects */
+  background: #9dd2ea;
+  background: linear-gradient(#9dd2ea, #8bceec);
+  border-radius: 3px;
+  box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2); }
+
+/* Top portion */
+.top span.clear {
+  float: left; }
+
+/* Inset shadow on the screen to create indent */
+.top .screen {
+  height: 40px;
+  width: 212px;
+  float: right;
+  padding: 0 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+  /* Typography */
+  font-size: 17px;
+  line-height: 40px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-align: right;
+  letter-spacing: 1px; }
+
+/* Clear floats */
+.keys {
+  overflow: hidden; }
+
+.keys span {
+  float: left;
+  width: 66px;
+  height: 40px;
+  margin: 0 7px 11px 0; }
+
+/* Applying same to the keys */
+.keys span,
+.top span.clear {
+  float: left;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  width: 66px;
+  height: 36px;
   background: white;
-}
+  border-radius: 3px;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+  margin: 0 7px 11px 0;
+  color: #888;
+  line-height: 36px;
+  text-align: center;
+  /* prevent selection of text inside keys */
+  user-select: none;
+  /* Smoothing out hover and active states using css3 transitions */
+  transition: all 0.2s ease; }
+
+/* Some hover effects */
+.keys span:hover {
+  background: #9c89f6;
+  box-shadow: 0px 4px #6b54d3;
+  color: white; }
+
+.keys span:active {
+  box-shadow: 0px 0px #6b54d3;
+  top: 4px; }

@@ -6639,6 +6639,10 @@ react-scripts@1.0.17:
   optionalDependencies:
     fsevents "1.1.2"
 
+react-simple-timer@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-simple-timer/-/react-simple-timer-1.0.6.tgz#b6b3d71590ee3f5cdaa9971b380c9d88cd2e4503"
+
 react-stopwatch@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-stopwatch/-/react-stopwatch-1.0.3.tgz#a7441c196ae34f51ba91ada9072a5731dd254f6b"

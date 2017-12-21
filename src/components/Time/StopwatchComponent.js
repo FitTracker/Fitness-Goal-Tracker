@@ -1,13 +1,26 @@
 import React, { Component } from "react";
 import Stopwatch from "react-stopwatch";
+import ReactSimpleTimer from "react-simple-timer";
+import FloatingActionButton from "material-ui/FloatingActionButton";
+import PlayIcon from "material-ui/svg-icons/av/play-arrow";
+import PauseIcon from "material-ui/svg-icons/av/pause";
+import ResetIcon from "material-ui/svg-icons/av/loop";
+
+const style = {
+  margin: 12
+};
+
+const buttonStyle = {
+  marginRight: 20
+};
 
 class StopwatchComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      secondsElapsed: 120,
-      counting: false
+      countingDown: false,
+      secondsElapsed: 120
     };
   }
 
@@ -31,23 +44,27 @@ class StopwatchComponent extends Component {
   render() {
     return (
       <div>
-        <Stopwatch
-          seconds={0}
-          minutes={0}
-          hours={0} //   limit={"00:00:10"}
-          withLoop={true}
-          onCallback={() => console.log("Finish")}
-        />
-        <p>Stopwatch Component (under construction)</p>
         <h1>
           {this.getMinutes()}:{this.getSeconds()}
         </h1>
-        <button type="button" onClick={this.handleStartClick}>
-          Start
-        </button>
-        <button type="button" onClick={this.handleStopClick}>
-          Stop
-        </button>
+        <Stopwatch
+          seconds={0}
+          minutes={0}
+          hours={0}
+          withLoop={
+            true //   limit={"00:00:10"}
+          }
+          onCallback={() => console.log("Finish")}
+        />
+        <FloatingActionButton
+          style={buttonStyle}
+          onClick={this.handleStartClick}
+        >
+          <PlayIcon />
+        </FloatingActionButton>
+        <FloatingActionButton style={buttonStyle} onClick={this.pauseTimer}>
+          <PauseIcon />
+        </FloatingActionButton>
       </div>
     );
   }
