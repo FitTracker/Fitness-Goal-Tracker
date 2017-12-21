@@ -18,7 +18,7 @@ class AddProfile extends Component {
       firstName: "",
       lastName: "",
       city: "",
-      state: "",
+      us_state: "",
       email: "",
       avatarURL:
         "https://static0.fitbit.com/images/profile/defaultProfile_100_male.png",
@@ -63,8 +63,8 @@ class AddProfile extends Component {
   handleCity(city) {
     this.setState({ city });
   }
-  handleState(state) {
-    this.setState({ state });
+  handleState(us_state) {
+    this.setState({ us_state });
   }
 
   handleEmail(email) {
@@ -82,17 +82,25 @@ class AddProfile extends Component {
   handleSaveButton(e) {
     e.preventDefault();
 
-    const { firstName, lastName, city, email, avatarURL } = this.state;
+    const {
+      firstName,
+      lastName,
+      city,
+      us_state,
+      email,
+      avatarURL
+    } = this.state;
     console.log(firstName, lastName, city, email, avatarURL);
     axios
-      .post("/api/profileInfo", {
+      .put("/api/profileInfo", {
         firstName,
         lastName,
         city,
+        us_state,
         email,
         avatarURL
       })
-      .then(response => console.log(response));
+      .then(response => console.log("front res", response));
   }
 
   render() {
@@ -129,7 +137,7 @@ class AddProfile extends Component {
               <TextField
                 onChange={e => this.handleState(e.target.value)}
                 className="profile-input profile-state"
-                value={this.state.state}
+                value={this.state.us_state}
                 hintText="State"
                 disabled={this.state.editDisabled}
               />

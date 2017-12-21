@@ -74,13 +74,32 @@ app.get("/api/userInfo", (req, res) => {
 
 // PROFILE ENDPOINTS
 
-app.post("/api/profileInfo", (req, res) => {
+app.put("/api/profileInfo", (req, res) => {
+  console.log(req.session);
   const dbInstance = req.app.get("db");
-  const { firstName, lastName, city, email, avatarURL } = req.body;
-  console.log("req body", firstName, lastName, city, email, avatarURL);
+  const { firstName, lastName, city, us_state, email, avatarURL } = req.body;
+
+  console.log(
+    "req body",
+    firstName,
+    lastName,
+    city,
+    us_state,
+    email,
+    avatarURL
+  );
+  console.log("this is the user", req.session.passport.user.fitbit_id);
 
   dbInstance.profile
-    .addProfileInfo([firstName, lastName, city, email, avatarURL])
+    .addProfileInfo([
+      firstName,
+      lastName,
+      city,
+      us_state,
+      email,
+      avatarURL,
+      req.session.passport.user.fitbit_id
+    ])
     .then(response => {
       console.log("success");
       return res.status(200).json(response);
