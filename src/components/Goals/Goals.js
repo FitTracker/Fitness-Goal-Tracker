@@ -40,7 +40,7 @@ class Goals extends Component {
           <Card key={index} className="pie">
             {console.log(element.goal_value, this.props.currentStats[0].steps)}
             <V.VictoryPie
-              animate={{ duration: 1000 }}
+              animate={{ duration: 500, onLoad: { duration: 500 } }}
               height={200}
               data={[
                 { x: "Goal Distance", y: element.goal_value },
@@ -54,8 +54,10 @@ class Goals extends Component {
     });
     return (
       <div>
-        <div className="all-pies">
+        <div className="goal">
           <AddGoal />
+        </div>
+        <div className="all-pies">
           {stepGoals}
           {distGoals}
         </div>

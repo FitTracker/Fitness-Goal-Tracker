@@ -6,9 +6,9 @@
   flex-wrap: wrap;
   border-width: 1px;
   border-color: black;
-  height: 80vh;
   min-height: 70vh;
-  width: 60vw;
+  max-height: 100vh;
+  width: 70vw;
   overflow-y: scroll;
   overflow-x: hidden; }
 
@@ -16,5 +16,7 @@
   margin: 2% 2%;
   display: flex; }
 
-.fix {
-  display: fixed; }
+.goal {
+  display: fixed;
+  top: 0px;
+  right: 0px; }
