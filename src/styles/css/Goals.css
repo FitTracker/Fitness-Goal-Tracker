@@ -1,29 +1,22 @@
 .all-pies {
   display: flex;
-  // margin-left: 3vh;
-  // flex-direction: column;
   align-items: center;
   justify-content: center;
   border-style: solid;
   flex-wrap: wrap;
   border-width: 1px;
   border-color: black;
-  // height: 80vh;
   min-height: 70vh;
   max-height: 100vh;
   width: 70vw;
   overflow-y: scroll;
-  overflow-x: hidden;
-}
+  overflow-x: hidden; }
+
 .pie {
   margin: 2% 2%;
-
-  // height: 20vh;
-  display: flex;
-}
+  display: flex; }
 
 .goal {
   display: fixed;
   top: 0px;
-  right: 0px;
-}
+  right: 0px; }
