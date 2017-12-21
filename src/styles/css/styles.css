@@ -558,3 +558,6 @@ header {
 .card-container {
   margin: 2% 2%;
   width: 95%; }
+
+.friend-card-header:hover {
+  cursor: pointer; }

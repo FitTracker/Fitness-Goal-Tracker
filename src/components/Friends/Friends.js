@@ -24,7 +24,7 @@ class Friends extends Component {
           <FriendCard
             title={`${goal.first_name} walked ${
               goal.goal_value
-            } ${units} ${time}`}
+            } ${units} ${time}!`}
             avatar={goal.avatar}
             count={goal.upvotes}
             id={goal.goal_id}
