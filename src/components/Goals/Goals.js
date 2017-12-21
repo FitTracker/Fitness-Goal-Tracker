@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Goals.scss";
-import axios from "axios";
 import { connect } from "react-redux";
 import * as V from "victory";
 import { VictoryPie, VictoryLabel } from "victory";
