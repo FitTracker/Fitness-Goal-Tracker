@@ -5,6 +5,7 @@ module.exports = {
       .getLatestFitbitLifetimeStats([req.session.passport.user.id])
       .then(stats => {
         console.log(stats);
+        console.log(req.body);
         req.app
           .get("db")
           .createNewGoal([
@@ -12,14 +13,15 @@ module.exports = {
             req.body.goalType,
             req.body.goalType === "distance"
               ? Number(stats[0].distance_km) + req.body.goalAmount
-              : stats[0].steps + req.body.goalAmount,
+              : Number(stats[0].steps) + req.body.goalAmount,
             req.body.goalType === "distance"
-              ? stats[0].distance_km
-              : stats[0].steps,
+              ? Number(stats[0].distance_km)
+              : Number(stats[0].steps),
             req.body.goalStartDate,
             req.body.goalEndDate
           ])
           .then(goals => {
+            console.log("goals", goals);
             res.status(200).json(goals);
           })
           .catch(console.log);
