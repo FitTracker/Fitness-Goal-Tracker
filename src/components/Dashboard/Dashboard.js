@@ -3,12 +3,13 @@ import * as V from "victory";
 import { VictoryBar } from "victory";
 
 import Badges from "../Badges/Badges";
+import Friends from "../Friends/Friends";
 
 export default class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard-container">
-        <Badges />
+        <Friends />
         <Badges />
         <Badges />
       </div>

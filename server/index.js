@@ -41,6 +41,7 @@ app.use(passport.session());
 
 // GOALS ENDPOINTS
 app.post("/api/goals", goalsController.createGoal);
+app.get("/api/friendgoals", goalsController.friendGoals);
 
 // BADGES ENDPOINTS
 app.get("/api/badges", (req, res) => {
@@ -48,7 +49,6 @@ app.get("/api/badges", (req, res) => {
     .get("db")
     .getUserBadges([req.session.passport.user.id])
     .then(badges => {
-      console.log(badges);
       res.status(200).json(badges);
     })
     .catch(console.log);

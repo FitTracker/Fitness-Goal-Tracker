@@ -1,13 +1,46 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import moment from "moment";
+
+import { getFriendsGoals } from "../../ducks/reducer";
+import FriendCard from "../FriendCard/FriendCard";
 
 class Friends extends Component {
+  componentDidMount() {
+    this.props.getFriendsGoals();
+  }
+
   render() {
+    const { friendsGoals } = this.props;
+    const goalsDisplay = friendsGoals
+      .sort((a, b) => b.upvotes - a.upvotes)
+      .map(goal => {
+        let units = goal.goal_type === "distance" ? "km" : "steps";
+        let startTime = moment(goal.starting_date);
+        let endTime = moment(goal.end_date);
+        let time = endTime.from(startTime);
+        return (
+          <FriendCard
+            title={`${goal.first_name} walked ${
+              goal.goal_value
+            } ${units} ${time}`}
+            avatar={goal.avatar}
+            count={goal.upvotes}
+          />
+        );
+      });
+    console.log(this.props);
     return (
-      <div>
-        <h1>Friends View</h1>
+      <div className="badges-container">
+        <h1>Friends</h1>
+        {goalsDisplay}
       </div>
     );
   }
 }
 
-export default Friends;
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps, { getFriendsGoals })(Friends);

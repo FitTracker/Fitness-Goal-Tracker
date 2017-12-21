@@ -11,7 +11,6 @@ class Badges extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { userBadges } = this.props;
     const badgeDisplay = userBadges.map(badge => (
       <BadgeCard
