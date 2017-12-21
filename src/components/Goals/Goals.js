@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Goals.scss";
-
+import { Card } from "material-ui/Card";
 import { connect } from "react-redux";
 import * as V from "victory";
 
@@ -16,67 +16,48 @@ class Goals extends Component {
     const stepGoals = this.props.goals.map((element, index) => {
       if (element.goal_type === "steps")
         return (
-          <div className="pie" key={index}>
+          // <div className="pie" key={index}>
+          <Card key={index} className="pie">
             <V.VictoryPie
-              standAlone={false}
               animate={{ duration: 1000 }}
-              height={150}
+              height={200}
               data={[
                 { x: "Remaining", y: element.goal_value },
                 { x: "Progress", y: this.props.testSteps }
                 // {
-                //   x: this.props.testSteps,
-                //   y: element.goal_value,
-                //   label: "steps"
-                // },
-                // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
               ]}
-              labels={d => d.x}
-              labelComponent={<V.VictoryLabel dy={30} />}
-              style={{
-                labels: { fill: "white", fontSize: 12 }
-              }}
-              // theme={V.VictoryTheme.material}
-              colorScale={["navy", "orange"]}
+              // labels={d => d.x}
+              // labelComponent={<V.VictoryLabel dy={30} />}
+              theme={V.VictoryTheme.material}
             />
-          </div>
+          </Card>
+          // </div>
         );
     });
     const distGoals = this.props.goals.map((element, index) => {
       if (element.goal_type === "distance")
         return (
-          <div className="pie-dist" key={index}>
+          <Card key={index} className="pie">
             {console.log(element.goal_value, this.props.currentStats[0].steps)}
             <V.VictoryPie
               animate={{ duration: 1000 }}
-              height={150}
+              height={200}
               data={[
                 { x: "Goal Distance", y: element.goal_value },
                 { x: "Current Distance", y: this.props.testSteps }
                 // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
               ]}
-              // theme={V.VictoryTheme.material}
-              colorScale={["cyan", "gold"]}
+              theme={V.VictoryTheme.material}
             />
-          </div>
+          </Card>
         );
     });
     return (
       <div>
-        <div>
-          <AddGoal />
-        </div>
         <div className="all-pies">
-          <div className="pie-steps">
-            Steps:
-            {stepGoals}
-          </div>
-          <div className="distance">
-            Distance:
-            {distGoals}
-          </div>
-
-          {/* </div> */}
+          <AddGoal />
+          {stepGoals}
+          {distGoals}
         </div>
       </div>
     );

@@ -1,22 +1,20 @@
 .all-pies {
   display: flex;
-  justify-content: space-around;
-  flex-direction: column; }
-
-.pie-steps {
-  display: flex;
-  justify-content: center;
-  background-color: lavender;
   align-items: center;
-  flex-wrap: wrap;
-  height: 50%;
-  overflow: auto; }
-
-.distance {
-  display: flex;
   justify-content: center;
-  background-color: pink;
-  align-items: center;
+  border-style: solid;
   flex-wrap: wrap;
-  height: 50%;
-  overflow: auto; }
+  border-width: 1px;
+  border-color: black;
+  height: 80vh;
+  min-height: 70vh;
+  width: 60vw;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+.pie {
+  margin: 2% 2%;
+  display: flex; }
+
+.fix {
+  display: fixed; }

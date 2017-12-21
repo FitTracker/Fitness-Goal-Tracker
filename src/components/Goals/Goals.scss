@@ -1,32 +1,26 @@
 .all-pies {
   display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-}
-.pie-steps {
-  display: flex;
-  justify-content: center;
-  background-color: $blue;
+  // margin-left: 3vh;
+  // flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  height: 50%;
-  overflow: auto;
-  color: $dark-grey;
-}
-.distance {
-  display: flex;
   justify-content: center;
-  background-color: $dark-grey;
-  align-items: center;
+  border-style: solid;
   flex-wrap: wrap;
-  height: 50%;
-  overflow: auto;
-  color: $blue;
+  border-width: 1px;
+  border-color: black;
+  height: 80vh;
+  min-height: 70vh;
+  width: 60vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-// .pie {
-//   margin: 10vh 10vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: $font-size-small;
-// }
+.pie {
+  margin: 2% 2%;
+
+  // height: 20vh;
+  display: flex;
+}
+
+.fix {
+  display: fixed;
+}
