@@ -1,0 +1,1 @@
+SELECT * FROM badges INNER JOIN user_badges ON badges.id = user_badges.badge_id WHERE user_id = $1;

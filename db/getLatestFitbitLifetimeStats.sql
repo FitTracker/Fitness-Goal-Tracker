@@ -1,0 +1,1 @@
+SELECT * FROM fitbit_lifetime_stats WHERE user_id = $1 ORDER BY fit_life_stat_id DESC LIMIT 1;
