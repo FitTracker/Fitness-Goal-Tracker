@@ -118,6 +118,7 @@ class AddProfile extends Component {
                 onChange={e => this.handleFirstName(e.target.value)}
                 className="profile-input profile-name"
                 value={this.state.firstName}
+                floatingLabelText="First Name"
                 hintText="First Name"
                 disabled={this.state.editDisabled}
               />
@@ -125,6 +126,7 @@ class AddProfile extends Component {
                 onChange={e => this.handleLastName(e.target.value)}
                 className="profile-input profile-lastName"
                 value={this.state.lastName}
+                floatingLabelText="Last Name"
                 hintText="Last Name"
                 disabled={this.state.editDisabled}
               />
@@ -133,6 +135,7 @@ class AddProfile extends Component {
                 onChange={e => this.handleCity(e.target.value)}
                 className="profile-input profile-city"
                 value={this.state.city}
+                floatingLabelText="City"
                 hintText="City"
                 disabled={this.state.editDisabled}
               />
@@ -140,6 +143,7 @@ class AddProfile extends Component {
                 onChange={e => this.handleState(e.target.value)}
                 className="profile-input profile-state"
                 value={this.state.us_state}
+                floatingLabelText="State"
                 hintText="State"
                 disabled={this.state.editDisabled}
               />
@@ -147,6 +151,7 @@ class AddProfile extends Component {
                 onChange={e => this.handleEmail(e.target.value)}
                 className="profile-input profile-email"
                 value={this.state.email}
+                floatingLabelText="Email"
                 hintText="Email"
                 disabled={this.state.editDisabled}
               />
@@ -155,6 +160,7 @@ class AddProfile extends Component {
                 onChange={e => this.handleAvatarURL(e.target.value)}
                 className="profile-input profile-avatar"
                 value={this.state.avatarURL}
+                floatingLabelText="Avatar URL"
                 hintText="Avatar URL"
                 disabled={this.state.editDisabled}
               />
