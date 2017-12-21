@@ -85,7 +85,6 @@ app.get("/api/fitbit/currentdata", (req, res) => {
             .get("db")
             .getAllGoalsForUser([req.session.passport.user.id])
             .then(goals => {
-              console.log("goals", goals);
               res.status(200).json({ currentstats, goals });
             });
         })

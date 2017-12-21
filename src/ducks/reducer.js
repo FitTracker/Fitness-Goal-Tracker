@@ -12,7 +12,7 @@ let initialState = {
   currentSteps: [],
   goals_end: [],
   goals_start: [],
-  testSteps: 500000
+  testSteps: 50000
 };
 
 // CONSTANTS
