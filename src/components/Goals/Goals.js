@@ -16,7 +16,7 @@ class Goals extends Component {
     const stepGoals = this.props.goals.map((element, index) => {
       if (element.goal_type === "steps")
         return (
-          <div className="pie-steps" key={index}>
+          <div className="pie" key={index}>
             <V.VictoryPie
               animate={{ duration: 1000 }}
               height={150}
@@ -33,8 +33,8 @@ class Goals extends Component {
     const distGoals = this.props.goals.map((element, index) => {
       if (element.goal_type === "distance")
         return (
-          <div className="pie-steps" key={index}>
-            {console.log(element.goal_value, this.props.goals)}
+          <div className="pie-dist" key={index}>
+            {console.log(element.goal_value, this.props.currentStats[0].steps)}
             <V.VictoryPie
               animate={{ duration: 1000 }}
               height={150}
@@ -50,7 +50,7 @@ class Goals extends Component {
     });
     return (
       <div className="all-pies">
-        <div>
+        <div className="pie-steps">
           Steps:
           {stepGoals}
         </div>

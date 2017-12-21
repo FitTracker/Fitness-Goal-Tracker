@@ -1,11 +1,16 @@
 .all-pies {
   display: flex;
   justify-content: space-around;
-  flex-direction: row;
 }
 .pie-steps {
-  height: auto;
-
+  flex-direction: column;
   display: flex;
   justify-content: center;
+}
+.pie {
+  margin: 10vh 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-small;
 }
