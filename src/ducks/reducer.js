@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case GET_GOALS_DATA + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
-      break;
+
     case GET_GOALS_DATA + "_FULFILLED":
       return Object.assign({}, state, {
         goals_end: action.payload.data.goals[0].goal_value,
@@ -29,7 +29,7 @@ export default function(state = initialState, action) {
         goals: action.payload.data.goals,
         isLoading: false
       });
-      break;
+
     case GET_GOALS_DATA + "_REJECTED":
       console.log(action.payload);
       break;
@@ -38,16 +38,17 @@ export default function(state = initialState, action) {
       return Object.assign({}, state, {
         goals: action.payload
       });
-      break;
+
     case GET_BADGES + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
-      break;
+
     case GET_BADGES + "_FULFILLED":
+      console.log(action.payload.data);
       return Object.assign({}, state, {
         userBadges: action.payload.data,
         isLoading: false
       });
-      break;
+
     case GET_BADGES + "_REJECTED":
       console.log(action.payload);
       break;
@@ -77,7 +78,7 @@ export function updateGoals(goalsArray) {
 export function getBadges() {
   return {
     type: GET_BADGES,
-    action: axios.get("/api/badges").then(response => {
+    payload: axios.get("/api/badges").then(response => {
       console.log(response);
       return response;
     })

@@ -22,7 +22,13 @@ class Badges extends Component {
       />
     ));
 
-    return <div className="badges-container">{badgeDisplay}</div>;
+    return (
+      <div className="badges-container">
+        <h1> Badges </h1>
+
+        {badgeDisplay}
+      </div>
+    );
   }
 }
 
