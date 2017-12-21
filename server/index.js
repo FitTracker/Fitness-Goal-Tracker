@@ -42,6 +42,18 @@ app.use(passport.session());
 // GOALS ENDPOINTS
 app.post("/api/goals", goalsController.createGoal);
 
+// BADGES ENDPOINTS
+app.get("/api/badges", (req, res) => {
+  app
+    .get("db")
+    .getUserBadges([req.session.passport.user.id])
+    .then(badges => {
+      console.log(badges);
+      res.status(200).json(badges);
+    })
+    .catch(console.log);
+});
+
 // FITBIT STRATEGY
 passport.use(
   new FitBitStrategy(
