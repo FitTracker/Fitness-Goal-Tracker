@@ -42,6 +42,18 @@ app.use(passport.session());
 // GOALS ENDPOINTS
 app.post("/api/goals", goalsController.createGoal);
 
+// BADGES ENDPOINTS
+app.get("/api/badges", (req, res) => {
+  app
+    .get("db")
+    .getUserBadges([req.session.passport.user.id])
+    .then(badges => {
+      console.log(badges);
+      res.status(200).json(badges);
+    })
+    .catch(console.log);
+});
+
 // FITBIT STRATEGY
 passport.use(
   new FitBitStrategy(
@@ -59,6 +71,52 @@ passport.serializeUser((user, done) => {
 });
 passport.deserializeUser((obj, done) => {
   done(null, obj);
+});
+
+// ENDPOINTS
+app.get("/api/userInfo", (req, res) => {
+  app
+    .get("db")
+    .getUserByFitbitId([req.session.passport.user.fitbit_id])
+    .then(user => {
+      res.status(200).json(user);
+    })
+    .catch(console.log);
+});
+
+// PROFILE ENDPOINTS
+
+app.put("/api/profileInfo", (req, res) => {
+  console.log(req.session);
+  const dbInstance = req.app.get("db");
+  const { firstName, lastName, city, us_state, email, avatarURL } = req.body;
+
+  console.log(
+    "req body",
+    firstName,
+    lastName,
+    city,
+    us_state,
+    email,
+    avatarURL
+  );
+  console.log("this is the user", req.session.passport.user.fitbit_id);
+
+  dbInstance.profile
+    .addProfileInfo([
+      firstName,
+      lastName,
+      city,
+      us_state,
+      email,
+      avatarURL,
+      req.session.passport.user.fitbit_id
+    ])
+    .then(response => {
+      console.log("success");
+      return res.status(200).json(response);
+    })
+    .catch(() => res.status(500).json());
 });
 
 // GET CURRENT LIFETIME STATS FITBIT
@@ -85,7 +143,6 @@ app.get("/api/fitbit/currentdata", (req, res) => {
             .get("db")
             .getAllGoalsForUser([req.session.passport.user.id])
             .then(goals => {
-              console.log("goals", goals);
               res.status(200).json({ currentstats, goals });
             });
         })

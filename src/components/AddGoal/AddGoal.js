@@ -11,6 +11,9 @@ import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
 
+import { connect } from "react-redux";
+import { updateGoals } from "../../ducks/reducer";
+
 const minDate = new Date();
 minDate.setFullYear(minDate.getFullYear());
 minDate.setHours(0, 0, 0, 0);
@@ -30,8 +33,8 @@ class AddGoal extends Component {
     };
   }
 
-  handleOpen = () => {
-    this.setState({ open: true });
+  handleToggle = () => {
+    this.setState({ open: !this.state.open });
   };
 
   handleSubmit = event => {
@@ -44,8 +47,8 @@ class AddGoal extends Component {
         goalAmount: Number(this.state.goalAmount)
       })
       .then(response => {
-        console.log(response);
-        this.setState({ open: false });
+        this.props.updateGoals(response.data);
+        this.setState({ open: false, goalType: "", goalAmount: null });
       })
       .catch(console.log);
   };
@@ -54,19 +57,22 @@ class AddGoal extends Component {
   };
 
   handleDate = (obj, newDate) => {
-    this.setState({ goalEndDate: moment(newDate).format("L") }, () =>
-      console.log(this.state)
-    );
+    this.setState({ goalEndDate: moment(newDate).format("L") });
   };
 
   handleAmount = event => {
-    this.setState({ goalAmount: event.target.value }, () =>
-      console.log(this.state)
-    );
+    this.setState({ goalAmount: event.target.value });
   };
 
   render() {
     const actions = [
+      <FlatButton
+        id="cancel-goal"
+        label="cancel"
+        primary={false}
+        keyboardFocused={false}
+        onClick={this.handleToggle}
+      />,
       <FlatButton
         id="goal-submit"
         label="Set Goal!"
@@ -78,7 +84,7 @@ class AddGoal extends Component {
 
     return (
       <div>
-        <FloatingActionButton id="goal-add" onClick={this.handleOpen}>
+        <FloatingActionButton id="goal-add" onClick={this.handleToggle}>
           <ContentAdd />
         </FloatingActionButton>
         <Dialog
@@ -120,4 +126,8 @@ class AddGoal extends Component {
   }
 }
 
-export default AddGoal;
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps, { updateGoals })(AddGoal);
