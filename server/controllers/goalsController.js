@@ -33,5 +33,13 @@ module.exports = {
         res.status(200).json(goals);
       })
       .catch(console.log);
+  },
+  addUpvote: (req, res, next) => {
+    req.app
+      .get("db")
+      .addUpvote([req.body.id, req.session.passport.user.id])
+      .then(goals => {
+        res.status(200).json(goals);
+      });
   }
 };

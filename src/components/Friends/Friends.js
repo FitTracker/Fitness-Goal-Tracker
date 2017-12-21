@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
+import axios from "axios";
 
-import { getFriendsGoals } from "../../ducks/reducer";
+import { getFriendsGoals, handleUpvote } from "../../ducks/reducer";
 import FriendCard from "../FriendCard/FriendCard";
 
 class Friends extends Component {
@@ -26,6 +27,7 @@ class Friends extends Component {
             } ${units} ${time}`}
             avatar={goal.avatar}
             count={goal.upvotes}
+            id={goal.goal_id}
           />
         );
       });
