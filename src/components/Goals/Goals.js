@@ -18,14 +18,26 @@ class Goals extends Component {
         return (
           <div className="pie" key={index}>
             <V.VictoryPie
+              standAlone={false}
               animate={{ duration: 1000 }}
               height={150}
               data={[
-                { x: "Goal Steps", y: element.goal_value },
-                { x: "Test Steps cause we get 0 now", y: this.props.testSteps }
+                { x: "Remaining", y: element.goal_value },
+                { x: "Progress", y: this.props.testSteps }
+                // {
+                //   x: this.props.testSteps,
+                //   y: element.goal_value,
+                //   label: "steps"
+                // },
                 // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
               ]}
-              theme={V.VictoryTheme.material}
+              labels={d => d.x}
+              labelComponent={<V.VictoryLabel dy={30} />}
+              style={{
+                labels: { fill: "white", fontSize: 12 }
+              }}
+              // theme={V.VictoryTheme.material}
+              colorScale={["navy", "orange"]}
             />
           </div>
         );
@@ -43,25 +55,29 @@ class Goals extends Component {
                 { x: "Current Distance", y: this.props.testSteps }
                 // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
               ]}
-              theme={V.VictoryTheme.material}
+              // theme={V.VictoryTheme.material}
+              colorScale={["cyan", "gold"]}
             />
           </div>
         );
     });
     return (
-      <div className="all-pies">
-        <div className="pie-steps">
-          Steps:
-          {stepGoals}
-        </div>
-        <div>
-          Distance:
-          {distGoals}
-        </div>
+      <div>
         <div>
           <AddGoal />
         </div>
-        {/* </div> */}
+        <div className="all-pies">
+          <div className="pie-steps">
+            Steps:
+            {stepGoals}
+          </div>
+          <div className="distance">
+            Distance:
+            {distGoals}
+          </div>
+
+          {/* </div> */}
+        </div>
       </div>
     );
   }

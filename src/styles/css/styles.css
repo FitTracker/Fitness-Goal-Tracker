@@ -558,3 +558,28 @@ header {
 .card-container {
   margin: 2% 2%;
   width: 95%; }
+
+.all-pies {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column; }
+
+.pie-steps {
+  display: flex;
+  justify-content: center;
+  background-color: #2d728f;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 50%;
+  overflow: auto;
+  color: #383f51; }
+
+.distance {
+  display: flex;
+  justify-content: center;
+  background-color: #383f51;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 50%;
+  overflow: auto;
+  color: #2d728f; }
