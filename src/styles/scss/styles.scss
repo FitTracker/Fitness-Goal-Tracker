@@ -8,7 +8,11 @@
 @import "../../components/Dashboard/Dashboard";
 @import "../../components/SideNav/SideNav";
 @import "../../components/AddProfile/AddProfile";
-@import "../../components/Timer/Timer.scss";
+@import "../../components/Time/Time";
+@import "../../components/Time/TimerComponent/TimerComponent";
+@import "../../components/Time/TimerComponent/NumInput/NumInput";
+@import "../../components/Time/StopwatchComponent/StopwatchComponent";
+@import "../../components/Time/IntervalComponent/IntervalComponent";
 @import "../../components/Badges/Badges";
 @import "../../components/BadgeCard/BadgeCard";
 @import "../../components/AddGoal/AddGoal";
