@@ -61,6 +61,33 @@ passport.deserializeUser((obj, done) => {
   done(null, obj);
 });
 
+// ENDPOINTS
+app.get("/api/userInfo", (req, res) => {
+  app
+    .get("db")
+    .getUserByFitbitId([req.session.passport.user.fitbit_id])
+    .then(user => {
+      res.status(200).json(user);
+    })
+    .catch(console.log);
+});
+
+// PROFILE ENDPOINTS
+
+app.post("/api/profileInfo", (req, res) => {
+  const dbInstance = req.app.get("db");
+  const { firstName, lastName, city, email, avatarURL } = req.body;
+  console.log("req body", firstName, lastName, city, email, avatarURL);
+
+  dbInstance.profile
+    .addProfileInfo([firstName, lastName, city, email, avatarURL])
+    .then(response => {
+      console.log("success");
+      return res.status(200).json(response);
+    })
+    .catch(() => res.status(500).json());
+});
+
 // GET CURRENT LIFETIME STATS FITBIT
 app.get("/api/fitbit/currentdata", (req, res) => {
   request.get(
