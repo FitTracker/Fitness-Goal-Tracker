@@ -100,7 +100,9 @@ class AddProfile extends Component {
         email,
         avatarURL
       })
-      .then(response => console.log("front res", response));
+      .then(response => {
+        this.setState({ editDisabled: true });
+      });
   }
 
   render() {
@@ -171,6 +173,7 @@ class AddProfile extends Component {
                 primary={true}
                 style={style}
                 type="submit"
+                disabled={this.state.editDisabled}
               />
             </div>
           </form>
