@@ -11,8 +11,8 @@ import IconTimeLapse from "material-ui/svg-icons/image/timelapse";
 
 // COMPONENTS
 import TimerComponent from "./TimerComponent/TimerComponent";
-import StopwatchComponent from "./StopwatchComponent";
-import IntervalComponent from "./IntervalComponent";
+import StopwatchComponent from "./StopwatchComponent/StopwatchComponent";
+import IntervalComponent from "./IntervalComponent/IntervalComponent";
 
 // VARIABLES
 const timerIcon = <IconHourglassEmpty />;

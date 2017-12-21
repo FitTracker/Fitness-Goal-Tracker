@@ -10,10 +10,10 @@
 }
 
 .NumInput {
-  width: 325px;
+  width: 260px;
   height: auto;
 
-  margin: 100px auto;
+  margin: 30px auto;
   padding: 20px 20px 9px;
 
   border-radius: 3px;
@@ -97,12 +97,12 @@
 
 /* Some hover effects */
 .keys span:hover {
-  background: #9c89f6;
-  box-shadow: 0px 4px #6b54d3;
+  background: $grey;
+  box-shadow: 0px 4px $blue;
   color: white;
 }
 
 .keys span:active {
-  box-shadow: 0px 0px #6b54d3;
+  box-shadow: 0px 0px $blue;
   top: 4px;
 }

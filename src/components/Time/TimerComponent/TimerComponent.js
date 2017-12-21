@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-
+import Timer from "react.timer";
 // MATERIAL-UI
 import TextField from "material-ui/TextField";
-import Paper from "material-ui/Paper";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import PlayIcon from "material-ui/svg-icons/av/play-arrow";
 import PauseIcon from "material-ui/svg-icons/av/pause";
@@ -10,10 +9,6 @@ import ResetIcon from "material-ui/svg-icons/av/loop";
 
 // COMPONENTS
 import NumInput from "../TimerComponent/NumInput/NumInput";
-
-const style = {
-  margin: 12
-};
 
 const buttonStyle = {
   marginRight: 20
@@ -33,12 +28,14 @@ class TimerComponent extends Component {
 
     this.state = {
       countingDown: false,
-      initialDuration: `00:01:00`
+      initialDuration: `00:01:00`,
+      userInput: 60
     };
   }
 
   startTimer = () => {
     console.log(`Clicked Start`);
+
     this.setState({
       countingDown: true
     });
@@ -89,11 +86,14 @@ class TimerComponent extends Component {
       <div className="timer-wrapper">
         <p className="timer-title"> {this.state.initialDuration} </p>
         <hr />
-        {/* <TextField floatingLabelText="Enter Duration" /> */}
-        <NumInput />
+        {/*
+        <Timer countDown startTime={this.state.userInput} />
         <br />
+        <TextField hintText="Hint Text" />
+*/}
+        <NumInput />
         {/* Need to keep reset on screen when on pause */}
-        {buttons}
+        <div className="play-buttons">{buttons}</div>
       </div>
     );
   }

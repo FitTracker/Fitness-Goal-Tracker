@@ -7,4 +7,11 @@
 .timer-title {
   font-size: $font-size-large;
   margin-bottom: 1px;
+  text-align: center;
+}
+
+.play-buttons {
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
 }

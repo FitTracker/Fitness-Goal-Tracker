@@ -539,7 +539,13 @@ header {
 
 .timer-title {
   font-size: 5.8rem;
-  margin-bottom: 1px; }
+  margin-bottom: 1px;
+  text-align: center; }
+
+.play-buttons {
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content; }
 
 * {
   margin: 0;
@@ -549,9 +555,9 @@ header {
   font: bold 14px Arial, sans-serif; }
 
 .NumInput {
-  width: 325px;
+  width: 260px;
   height: auto;
-  margin: 100px auto;
+  margin: 30px auto;
   padding: 20px 20px 9px;
   border-radius: 3px;
   /* Using box shadows to create 3D effects */
@@ -614,10 +620,46 @@ header {
 
 /* Some hover effects */
 .keys span:hover {
-  background: #9c89f6;
-  box-shadow: 0px 4px #6b54d3;
+  background: #dddbf1;
+  box-shadow: 0px 4px #2d728f;
   color: white; }
 
 .keys span:active {
-  box-shadow: 0px 0px #6b54d3;
+  box-shadow: 0px 0px #2d728f;
   top: 4px; }
+
+body {
+  font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neueu", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #efeff5; }
+
+.stopwatch-wrapper {
+  text-align: center; }
+
+.stopwatch-header {
+  font-size: 76px;
+  font-weight: 100;
+  line-height: 160px;
+  margin: 0;
+  border: solid #cecfd0;
+  border-width: 1px 0;
+  background-color: white; }
+
+.stopwatch-laps {
+  padding: 0 0 0 20px;
+  list-style-type: none; }
+
+.stopwatch-lap {
+  font-size: 20px;
+  line-height: 60px;
+  padding-right: 20px;
+  text-align: right;
+  border-bottom: 1px solid #d9dae0; }
+
+.stopwatch-lap strong {
+  float: left;
+  color: #7f8083;
+  font-weight: 100; }
+
+.stopwatch-lap strong::before {
+  content: "Lap "; }

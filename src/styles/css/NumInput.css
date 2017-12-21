@@ -6,9 +6,9 @@
   font: bold 14px Arial, sans-serif; }
 
 .NumInput {
-  width: 325px;
+  width: 260px;
   height: auto;
-  margin: 100px auto;
+  margin: 30px auto;
   padding: 20px 20px 9px;
   border-radius: 3px;
   /* Using box shadows to create 3D effects */
