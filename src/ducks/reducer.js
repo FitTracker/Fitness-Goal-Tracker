@@ -9,7 +9,9 @@ let initialState = {
   userBadges: [],
   friendsGoals: [],
   testSteps: 500000,
-  goal_id: []
+  goal_id: [],
+  searchResults: [],
+  testSteps: 500000
 };
 
 // CONSTANTS
@@ -21,6 +23,8 @@ const GET_FRIENDS_GOALS = "GET_FRIENDS_GOALS";
 const HANDLE_UPVOTE = "HANDLE_UPVOTE";
 const HANDLE_UNFOLLOW = "HANDLE_UNFOLLOW";
 const COMPLETE_GOAL = "COMPLETE_GOAL";
+const SEARCH_FRIENDS = "SEARCH_FRIENDS";
+const FOLLOW = "FOLLOW";
 
 // REDUCER
 export default function(state = initialState, action) {
@@ -83,7 +87,6 @@ export default function(state = initialState, action) {
 
     case HANDLE_UNFOLLOW + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
-
     case HANDLE_UNFOLLOW + "_FULFILLED":
       return Object.assign({}, state, {
         friendsGoals: action.payload.data,
@@ -102,6 +105,29 @@ export default function(state = initialState, action) {
         isLoading: false
       });
     case COMPLETE_GOAL + "_REJECTED":
+    case SEARCH_FRIENDS + "_PENDING":
+      return Object.assign({}, state, { isLoading: true });
+
+    case SEARCH_FRIENDS + "_FULFILLED":
+      return Object.assign({}, state, {
+        searchResults: action.payload.data,
+        isLoading: false
+      });
+    case SEARCH_FRIENDS + "_REJECTED":
+      console.log(action.payload);
+      break;
+    case SEARCH_FRIENDS:
+      return Object.assign({}, state, { searchResults: action.payload.data });
+
+    case FOLLOW + "_PENDING":
+      return Object.assign({}, state, { isLoading: true });
+
+    case FOLLOW + "_FULFILLED":
+      return Object.assign({}, state, {
+        friendsGoals: action.payload.data,
+        isLoading: false
+      });
+    case FOLLOW + "_REJECTED":
       console.log(action.payload);
       break;
 
@@ -165,5 +191,26 @@ export function handleUnfollow(id) {
   return {
     type: HANDLE_UNFOLLOW,
     payload: axios.post("/api/unfollow", { id: id }).then(response => response)
+  };
+}
+
+export function searchFriends(value) {
+  if (value) {
+    return {
+      type: SEARCH_FRIENDS,
+      payload: axios.get("/api/search/" + value).then(results => results)
+    };
+  } else {
+    return {
+      type: SEARCH_FRIENDS,
+      payload: { data: [] }
+    };
+  }
+}
+
+export function handleFollow(id) {
+  return {
+    type: FOLLOW,
+    payload: axios.post("/api/follow", { id: id }).then(response => response)
   };
 }

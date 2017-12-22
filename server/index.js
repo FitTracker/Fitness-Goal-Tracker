@@ -48,6 +48,8 @@ app.post("/api/completedgoal", goalsController.addCompletedGoal);
 
 // FRIENDS ENDPOINTS
 app.post("/api/unfollow", friendsController.unfollow);
+app.post("/api/follow", friendsController.follow);
+app.get("/api/search/:name", friendsController.searchFriends);
 
 // BADGES ENDPOINTS
 app.get("/api/badges", (req, res) => {
