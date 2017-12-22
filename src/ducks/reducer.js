@@ -43,6 +43,10 @@ export default function(state = initialState, action) {
     case GET_BADGES + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
     case GET_BADGES + "_FULFILLED":
+<<<<<<< HEAD
+=======
+      // console.log(action.payload.data);
+>>>>>>> master
       return Object.assign({}, state, {
         userBadges: action.payload.data,
         isLoading: false

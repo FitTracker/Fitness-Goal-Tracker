@@ -1,2 +1,6 @@
 .watch {
-  background: white; }
+  background: white;
+}
+body {
+  margin: 0 auto;
+}
