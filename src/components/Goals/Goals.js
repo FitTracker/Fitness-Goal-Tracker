@@ -13,7 +13,7 @@ class Goals extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props.testSteps);
     const stepGoals = this.props.goals.map((element, index) => {
       if (
         element.goal_type === "steps" &&
@@ -85,7 +85,7 @@ class Goals extends Component {
 }
 
 function mapStateToProps(state) {
-  return { goals: state.goals };
+  return { goals: state.goals, testSteps: state.testSteps };
 }
 
 export default connect(mapStateToProps, { getCurrentGoalsAndData })(Goals);
