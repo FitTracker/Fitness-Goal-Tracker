@@ -4,7 +4,7 @@ import { Card } from "material-ui/Card";
 import { connect } from "react-redux";
 import * as V from "victory";
 
-import { getCurrentGoalsAndData, updateGoals } from "../../ducks/reducer.js";
+import { getCurrentGoalsAndData } from "../../ducks/reducer.js";
 import AddGoal from "../AddGoal/AddGoal";
 
 class Goals extends Component {
@@ -13,6 +13,7 @@ class Goals extends Component {
   }
 
   render() {
+    console.log(this.props);
     const stepGoals = this.props.goals.map((element, index) => {
       if (
         element.goal_type === "steps" &&
@@ -43,9 +44,7 @@ class Goals extends Component {
         element.goal_value !== this.props.testSteps
       )
         return (
-          <Card key={index} className="pie">
-            {console.log(element.goal_value, this.props.currentStats[0].steps)}
-
+          <Card key={Math.random()} className="pie">
             <V.VictoryPie
               // standalone={false}
               animate={{ duration: 500, onLoad: { duration: 500 } }}
@@ -71,13 +70,14 @@ class Goals extends Component {
         );
     });
     return (
-      <div>
-        <div className="goal">
-          <AddGoal />
-        </div>
+      <div className="goals-container">
+        <h1> Goals </h1>
         <div className="all-pies">
           {stepGoals}
           {distGoals}
+          <div className="goal">
+            <AddGoal />
+          </div>
         </div>
       </div>
     );
@@ -85,7 +85,7 @@ class Goals extends Component {
 }
 
 function mapStateToProps(state) {
-  return state;
+  return { goals: state.goals };
 }
 
 export default connect(mapStateToProps, { getCurrentGoalsAndData })(Goals);

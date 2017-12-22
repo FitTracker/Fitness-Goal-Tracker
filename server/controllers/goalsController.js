@@ -19,6 +19,7 @@ module.exports = {
             req.body.goalEndDate
           ])
           .then(goals => {
+            console.log(goals);
             res.status(200).json(goals);
           })
           .catch(console.log);
