@@ -15,6 +15,7 @@ let initialState = {
 const GET_GOALS_DATA = "GET_GOALS_DATA";
 const UPDATE_GOALS = "UPDATE_GOALS";
 const GET_BADGES = "GET_BADGES";
+const TOGGLE_LOG = "TOGGLE_LOG";
 const GET_FRIENDS_GOALS = "GET_FRIENDS_GOALS";
 const HANDLE_UPVOTE = "HANDLE_UPVOTE";
 const HANDLE_UNFOLLOW = "HANDLE_UNFOLLOW";
@@ -45,12 +46,15 @@ export default function(state = initialState, action) {
     case GET_BADGES + "_FULFILLED":
       return Object.assign({}, state, {
         userBadges: action.payload.data,
-        isLoading: false
+        isLoading: false,
+        logged: "Log Out"
       });
     case GET_BADGES + "_REJECTED":
       console.log(action.payload);
       break;
 
+    case TOGGLE_LOG:
+      return Object.assign({}, state, { logged: !state.logged });
     case GET_FRIENDS_GOALS + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
 
