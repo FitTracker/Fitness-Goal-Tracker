@@ -690,7 +690,6 @@ body {
   border-color: black;
   min-height: 70vh;
   width: 20vw;
-  overflow-y: scroll;
   overflow-x: hidden; }
 
 .card-container {
@@ -712,7 +711,6 @@ body {
   border-color: black;
   min-height: 70vh;
   width: 50vw;
-  overflow-y: scroll;
   overflow-x: hidden; }
 
 .all-pies {
