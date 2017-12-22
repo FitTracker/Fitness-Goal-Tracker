@@ -9,18 +9,18 @@ class NumInput extends Component {
       <div className="NumInput">
         <div className="top" />
         <div className="keys">
-          <span onClick={this.pressOne}>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
-          <span>5</span>
-          <span>6</span>
-          <span>7</span>
-          <span>8</span>
-          <span>9</span>
-          <span className="empty-button" />
-          <span>0</span>
-          <span className="delete">X</span>
+          <button onClick={this.pressOne}>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button className="empty-button" />
+          <button>0</button>
+          <button className="delete">X</button>
         </div>
       </div>
     );
