@@ -14,6 +14,7 @@ let fitbitToken;
 
 // IMPORT CONTROLLERS
 const goalsController = require("./controllers/goalsController");
+const friendsController = require("./controllers/friendsController");
 
 // BEGIN SERVER
 const app = express();
@@ -41,6 +42,11 @@ app.use(passport.session());
 
 // GOALS ENDPOINTS
 app.post("/api/goals", goalsController.createGoal);
+app.get("/api/friendgoals", goalsController.friendGoals);
+app.post("/api/upvotes", goalsController.addUpvote);
+
+// FRIENDS ENDPOINTS
+app.post("/api/unfollow", friendsController.unfollow);
 
 // BADGES ENDPOINTS
 app.get("/api/badges", (req, res) => {
@@ -48,7 +54,6 @@ app.get("/api/badges", (req, res) => {
     .get("db")
     .getUserBadges([req.session.passport.user.id])
     .then(badges => {
-      console.log(badges);
       res.status(200).json(badges);
     })
     .catch(console.log);
@@ -91,17 +96,6 @@ app.put("/api/profileInfo", (req, res) => {
   const dbInstance = req.app.get("db");
   const { firstName, lastName, city, us_state, email, avatarURL } = req.body;
 
-  console.log(
-    "req body",
-    firstName,
-    lastName,
-    city,
-    us_state,
-    email,
-    avatarURL
-  );
-  console.log("this is the user", req.session.passport.user.fitbit_id);
-
   dbInstance.profile
     .addProfileInfo([
       firstName,
@@ -113,7 +107,6 @@ app.put("/api/profileInfo", (req, res) => {
       req.session.passport.user.fitbit_id
     ])
     .then(response => {
-      console.log("success");
       return res.status(200).json(response);
     })
     .catch(() => res.status(500).json());

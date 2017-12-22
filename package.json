@@ -38,6 +38,7 @@
     "react-tap-event-plugin": "^3.0.2",
     "react.timer": "^2.1.0",
     "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
     "redux-promise-middleware": "^5.0.0",
     "request": "^2.83.0",
     "save": "^2.3.2",

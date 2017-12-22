@@ -1,22 +1,31 @@
-.all-pies {
+.goals-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   border-style: solid;
-  flex-wrap: wrap;
   border-width: 1px;
   border-color: black;
   min-height: 70vh;
-  max-height: 100vh;
-  width: 70vw;
+  width: 50vw;
   overflow-y: scroll;
   overflow-x: hidden; }
 
+.all-pies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 70vh;
+  max-height: 100vh;
+  width: 100%;
+  overflow-y: scroll; }
+
 .pie {
-  margin: 2% 2%;
-  display: flex; }
+  height: auto;
+  width: 95%;
+  margin: 2% 0; }
 
 .goal {
-  display: fixed;
-  top: 0px;
-  right: 0px; }
+  position: absolute;
+  bottom: 5%;
+  right: 27%;
+  z-index: 500; }
