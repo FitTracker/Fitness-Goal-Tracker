@@ -4,7 +4,7 @@ import axios from "axios";
 //MATERIAL UI
 
 import TextField from "material-ui/TextField";
-import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
+import { Card } from "material-ui/Card";
 import RaisedButton from "material-ui/RaisedButton";
 
 const style = {
@@ -104,7 +104,11 @@ class AddProfile extends Component {
       <div className="profile-view">
         <Card className="profile-wrapper">
           <div className="profile-top">
-            <img className="profile-pic" src={this.state.avatarURL} />
+            <img
+              className="profile-pic"
+              alt="avatar"
+              src={this.state.avatarURL}
+            />
           </div>
           <form onSubmit={this.handleSaveButton}>
             <div className="profile-mid">

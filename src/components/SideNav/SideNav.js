@@ -23,7 +23,6 @@ class SideNav extends Component {
 
   componentDidMount() {
     axios.get("/api/userInfo").then(response => {
-      console.log(response.data[0]);
       this.setState({
         name:
           "Welcome, " +
@@ -52,14 +51,19 @@ class SideNav extends Component {
     };
     const rightButtons = (
       <div>
-        <FlatButton
-          label="Login"
-          onClick={() => {
-            this.Login();
-          }}
-          style={styles}
-        />
-        <FlatButton label="Log Out" onClick={this.logout} style={styles} />
+        {this.state.name === "" ? (
+          <FlatButton
+            label="Login"
+            onClick={() => {
+              this.Login();
+            }}
+            style={styles}
+          />
+        ) : (
+          <div>
+            <FlatButton label="Log Out" onClick={this.logout} style={styles} />
+          </div>
+        )}
       </div>
     );
     return (
