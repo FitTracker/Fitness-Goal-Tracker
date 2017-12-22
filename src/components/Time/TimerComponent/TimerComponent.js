@@ -21,27 +21,31 @@ class TimerComponent extends Component {
     super(props);
 
     this.state = {
-      secondsRemaining: 0,
+      displayHours: "00",
+      displayMinutes: "00",
+      displaySeconds: "00",
       countingDown: false
     };
     this.decrementer = null;
   }
 
   inputDigit(digit) {
-    const { secondsRemaining } = this.state;
+    const { displayHours } = this.state;
+    const { displayMinutes } = this.state;
+    const { displaySeconds } = this.state;
 
     this.setState({
-      secondsRemaining: String(digit)
+      displayHours: displayHours === "0" ? String(digit) : displayHours + digit
     });
   }
 
   startTimer = () => {
     console.log(`Clicked Start`);
     setInterval(() => {
-      var newCount = this.state.secondsRemaining - 1;
+      var newCount = this.state.displayHours - 1;
       newCount >= 0
-        ? this.setState({ secondsRemaining: newCount })
-        : clearInterval(this.state.secondsRemaining);
+        ? this.setState({ displayHours: newCount })
+        : clearInterval(this.state.displayHours);
     }, 1000);
   };
 
@@ -60,9 +64,11 @@ class TimerComponent extends Component {
   };
 
   render() {
-    // console.log(this.state.secondsRemaining);
+    // console.log(this.state.displayHours);
     let buttons;
-    const { secondsRemaining } = this.state;
+    const { displayHours } = this.state;
+    const { displayMinutes } = this.state;
+    const { displaySeconds } = this.state;
     const { countingDown } = this.state;
 
     if (countingDown) {
@@ -89,7 +95,9 @@ class TimerComponent extends Component {
 
     return (
       <div className="timer-wrapper">
-        <p className="timer-title"> {secondsRemaining} </p>
+        <p className="timer-title">
+          {displayHours}:{displayMinutes}:{displaySeconds}
+        </p>
         <hr />
         <div className="NumInput">
           <span className="top" />
@@ -155,7 +163,12 @@ class TimerComponent extends Component {
             >
               0
             </button>
-            <button className="timer-key key-delete">X</button>
+            <button
+              className="timer-key key-delete"
+              onClick={() => this.inputDigit()}
+            >
+              X
+            </button>
           </div>
         </div>
         {/*
