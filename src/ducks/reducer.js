@@ -14,6 +14,7 @@ let initialState = {
 const GET_GOALS_DATA = "GET_GOALS_DATA";
 const UPDATE_GOALS = "UPDATE_GOALS";
 const GET_BADGES = "GET_BADGES";
+const TOGGLE_LOG = "TOGGLE_LOG";
 
 // REDUCER
 export default function(state = initialState, action) {
@@ -46,12 +47,17 @@ export default function(state = initialState, action) {
       console.log(action.payload.data);
       return Object.assign({}, state, {
         userBadges: action.payload.data,
-        isLoading: false
+        isLoading: false,
+        logged: "Log Out"
       });
 
     case GET_BADGES + "_REJECTED":
       console.log(action.payload);
       break;
+
+    case TOGGLE_LOG:
+      return Object.assign({}, state, { logged: !state.logged });
+
     default:
       return state;
   }
