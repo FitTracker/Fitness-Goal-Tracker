@@ -64,11 +64,13 @@ class Friends extends Component {
     return (
       <div className="badges-container">
         <h1>Friends</h1>
-        <SearchBar
-          onChange={value => this.props.searchFriends(value)}
-          style={{ margin: "0 auto", width: "95%" }}
-          onRequestSearch={() => console.log("search")}
-        />
+        <div>
+          <SearchBar
+            onChange={value => this.props.searchFriends(value)}
+            style={{ margin: "0 auto", width: "100%" }}
+            onRequestSearch={() => console.log("search")}
+          />
+        </div>
         {searchDisplay || goalsDisplay}
       </div>
     );
