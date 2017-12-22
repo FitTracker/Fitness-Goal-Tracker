@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { handleUpvote } from "../../ducks/reducer";
+import { handleUpvote, handleUnfollow } from "../../ducks/reducer";
 
 import { Card, CardHeader, CardActions } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
@@ -20,6 +20,18 @@ class FriendCard extends Component {
   handleToggle = () => this.setState({ profileOpen: !this.state.profileOpen });
 
   render() {
+    const {
+      title,
+      count,
+      avatar,
+      handleUpvote,
+      id,
+      firstName,
+      lastName,
+      city,
+      state,
+      userID
+    } = this.props;
     const actions = [
       <FlatButton
         id="close-prof"
@@ -34,32 +46,35 @@ class FriendCard extends Component {
         label="Unfollow"
         primary={true}
         keyboardFocused={true}
-        onClick={this.handleSubmit}
+        onClick={() => this.props.handleUnfollow(userID)}
       />
     ];
 
-    const {
-      title,
-      count,
-      avatar,
-      handleUpvote,
-      id,
-      firstName,
-      lastName,
-      city,
-      state
-    } = this.props;
-    return <div className="card-container" onClick={this.handleToggle}>
+    return (
+      <div className="card-container">
         <Card>
-          <div className="friend-card-header">
-            <CardHeader title={title} avatar={avatar} style={{ paddingBottom: 0 }} />
+          <div className="friend-card-header" onClick={this.handleToggle}>
+            <CardHeader
+              title={title}
+              avatar={avatar}
+              style={{ paddingBottom: 0 }}
+            />
           </div>
           <CardActions style={{ paddingTop: 0 }}>
-            <IconButton iconClassName="fa fa-hand-o-up" onClick={() => this.props.handleUpvote(id)} />
+            <IconButton
+              iconClassName="fa fa-hand-o-up"
+              onClick={() => this.props.handleUpvote(id)}
+            />
             <span> {`${count} upvotes`} </span>
           </CardActions>
         </Card>
-        <Dialog actions={actions} modal={false} open={this.state.profileOpen} onRequestClose={this.handleToggle} actionsContainerStyle={{textAlign: 'center'}} >
+        <Dialog
+          actions={actions}
+          modal={false}
+          open={this.state.profileOpen}
+          onRequestClose={this.handleToggle}
+          actionsContainerStyle={{ textAlign: "center" }}
+        >
           <div>
             <Card className="friend-profile">
               <div className="profile-top">
@@ -67,16 +82,42 @@ class FriendCard extends Component {
               </div>
               <form>
                 <div className="profile-mid">
-                  <TextField className="profile-input profile-name" value={firstName} floatingLabelText="First Name" floatingLabelFixed={true} disabled={false} style={{ color: "black" }} />
-                  <TextField className="profile-input profile-lastName" value={lastName} floatingLabelText="Last Name" floatingLabelFixed={true} disabled={false} />
-                  <TextField className="profile-input profile-city" value={city} floatingLabelText="City" floatingLabelFixed={true} disabled={false} />
-                  <TextField className="profile-input profile-state" value={state} floatingLabelText="State" floatingLabelFixed={true} disabled={false} />
+                  <TextField
+                    className="profile-input profile-name"
+                    value={firstName}
+                    floatingLabelText="First Name"
+                    floatingLabelFixed={true}
+                    disabled={false}
+                    style={{ color: "black" }}
+                  />
+                  <TextField
+                    className="profile-input profile-lastName"
+                    value={lastName}
+                    floatingLabelText="Last Name"
+                    floatingLabelFixed={true}
+                    disabled={false}
+                  />
+                  <TextField
+                    className="profile-input profile-city"
+                    value={city}
+                    floatingLabelText="City"
+                    floatingLabelFixed={true}
+                    disabled={false}
+                  />
+                  <TextField
+                    className="profile-input profile-state"
+                    value={state}
+                    floatingLabelText="State"
+                    floatingLabelFixed={true}
+                    disabled={false}
+                  />
                 </div>
               </form>
             </Card>
           </div>
         </Dialog>
-      </div>;
+      </div>
+    );
   }
 }
 
@@ -84,4 +125,6 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, { handleUpvote })(FriendCard);
+export default connect(mapStateToProps, { handleUpvote, handleUnfollow })(
+  FriendCard
+);

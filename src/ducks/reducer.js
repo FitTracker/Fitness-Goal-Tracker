@@ -17,6 +17,7 @@ const UPDATE_GOALS = "UPDATE_GOALS";
 const GET_BADGES = "GET_BADGES";
 const GET_FRIENDS_GOALS = "GET_FRIENDS_GOALS";
 const HANDLE_UPVOTE = "HANDLE_UPVOTE";
+const HANDLE_UNFOLLOW = "HANDLE_UNFOLLOW";
 
 // REDUCER
 export default function(state = initialState, action) {
@@ -74,6 +75,18 @@ export default function(state = initialState, action) {
       console.log(action.payload);
       break;
 
+    case HANDLE_UNFOLLOW + "_PENDING":
+      return Object.assign({}, state, { isLoading: true });
+
+    case HANDLE_UNFOLLOW + "_FULFILLED":
+      return Object.assign({}, state, {
+        friendsGoals: action.payload.data,
+        isLoading: false
+      });
+    case HANDLE_UNFOLLOW + "_REJECTED":
+      console.log(action.payload);
+      break;
+
     default:
       return state;
   }
@@ -119,5 +132,12 @@ export function handleUpvote(id) {
   return {
     type: HANDLE_UPVOTE,
     payload: axios.post("/api/upvotes", { id: id }).then(response => response)
+  };
+}
+
+export function handleUnfollow(id) {
+  return {
+    type: HANDLE_UNFOLLOW,
+    payload: axios.post("/api/unfollow", { id: id }).then(response => response)
   };
 }

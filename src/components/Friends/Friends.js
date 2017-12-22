@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
-import axios from "axios";
 
 import { getFriendsGoals, handleUpvote } from "../../ducks/reducer";
 import FriendCard from "../FriendCard/FriendCard";
@@ -13,7 +12,6 @@ class Friends extends Component {
 
   render() {
     const { friendsGoals } = this.props;
-    console.log(friendsGoals);
     const goalsDisplay = friendsGoals
       .sort((a, b) => b.upvotes - a.upvotes)
       .map(goal => {
@@ -23,6 +21,7 @@ class Friends extends Component {
         let time = endTime.from(startTime);
         return (
           <FriendCard
+            key={Math.random()}
             title={`${goal.first_name} walked ${
               goal.goal_value
             } ${units} ${time}!`}
@@ -33,10 +32,11 @@ class Friends extends Component {
             lastName={goal.last_name}
             city={goal.city}
             state={goal.us_state}
+            userID={goal.id}
           />
         );
       });
-    console.log(this.props);
+
     return (
       <div className="badges-container">
         <h1>Friends</h1>

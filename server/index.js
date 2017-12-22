@@ -14,6 +14,7 @@ let fitbitToken;
 
 // IMPORT CONTROLLERS
 const goalsController = require("./controllers/goalsController");
+const friendsController = require("./controllers/friendsController");
 
 // BEGIN SERVER
 const app = express();
@@ -43,6 +44,9 @@ app.use(passport.session());
 app.post("/api/goals", goalsController.createGoal);
 app.get("/api/friendgoals", goalsController.friendGoals);
 app.post("/api/upvotes", goalsController.addUpvote);
+
+// FRIENDS ENDPOINTS
+app.post("/api/unfollow", friendsController.unfollow);
 
 // BADGES ENDPOINTS
 app.get("/api/badges", (req, res) => {

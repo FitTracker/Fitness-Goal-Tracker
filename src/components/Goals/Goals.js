@@ -38,7 +38,6 @@ class Goals extends Component {
       if (element.goal_type === "distance")
         return (
           <Card key={index} className="pie">
-            {console.log(element.goal_value, this.props.currentStats[0].steps)}
             <V.VictoryPie
               animate={{ duration: 500, onLoad: { duration: 500 } }}
               height={200}
