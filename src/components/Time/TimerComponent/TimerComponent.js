@@ -16,6 +16,7 @@ const buttonStyle = {
 
 const formattedSeconds = sec =>
   Math.floor(sec / 60) + ":" + ("0" + sec % 60).slice(-2);
+
 class TimerComponent extends Component {
   constructor(props) {
     super(props);
@@ -35,17 +36,22 @@ class TimerComponent extends Component {
     const { displaySeconds } = this.state;
 
     this.setState({
-      displayHours: displayHours === "0" ? String(digit) : displayHours + digit
+      displaySeconds:
+        displaySeconds === "00"
+          ? String(digit)
+          : displaySeconds === "60"
+            ? displaySeconds === "59"
+            : displaySeconds + digit
     });
   }
 
   startTimer = () => {
     console.log(`Clicked Start`);
     setInterval(() => {
-      var newCount = this.state.displayHours - 1;
+      var newCount = this.state.displaySeconds - 1;
       newCount >= 0
-        ? this.setState({ displayHours: newCount })
-        : clearInterval(this.state.displayHours);
+        ? this.setState({ displaySeconds: newCount })
+        : clearInterval(this.state.displaySeconds);
     }, 1000);
   };
 
@@ -95,9 +101,7 @@ class TimerComponent extends Component {
 
     return (
       <div className="timer-wrapper">
-        <p className="timer-title">
-          {displayHours}:{displayMinutes}:{displaySeconds}
-        </p>
+        <p className="timer-title">{formattedSeconds(displaySeconds)}</p>
         <hr />
         <div className="NumInput">
           <span className="top" />
