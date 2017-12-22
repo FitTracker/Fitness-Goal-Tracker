@@ -96,10 +96,11 @@ app.get("/api/userInfo", (req, res) => {
 
 app.put("/api/profileInfo", (req, res) => {
   console.log(req.session);
-  const dbInstance = req.app.get("db");
+  console.log(req.body);
+  const dbInstance = app.get("db");
   const { firstName, lastName, city, us_state, email, avatarURL } = req.body;
 
-  dbInstance.profile
+  dbInstance
     .addProfileInfo([
       firstName,
       lastName,

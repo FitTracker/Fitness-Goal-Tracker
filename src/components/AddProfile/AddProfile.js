@@ -96,7 +96,8 @@ class AddProfile extends Component {
       })
       .then(response => {
         this.setState({ editDisabled: true });
-      });
+      })
+      .catch(console.log);
   }
 
   render() {
