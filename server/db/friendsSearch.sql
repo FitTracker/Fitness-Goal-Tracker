@@ -1,0 +1,1 @@
+SELECT * FROM fittracker_users WHERE LOWER(first_name) LIKE LOWER(CONCAT($1 , '%')) OR LOWER(last_name) LIKE LOWER(CONCAT($1 , '%'));

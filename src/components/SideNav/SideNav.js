@@ -23,7 +23,6 @@ class SideNav extends Component {
 
   componentDidMount() {
     axios.get("/api/userInfo").then(response => {
-      console.log(response.data[0]);
       this.setState({
         name:
           "Welcome, " +

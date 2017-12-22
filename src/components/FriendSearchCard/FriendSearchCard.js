@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { handleFollow, handleUnfollow } from "../../ducks/reducer";
 
-import { handleUpvote, handleUnfollow } from "../../ducks/reducer";
-
-import { Card, CardHeader, CardActions } from "material-ui/Card";
+import { Card, CardHeader } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
-import IconButton from "material-ui/IconButton";
+
 import Dialog from "material-ui/Dialog/Dialog";
 import TextField from "material-ui/TextField";
 
@@ -22,14 +21,13 @@ class FriendCard extends Component {
   render() {
     const {
       title,
-      count,
       avatar,
-      id,
       firstName,
       lastName,
       city,
       state,
-      userID
+      userID,
+      following
     } = this.props;
     const actions = [
       <FlatButton
@@ -41,11 +39,15 @@ class FriendCard extends Component {
         style={{ marginRight: "1%" }}
       />,
       <FlatButton
-        id="goal-submit"
-        label="Unfollow"
+        id="follow-button"
+        label={following ? "Unfollow" : "Follow"}
         primary={true}
         keyboardFocused={true}
-        onClick={() => this.props.handleUnfollow(userID)}
+        onClick={() => {
+          following
+            ? this.props.handleUnfollow(userID)
+            : this.props.handleFollow(userID);
+        }}
       />
     ];
 
@@ -59,13 +61,6 @@ class FriendCard extends Component {
               style={{ paddingBottom: 0 }}
             />
           </div>
-          <CardActions style={{ paddingTop: 0 }}>
-            <IconButton
-              iconClassName="fa fa-hand-o-up"
-              onClick={() => this.props.handleUpvote(id)}
-            />
-            <span> {`${count} upvotes`} </span>
-          </CardActions>
         </Card>
         <Dialog
           actions={actions}
@@ -124,6 +119,6 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, { handleUpvote, handleUnfollow })(
+export default connect(mapStateToProps, { handleFollow, handleUnfollow })(
   FriendCard
 );
