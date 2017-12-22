@@ -512,8 +512,8 @@ header {
 
 .profile-pic {
   border-radius: 50%;
-  height: 175px;
-  width: 175px; }
+  height: 150px;
+  width: 150px; }
 
 .profile-top,
 .profile-mid,
@@ -524,7 +524,8 @@ header {
 .profile-top {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  padding-top: 20px; }
 
 .profile-mid {
   display: flex;
@@ -539,8 +540,8 @@ header {
 
 @media all and (max-width: 952px) {
   .profile-wrapper {
-    height: 80%;
-    width: 80%;
+    height: 95%;
+    width: 95%;
     display: flex;
     justify-content: center;
     align-items: center; } }

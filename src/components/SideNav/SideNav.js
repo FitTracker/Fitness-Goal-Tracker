@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 //MATERIAL UI
 import AppBar from "material-ui/AppBar";
@@ -13,26 +14,65 @@ injectTapEventPlugin();
 class SideNav extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = {
+      open: false,
+      name: ""
+    };
     this.Login = this.Login.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get("/api/userInfo").then(response => {
+      console.log(response.data[0]);
+      this.setState({
+        name:
+          "Welcome, " +
+          response.data[0].first_name +
+          " " +
+          response.data[0].last_name
+      });
+    });
   }
 
   Login() {
     window.location.href = "http://localhost:3001/api/fitbit/login";
   }
 
+  logout() {
+    axios.get("/api/logout").then(response => response.data);
+    window.location.href = "/";
+  }
+
   handleClose = () => this.setState({ open: false });
 
   render() {
+    const styles = {
+      backgroundColor: "transparent",
+      color: "white"
+    };
+    const rightButtons = (
+      <div>
+        <FlatButton
+          label="Login"
+          onClick={() => {
+            this.Login();
+          }}
+          style={styles}
+        />
+        <FlatButton label="Log Out" onClick={this.logout} style={styles} />
+      </div>
+    );
     return (
       <div>
         <AppBar
-          title="Hello, User."
-          // iconClassNameRight="muidocs-icon-navigation-expand-more"
+          title={this.state.name}
           onLeftIconButtonClick={() =>
-            this.setState({ open: !this.state.open })
+            this.setState(
+              // iconClassNameRight="muidocs-icon-navigation-expand-more"
+              { open: !this.state.open }
+            )
           }
-          iconElementRight={<FlatButton label="Login" onClick={this.Login} />}
+          iconElementRight={rightButtons}
         />
         <Drawer
           open={this.state.open}
@@ -40,6 +80,10 @@ class SideNav extends Component {
           onRequestChange={open => this.setState({ open })}
         >
           <div className="SideNavlogo">Fittr</div>
+
+          <Link to="/create-profile">
+            <MenuItem onTouchTap={this.handleClose}>Profile</MenuItem>
+          </Link>
           <Link to="/dashboard">
             <MenuItem onTouchTap={this.handleClose}>Dashboard</MenuItem>
           </Link>
@@ -60,4 +104,5 @@ class SideNav extends Component {
     );
   }
 }
+
 export default SideNav;

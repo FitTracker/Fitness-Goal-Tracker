@@ -112,6 +112,11 @@ app.put("/api/profileInfo", (req, res) => {
     .catch(() => res.status(500).json());
 });
 
+app.get("/api/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
 // GET CURRENT LIFETIME STATS FITBIT
 app.get("/api/fitbit/currentdata", (req, res) => {
   request.get(
@@ -190,7 +195,7 @@ function getOrCreatUserFitbit(
   done
 ) {
   fitbitToken = accessToken;
-
+  console.log(profile);
   app
     .get("db")
     .getUserByFitbitId([profile.id])
