@@ -44,7 +44,7 @@ export default function(state = initialState, action) {
       return Object.assign({}, state, { isLoading: true });
 
     case GET_BADGES + "_FULFILLED":
-      console.log(action.payload.data);
+      // console.log(action.payload.data);
       return Object.assign({}, state, {
         userBadges: action.payload.data,
         isLoading: false,
@@ -85,7 +85,7 @@ export function getBadges() {
   return {
     type: GET_BADGES,
     payload: axios.get("/api/badges").then(response => {
-      console.log(response);
+      // console.log(response);
       return response;
     })
   };

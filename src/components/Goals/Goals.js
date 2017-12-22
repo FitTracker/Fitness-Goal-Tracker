@@ -1,58 +1,83 @@
 import React, { Component } from "react";
 import "./Goals.scss";
+import { Card } from "material-ui/Card";
 import { connect } from "react-redux";
 import * as V from "victory";
-import { VictoryPie, VictoryLabel } from "victory";
 
-import { getCurrentGoalsAndData } from "../../ducks/reducer.js";
+import { getCurrentGoalsAndData, updateGoals } from "../../ducks/reducer.js";
 import AddGoal from "../AddGoal/AddGoal";
 
 class Goals extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.getCurrentGoalsAndData();
   }
 
   render() {
+    const stepGoals = this.props.goals.map((element, index) => {
+      if (
+        element.goal_type === "steps" &&
+        element.goal_value !== this.props.testSteps
+      )
+        return (
+          // <div className="pie" key={index}>
+          <Card key={index} className="pie">
+            <V.VictoryPie
+              animate={{ duration: 1000 }}
+              height={200}
+              data={[
+                { x: "Goal Steps", y: element.goal_value },
+                { x: "Current", y: this.props.testSteps }
+                // {
+              ]}
+              // labels={d => d.x}
+              // labelComponent={<V.VictoryLabel dy={30} />}
+              theme={V.VictoryTheme.material}
+            />
+          </Card>
+          // </div>
+        );
+    });
+    const distGoals = this.props.goals.map((element, index) => {
+      if (
+        element.goal_type === "distance" &&
+        element.goal_value !== this.props.testSteps
+      )
+        return (
+          <Card key={index} className="pie">
+            {console.log(element.goal_value, this.props.currentStats[0].steps)}
+
+            <V.VictoryPie
+              // standalone={false}
+              animate={{ duration: 500, onLoad: { duration: 500 } }}
+              // style={{ labels: { fontSize: 12, fill: "white" } }}
+              // innerRadius={68}
+              // labelRadius={100}
+              height={200}
+              data={[
+                { x: "Goal Distance", y: element.goal_value },
+                { x: "Current Distance", y: this.props.testSteps }
+                // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
+              ]}
+              theme={V.VictoryTheme.material}
+            />
+            {/* <V.VictoryLabel
+                textAnchor="middle"
+                style={{ fontSize: 20 }}
+                x={200}
+                y={200}
+                text={element.goal_type}
+              /> */}
+          </Card>
+        );
+    });
     return (
       <div>
-        This is goals view
-        <div className="pie">
-          <VictoryPie
-            animate={{ duration: 1000 }}
-            data={[
-              // { x: "Current steps", y: this.state.currentSteps },
-              { x: "Goal Steps", y: this.props.goals_end },
-              { x: "Test Steps cause we get 0 now", y: this.props.testSteps }
-              // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
-            ]}
-            theme={V.VictoryTheme.material}
-          />
-        </div>
-        <div className="pie-two">
-          <VictoryPie
-            animate={{ duration: 1000 }}
-            data={[
-              // { x: "Current steps", y: this.props.currentSteps },
-              { x: "Goal Steps", y: this.props.goals_end },
-              { x: "Test Steps cause we get 0 now", y: this.props.testSteps }
-              // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
-            ]}
-            colorScale={["pink", "purple"]}
-            innerRadius={100}
-          />
-        </div>
-        <div className="bar">
-          <V.VictoryChart theme={V.VictoryTheme.material} domainPadding={10}>
-            <V.VictoryBar
-              style={{ data: { fill: "#c43a31" } }}
-              data={[{ y: this.props.goals_end }, { y: this.props.testSteps }]}
-            />
-          </V.VictoryChart>
+        <div className="goal">
           <AddGoal />
+        </div>
+        <div className="all-pies">
+          {stepGoals}
+          {distGoals}
         </div>
       </div>
     );
