@@ -38,15 +38,11 @@ class AddProfile extends Component {
     axios
       .get("/api/userInfo")
       .then(response => {
-        console.log(response);
-        this.setState(
-          {
-            firstName: response.data[0].first_name,
-            lastName: response.data[0].last_name,
-            avatarURL: response.data[0].avatar
-          },
-          () => console.log(this.state)
-        );
+        this.setState({
+          firstName: response.data[0].first_name,
+          lastName: response.data[0].last_name,
+          avatarURL: response.data[0].avatar
+        });
       })
       .catch(console.log);
   }
@@ -68,7 +64,6 @@ class AddProfile extends Component {
   }
 
   handleEmail(email) {
-    console.log(email);
     this.setState({ email });
   }
   handleAvatarURL(url) {
@@ -90,7 +85,6 @@ class AddProfile extends Component {
       email,
       avatarURL
     } = this.state;
-    console.log(firstName, lastName, city, email, avatarURL);
     axios
       .put("/api/profileInfo", {
         firstName,

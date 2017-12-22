@@ -92,7 +92,7 @@ class AddGoal extends Component {
           actions={actions}
           modal={false}
           open={this.state.open}
-          onRequestClose={this.handleClose}
+          onRequestClose={this.handleToggle}
         >
           <p>Select a metric:</p>
           <DropDownMenu

@@ -4,8 +4,6 @@ module.exports = {
       .get("db")
       .getLatestFitbitLifetimeStats([req.session.passport.user.id])
       .then(stats => {
-        console.log(stats);
-        console.log(req.body);
         req.app
           .get("db")
           .createNewGoal([
@@ -21,11 +19,28 @@ module.exports = {
             req.body.goalEndDate
           ])
           .then(goals => {
-            console.log("goals", goals);
+            console.log(goals);
             res.status(200).json(goals);
           })
           .catch(console.log);
       })
       .catch(console.log);
+  },
+  friendGoals: (req, res, next) => {
+    req.app
+      .get("db")
+      .getFriendsGoals([req.session.passport.user.id])
+      .then(goals => {
+        res.status(200).json(goals);
+      })
+      .catch(console.log);
+  },
+  addUpvote: (req, res, next) => {
+    req.app
+      .get("db")
+      .addUpvote([req.body.id, req.session.passport.user.id])
+      .then(goals => {
+        res.status(200).json(goals);
+      });
   }
 };
