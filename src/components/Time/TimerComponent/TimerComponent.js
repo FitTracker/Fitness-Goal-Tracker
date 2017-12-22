@@ -55,7 +55,7 @@ class TimerComponent extends Component {
   };
 
   render() {
-    console.log(this.state.secondsRemaining);
+    // console.log(this.state.secondsRemaining);
     let buttons;
     const { countingDown } = this.state;
 
