@@ -12,6 +12,7 @@ class Badges extends Component {
 
   render() {
     const { userBadges } = this.props;
+
     const badgeDisplay = userBadges.map(badge => (
       <BadgeCard
         key={Math.random()}
