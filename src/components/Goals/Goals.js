@@ -4,20 +4,26 @@ import { Card } from "material-ui/Card";
 import { connect } from "react-redux";
 import * as V from "victory";
 
-import { getCurrentGoalsAndData, completeGoal } from "../../ducks/reducer.js";
+import BadgeCard from "../BadgeCard/BadgeCard";
+
+import {
+  getCurrentGoalsAndData,
+  completeGoal,
+  getBadges
+} from "../../ducks/reducer.js";
 import AddGoal from "../AddGoal/AddGoal";
 
 class Goals extends Component {
   componentDidMount() {
     this.props.getCurrentGoalsAndData();
+    this.props.getBadges();
   }
 
   render() {
-    console.log(this.props.goals, this.props.testSteps);
     const stepGoals = this.props.goals.map((element, index) => {
       if (
         element.goal_type === "steps" &&
-        element.goal_value !== this.props.testSteps
+        element.goal_value < this.props.testSteps
       )
         return (
           // <div className="pie" key={index}>
@@ -37,11 +43,25 @@ class Goals extends Component {
           </Card>
           // </div>
         );
+      else if (
+        element.goal_type === "steps" &&
+        element.goal_value >= this.props.testSteps
+      )
+        return (
+          <BadgeCard
+            key={index}
+            title={this.props.userBadges[4].title}
+            subtitle={`you have completed your goal to walk  ${
+              element.goal_value
+            }  steps`}
+            avatar={this.props.userBadges[4].avatar}
+          />
+        );
     });
     const distGoals = this.props.goals.map((element, index) => {
       if (
         element.goal_type === "distance" &&
-        element.goal_value !== this.props.testSteps
+        element.goal_value != this.props.testSteps
       )
         return (
           <Card key={index} className="pie">
@@ -60,6 +80,20 @@ class Goals extends Component {
               theme={V.VictoryTheme.material}
             />
           </Card>
+        );
+      else if (
+        element.goal_type === "distance" &&
+        element.goal_value >= this.props.testSteps
+      )
+        return (
+          <BadgeCard
+            key={index}
+            title={this.props.userBadges[4].title}
+            subtitle={`you have completed your goal to walk a distance of ${
+              element.goal_value
+            }  km`}
+            avatar={this.props.userBadges[4].avatar}
+          />
         );
     });
     return (
@@ -81,11 +115,13 @@ function mapStateToProps(state) {
   return {
     goals: state.goals,
     testSteps: state.testSteps,
-    goal_id: state.goal_id
+    goal_id: state.goal_id,
+    userBadges: state.userBadges
   };
 }
 
 export default connect(mapStateToProps, {
   getCurrentGoalsAndData,
-  completeGoal
+  completeGoal,
+  getBadges
 })(Goals);
