@@ -8,7 +8,8 @@ let initialState = {
   goals_start: [],
   userBadges: [],
   friendsGoals: [],
-  testSteps: 500000
+  testSteps: 500000,
+  goal_id: []
 };
 
 // CONSTANTS
@@ -19,6 +20,7 @@ const TOGGLE_LOG = "TOGGLE_LOG";
 const GET_FRIENDS_GOALS = "GET_FRIENDS_GOALS";
 const HANDLE_UPVOTE = "HANDLE_UPVOTE";
 const HANDLE_UNFOLLOW = "HANDLE_UNFOLLOW";
+const COMPLETE_GOAL = "COMPLETE_GOAL";
 
 // REDUCER
 export default function(state = initialState, action) {
@@ -91,6 +93,18 @@ export default function(state = initialState, action) {
       console.log(action.payload);
       break;
 
+    case COMPLETE_GOAL + "_PENDING":
+      return Object.assign({}, state, { isLoading: true });
+
+    case COMPLETE_GOAL + "_FULFILLED":
+      return Object.assign({}, state, {
+        goal_id: action.payload.data,
+        isLoading: false
+      });
+    case COMPLETE_GOAL + "_REJECTED":
+      console.log(action.payload);
+      break;
+
     default:
       return state;
   }
@@ -136,6 +150,14 @@ export function handleUpvote(id) {
   return {
     type: HANDLE_UPVOTE,
     payload: axios.post("/api/upvotes", { id: id }).then(response => response)
+  };
+}
+export function completeGoal(id) {
+  return {
+    type: COMPLETE_GOAL,
+    payload: axios
+      .post("/api/completedgoal", { goal_id: id })
+      .then(response => response)
   };
 }
 

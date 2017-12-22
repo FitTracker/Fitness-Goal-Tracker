@@ -4,7 +4,7 @@ import { Card } from "material-ui/Card";
 import { connect } from "react-redux";
 import * as V from "victory";
 
-import { getCurrentGoalsAndData } from "../../ducks/reducer.js";
+import { getCurrentGoalsAndData, completeGoal } from "../../ducks/reducer.js";
 import AddGoal from "../AddGoal/AddGoal";
 
 class Goals extends Component {
@@ -13,7 +13,7 @@ class Goals extends Component {
   }
 
   render() {
-    console.log(this.props.testSteps);
+    console.log(this.props.goals, this.props.testSteps);
     const stepGoals = this.props.goals.map((element, index) => {
       if (
         element.goal_type === "steps" &&
@@ -26,7 +26,7 @@ class Goals extends Component {
               animate={{ duration: 1000 }}
               height={200}
               data={[
-                { x: "Goal Steps", y: element.goal_value },
+                { x: "Goal Steps", y: Number(element.goal_value) },
                 { x: "Current", y: this.props.testSteps }
                 // {
               ]}
@@ -44,7 +44,7 @@ class Goals extends Component {
         element.goal_value !== this.props.testSteps
       )
         return (
-          <Card key={Math.random()} className="pie">
+          <Card key={index} className="pie">
             <V.VictoryPie
               // standalone={false}
               animate={{ duration: 500, onLoad: { duration: 500 } }}
@@ -53,19 +53,12 @@ class Goals extends Component {
               // labelRadius={100}
               height={200}
               data={[
-                { x: "Goal Distance", y: element.goal_value },
+                { x: "Goal Distance", y: Number(element.goal_value) },
                 { x: "Current Distance", y: this.props.testSteps }
                 // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
               ]}
               theme={V.VictoryTheme.material}
             />
-            {/* <V.VictoryLabel
-                textAnchor="middle"
-                style={{ fontSize: 20 }}
-                x={200}
-                y={200}
-                text={element.goal_type}
-              /> */}
           </Card>
         );
     });
@@ -85,7 +78,14 @@ class Goals extends Component {
 }
 
 function mapStateToProps(state) {
-  return { goals: state.goals, testSteps: state.testSteps };
+  return {
+    goals: state.goals,
+    testSteps: state.testSteps,
+    goal_id: state.goal_id
+  };
 }
 
-export default connect(mapStateToProps, { getCurrentGoalsAndData })(Goals);
+export default connect(mapStateToProps, {
+  getCurrentGoalsAndData,
+  completeGoal
+})(Goals);

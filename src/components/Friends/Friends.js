@@ -12,6 +12,7 @@ class Friends extends Component {
 
   render() {
     const { friendsGoals } = this.props;
+
     const goalsDisplay = friendsGoals
       .sort((a, b) => b.upvotes - a.upvotes)
       .map(goal => {
