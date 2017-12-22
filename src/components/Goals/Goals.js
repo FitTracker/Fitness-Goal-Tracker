@@ -21,12 +21,12 @@ class Goals extends Component {
 
   render() {
     const stepGoals = this.props.goals.map((element, index) => {
+      console.log(element.goal_id);
       if (
         element.goal_type === "steps" &&
         element.goal_value < this.props.testSteps
       )
         return (
-          // <div className="pie" key={index}>
           <Card key={index} className="pie">
             <V.VictoryPie
               animate={{ duration: 1000 }}
@@ -36,12 +36,9 @@ class Goals extends Component {
                 { x: "Current", y: this.props.testSteps }
                 // {
               ]}
-              // labels={d => d.x}
-              // labelComponent={<V.VictoryLabel dy={30} />}
               theme={V.VictoryTheme.material}
             />
           </Card>
-          // </div>
         );
       else if (
         element.goal_type === "steps" &&
@@ -55,6 +52,7 @@ class Goals extends Component {
               element.goal_value
             }  steps`}
             avatar={this.props.userBadges[4].avatar}
+            // onClick={this.props.completeGoal(element.goal_id)}
           />
         );
     });
@@ -66,11 +64,7 @@ class Goals extends Component {
         return (
           <Card key={index} className="pie">
             <V.VictoryPie
-              // standalone={false}
               animate={{ duration: 500, onLoad: { duration: 500 } }}
-              // style={{ labels: { fontSize: 12, fill: "white" } }}
-              // innerRadius={68}
-              // labelRadius={100}
               height={200}
               data={[
                 { x: "Goal Distance", y: Number(element.goal_value) },
