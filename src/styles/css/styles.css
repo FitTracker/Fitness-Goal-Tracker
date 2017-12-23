@@ -720,6 +720,14 @@ body {
   min-height: 70vh;
   max-height: 100vh;
   width: 100%; }
+  .all-pies h3 {
+    text-align: left;
+    margin-top: 3%;
+    padding-left: 2%; }
+  .all-pies p {
+    text-align: right;
+    margin-bottom: 3%;
+    padding-right: 2%; }
 
 .pie {
   height: auto;

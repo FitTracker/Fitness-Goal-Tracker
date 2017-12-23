@@ -19,7 +19,6 @@ module.exports = {
             req.body.goalEndDate
           ])
           .then(goals => {
-            console.log(req.body.goal_id);
             res.status(200).json(goals);
           })
           .catch(console.log);
@@ -48,7 +47,6 @@ module.exports = {
       .get("db")
       .addCompletedGoal([req.body.goal_id])
       .then(goals => {
-        console.log(req.body.goal_id);
         res.status(200).json(goals);
       });
   }

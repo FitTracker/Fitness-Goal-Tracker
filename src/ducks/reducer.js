@@ -10,8 +10,7 @@ let initialState = {
   friendsGoals: [],
   testSteps: 500000,
   goal_id: [],
-  searchResults: [],
-  testSteps: 500000
+  searchResults: []
 };
 
 // CONSTANTS
