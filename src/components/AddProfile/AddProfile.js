@@ -41,7 +41,10 @@ class AddProfile extends Component {
         this.setState({
           firstName: response.data[0].first_name,
           lastName: response.data[0].last_name,
-          avatarURL: response.data[0].avatar
+          avatarURL: response.data[0].avatar,
+          city: response.data[0].city,
+          us_state: response.data[0].us_state,
+          email: response.data[0].email
         });
       })
       .catch(console.log);
