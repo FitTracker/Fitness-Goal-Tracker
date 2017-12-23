@@ -21,7 +21,6 @@ class Goals extends Component {
   }
 
   render() {
-    console.log(this.props);
     const stepGoals =
       this.props.goals.length > 0 &&
       this.props.goals.map((element, index) => {
@@ -31,9 +30,10 @@ class Goals extends Component {
         )
           return (
             <Card key={index} className="pie">
-              <h3>{`You have walked ${
-                this.props.testSteps
-              } km out of your goal of ${element.goal_value}`}</h3>
+              <h3
+              >{`You have walked ${this.props.testSteps.toLocaleString()} km out of your goal of ${Number(
+                element.goal_value
+              ).toLocaleString()}`}</h3>
               <V.VictoryPie
                 animate={{ duration: 1000 }}
                 height={200}
@@ -59,15 +59,17 @@ class Goals extends Component {
             <BadgeCard
               key={index}
               title={element.goal_type}
-              subtitle={`you have completed your goal to walk  ${
+              subtitle={`you have completed your goal to walk  ${Number(
                 element.goal_value
-              }  steps`}
+              ).toLocaleString()} steps by ${moment(element.end_date).format(
+                "MMMM Do, YY"
+              )}`}
               avatar={
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
-              // onClick={this.props.completeGoal(element.goal_id)}
             />
           );
+        // onClick={this.props.completeGoal(element.goal_id)}
         // </div>
       });
     const distGoals =
@@ -79,9 +81,10 @@ class Goals extends Component {
         )
           return (
             <Card key={index} className="pie">
-              <h3>{`You have walked ${
-                this.props.testSteps
-              } km out of your goal of ${element.goal_value}`}</h3>
+              <h3
+              >{`You have walked ${this.props.testSteps.toLocaleString()} km out of your goal of ${Number(
+                element.goal_value
+              ).toLocaleString()}`}</h3>
               <V.VictoryPie
                 // innerRadius={68} // style={{ labels: { fontSize: 12, fill: "white" } }}
                 // labelRadius={100}
@@ -123,9 +126,11 @@ class Goals extends Component {
             <BadgeCard
               key={index}
               title={element.goal_type}
-              subtitle={`you have completed your goal to walk a distance of ${
+              subtitle={`you have completed your goal to walk a distance of ${Number(
                 element.goal_value
-              }  km`}
+              ).toLocaleString()} km by ${moment(element.end_date).format(
+                "MMMM Do, YY"
+              )}`}
               avatar={
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }

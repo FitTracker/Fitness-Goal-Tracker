@@ -137,7 +137,6 @@ function getOrCreatUserFitbit(
   done
 ) {
   fitbitToken = accessToken;
-  console.log(profile);
   app
     .get("db")
     .getUserByFitbitId([profile.id])
