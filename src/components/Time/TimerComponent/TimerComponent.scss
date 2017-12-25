@@ -26,7 +26,7 @@
 }
 
 /* Top portion */
-.top button.clear {
+.top .timer-key.clear {
   float: left;
 }
 
@@ -57,7 +57,7 @@
   overflow: hidden;
 }
 
-.keys button {
+.keys .timer-key {
   float: left;
 
   width: 66px;
@@ -67,8 +67,8 @@
 }
 
 /* Applying same to the keys */
-.keys button,
-.top button.clear {
+.keys .timer-key,
+.top .timer-key.clear {
   float: left;
   position: relative;
   top: 0;
@@ -96,15 +96,37 @@
 }
 
 /* Some hover effects */
-.keys button:hover {
+.keys .timer-key:hover {
   background: $grey;
   box-shadow: 0px 4px $blue;
   color: white;
 }
 
-.keys button:active {
+.keys .timer-key:active {
   box-shadow: 0px 0px $blue;
   top: 4px;
+}
+
+.empty-button {
+  float: left;
+  position: relative;
+  top: 0;
+
+  width: 66px;
+  height: 36px;
+
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+
+  margin: 0 7px 11px 0;
+
+  color: #888;
+  line-height: 36px;
+  text-align: center;
+
+
+
 }
 
 

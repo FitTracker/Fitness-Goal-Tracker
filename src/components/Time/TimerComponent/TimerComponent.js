@@ -31,17 +31,17 @@ class TimerComponent extends Component {
   }
 
   inputDigit(digit) {
-    const { displayHours } = this.state;
-    const { displayMinutes } = this.state;
-    const { displaySeconds } = this.state;
+    const { displayHours, displayMinutes, displaySeconds } = this.state;
 
     this.setState({
       displaySeconds:
-        displaySeconds === "00"
-          ? String(digit)
-          : displaySeconds === "60"
-            ? displaySeconds === "59"
-            : displaySeconds + digit
+        displaySeconds === "00" ? String(digit) : displaySeconds + digit
+    });
+  }
+
+  clearDisplay() {
+    this.setState({
+      displaySeconds: "00"
     });
   }
 
@@ -169,7 +169,7 @@ class TimerComponent extends Component {
             </button>
             <button
               className="timer-key key-delete"
-              onClick={() => this.inputDigit()}
+              onClick={() => this.clearDisplay()}
             >
               X
             </button>
@@ -181,6 +181,7 @@ class TimerComponent extends Component {
         <TextField hintText="Hint Text" />
 */}
         <div className="play-buttons">{buttons}</div>
+        <audio id="end-of-time" src="flute_c_long_01.wav" preload="auto" />
       </div>
     );
   }
