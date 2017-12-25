@@ -29,9 +29,9 @@ class Goals extends Component {
           element.goal_value < this.props.testSteps
         )
           return (
-            <Card key={index} className="pie">
+            <Card key={index} className="steps">
               <h3
-              >{`You have walked ${this.props.testSteps.toLocaleString()} km out of your goal of ${Number(
+              >{`You have walked ${this.props.testSteps.toLocaleString()} steps out of your goal of ${Number(
                 element.goal_value
               ).toLocaleString()}`}</h3>
               <V.VictoryPie
@@ -47,7 +47,7 @@ class Goals extends Component {
               <p>
                 {" "}
                 You have {moment(element.end_date).fromNow(true)} left to
-                accomplish this goal!{" "}
+                accomplish this goal!
               </p>
             </Card>
           );
@@ -80,7 +80,7 @@ class Goals extends Component {
           element.goal_value != this.props.testSteps
         )
           return (
-            <Card key={index} className="pie">
+            <Card key={index} className="steps">
               <h3
               >{`You have walked ${this.props.testSteps.toLocaleString()} km out of your goal of ${Number(
                 element.goal_value
