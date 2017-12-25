@@ -21,19 +21,22 @@ class Goals extends Component {
   }
 
   render() {
+    const currentSteps =
+      this.props.currentStats[0] && this.props.currentStats[0].steps;
+    const distanceKm =
+      this.props.currentStats[0] && this.props.currentStats[0].distance_km;
+
     const stepGoals =
       this.props.goals.length > 0 &&
       this.props.goals.map((element, index) => {
-        if (
-          element.goal_type === "steps" &&
-          element.goal_value < this.props.testSteps
-        )
+        let endVal = Number(element.goal_value - element.starting_value);
+
+        if (element.goal_type === "steps" && element.goal_value > currentSteps)
           return (
-            <Card key={index} className="steps">
-              <h3
-              >{`You have walked ${this.props.testSteps.toLocaleString()} steps out of your goal of ${Number(
-                element.goal_value
-              ).toLocaleString()}`}</h3>
+            <Card key={index} className="pie">
+              <h3>{`You have walked ${(
+                currentSteps - element.starting_value
+              ).toLocaleString()} steps out of your goal of ${endVal.toLocaleString()}`}</h3>
               <V.VictoryPie
                 animate={{ duration: 1000 }}
                 height={200}
@@ -53,14 +56,14 @@ class Goals extends Component {
           );
         else if (
           element.goal_type === "steps" &&
-          element.goal_value >= this.props.testSteps
+          element.goal_value <= currentSteps
         )
           return (
             <BadgeCard
               key={index}
               title={element.goal_type}
               subtitle={`you have completed your goal to walk  ${Number(
-                element.goal_value
+                endVal
               ).toLocaleString()} steps by ${moment(element.end_date).format(
                 "MMMM Do, YY"
               )}`}
@@ -75,16 +78,14 @@ class Goals extends Component {
     const distGoals =
       this.props.goals.length > 0 &&
       this.props.goals.map((element, index) => {
-        if (
-          element.goal_type === "distance" &&
-          element.goal_value != this.props.testSteps
-        )
+        let endVal = Number(element.goal_value - element.starting_value);
+
+        if (element.goal_type === "distance" && element.goal_value > distanceKm)
           return (
-            <Card key={index} className="steps">
-              <h3
-              >{`You have walked ${this.props.testSteps.toLocaleString()} km out of your goal of ${Number(
-                element.goal_value
-              ).toLocaleString()}`}</h3>
+            <Card key={index} className="pie">
+              <h3>{`You have walked ${(
+                distanceKm - element.starting_value
+              ).toLocaleString()} km out of your goal of ${endVal.toLocaleString()}`}</h3>
               <V.VictoryPie
                 // innerRadius={68} // style={{ labels: { fontSize: 12, fill: "white" } }}
                 // labelRadius={100}
@@ -120,17 +121,15 @@ class Goals extends Component {
           );
         else if (
           element.goal_type === "distance" &&
-          element.goal_value >= this.props.testSteps
+          element.goal_value <= distanceKm
         )
           return (
             <BadgeCard
               key={index}
               title={element.goal_type}
-              subtitle={`you have completed your goal to walk a distance of ${Number(
-                element.goal_value
-              ).toLocaleString()} km by ${moment(element.end_date).format(
-                "MMMM Do, YY"
-              )}`}
+              subtitle={`you have completed your goal to walk a distance of ${endVal.toLocaleString()} km by ${moment(
+                element.end_date
+              ).format("MMMM Do, YY")}`}
               avatar={
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
@@ -157,7 +156,8 @@ function mapStateToProps(state) {
     goals: state.goals,
     testSteps: state.testSteps,
     goal_id: state.goal_id,
-    userBadges: state.userBadges
+    userBadges: state.userBadges,
+    currentStats: state.currentStats
   };
 }
 

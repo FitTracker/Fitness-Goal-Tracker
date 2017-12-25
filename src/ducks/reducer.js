@@ -33,8 +33,6 @@ export default function(state = initialState, action) {
 
     case GET_GOALS_DATA + "_FULFILLED":
       return Object.assign({}, state, {
-        goals_end: action.payload.data.goals[0].goal_value,
-        goals_start: action.payload.data.goals[0].starting_value,
         currentStats: action.payload.data.currentstats,
         goals: action.payload.data.goals,
         isLoading: false
