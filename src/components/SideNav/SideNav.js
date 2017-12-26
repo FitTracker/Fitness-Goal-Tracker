@@ -6,10 +6,8 @@ import axios from "axios";
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
-import injectTapEventPlugin from "react-tap-event-plugin";
-import FlatButton from "material-ui/FlatButton";
 
-injectTapEventPlugin();
+import FlatButton from "material-ui/FlatButton";
 
 class SideNav extends Component {
   constructor(props) {
