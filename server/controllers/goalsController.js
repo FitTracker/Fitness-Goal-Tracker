@@ -42,12 +42,14 @@ module.exports = {
         res.status(200).json(goals);
       });
   },
-  addCompletedGoal: (req, res, next) => {
+  addComplGoal: (req, res, next) => {
     req.app
       .get("db")
       .addCompletedGoal([req.body.goal_id])
       .then(goals => {
         res.status(200).json(goals);
-      });
+        console.log(goals);
+      })
+      .catch(console.log);
   }
 };

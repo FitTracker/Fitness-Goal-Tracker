@@ -50,7 +50,7 @@ app.use(passport.session());
 app.post("/api/goals", goalsController.createGoal);
 app.get("/api/friendgoals", goalsController.friendGoals);
 app.post("/api/upvotes", goalsController.addUpvote);
-app.post("/api/completedgoal", goalsController.addCompletedGoal);
+app.post("/api/completedgoal", goalsController.addComplGoal);
 
 // FRIENDS ENDPOINTS
 

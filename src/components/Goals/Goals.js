@@ -4,6 +4,7 @@ import { Card } from "material-ui/Card";
 import { connect } from "react-redux";
 import moment from "moment";
 import * as V from "victory";
+import FlatButton from "material-ui/FlatButton";
 
 import {
   getCurrentGoalsAndData,
@@ -18,6 +19,7 @@ class Goals extends Component {
   componentDidMount() {
     this.props.getCurrentGoalsAndData();
     this.props.getBadges();
+    this.props.completeGoal();
   }
 
   render() {
@@ -42,7 +44,7 @@ class Goals extends Component {
                 height={200}
                 data={[
                   { x: "Goal Steps", y: Number(element.goal_value) },
-                  { x: "Current", y: this.props.testSteps }
+                  { x: "Current", y: this.props.currentSteps }
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
@@ -70,6 +72,7 @@ class Goals extends Component {
               avatar={
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
+              onLoad={completeGoal(element.goal_id)}
             />
           );
         // onClick={this.props.completeGoal(element.goal_id)}
@@ -98,8 +101,8 @@ class Goals extends Component {
                       label: "Goal"
                     },
                     {
-                      x: `Current Distance: ${this.props.testSteps}`,
-                      y: this.props.testSteps,
+                      x: `Current Distance: ${this.props.distanceKm}`,
+                      y: this.props.distanceKm,
                       label: "Progress"
                     }
                   ]
@@ -133,6 +136,7 @@ class Goals extends Component {
               avatar={
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
+              onLoad={completeGoal(element.goal_id)}
             />
           );
       });
@@ -155,7 +159,7 @@ function mapStateToProps(state) {
   return {
     goals: state.goals,
     testSteps: state.testSteps,
-    goal_id: state.goal_id,
+    // goal_id: state.goal_id,
     userBadges: state.userBadges,
     currentStats: state.currentStats
   };
