@@ -16,7 +16,7 @@ const IntervalDisplay = props => (
         //   height="315"
         //   src="https://www.youtube.com/embed/nrAgK0S9hx4?autoplay=1&start=104&controls=0&showinfo=0"
         // />
-        <h2>(Add Completion Sound fx)</h2>
+        <h1>Time is up</h1>
       )}
     </div>
     <div className="row">
