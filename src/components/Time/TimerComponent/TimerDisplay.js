@@ -19,9 +19,9 @@ const IntervalDisplay = props => (
         <div>
           <iframe
             width="100%"
-            height="300"
+            height="150"
             scrolling="no"
-            frameborder="no"
+            frameBorder="no"
             src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/375915629&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"
           />
           <h1>Time is up</h1>

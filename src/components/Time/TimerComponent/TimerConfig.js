@@ -40,6 +40,7 @@ class IntervalConfig extends Component {
                 id="hours"
                 className="form-control"
                 type="number"
+                min="0"
                 defaultValue={this.props.baseTime.get("hours")}
                 onChange={this.handleChange}
               />
@@ -56,6 +57,7 @@ class IntervalConfig extends Component {
                 id="minutes"
                 className="form-control"
                 type="number"
+                min="0"
                 defaultValue={this.props.baseTime.get("minutes")}
                 onChange={this.handleChange}
               />
@@ -72,6 +74,7 @@ class IntervalConfig extends Component {
                 id="seconds"
                 className="form-control"
                 type="number"
+                min="0"
                 defaultValue={this.props.baseTime.get("seconds")}
                 onChange={this.handleChange}
               />
