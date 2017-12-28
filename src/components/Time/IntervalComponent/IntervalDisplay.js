@@ -9,13 +9,14 @@ const leftPad = val => {
 
 const IntervalDisplay = props => (
   <div>
-    <div className="row center-block">
+    <div className="center-block">
       {props.timerState === timerStates.COMPLETE && (
-        <iframe
-          className="center-block youtube-responsive-width"
-          height="315"
-          src="https://www.youtube.com/embed/nrAgK0S9hx4?autoplay=1&start=104&controls=0&showinfo=0"
-        />
+        // <iframe
+        //   className="center-block youtube-responsive-width"
+        //   height="315"
+        //   src="https://www.youtube.com/embed/nrAgK0S9hx4?autoplay=1&start=104&controls=0&showinfo=0"
+        // />
+        <h2>(Add Completion Sound fx)</h2>
       )}
     </div>
     <div className="row">

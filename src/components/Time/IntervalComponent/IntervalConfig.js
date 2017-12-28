@@ -31,7 +31,7 @@ class IntervalConfig extends Component {
       <div className="row">
         <h2 className="text-primary">Set Timer</h2>
         <div className="row control-row">
-          <div className="form-group">
+          <div className="time-row">
             <div className="col-sm-3">
               <label htmlFor="hours">Hours</label>
             </div>
@@ -47,7 +47,7 @@ class IntervalConfig extends Component {
           </div>
         </div>
         <div className="row control-row">
-          <div className="form-group">
+          <div className="time-row">
             <div className="col-sm-3">
               <label htmlFor="minutes">Minutes</label>
             </div>
@@ -63,7 +63,7 @@ class IntervalConfig extends Component {
           </div>
         </div>
         <div className="row control-row">
-          <div className="form-group">
+          <div className="time-row">
             <div className="col-sm-3">
               <label htmlFor="seconds">Seconds</label>
             </div>

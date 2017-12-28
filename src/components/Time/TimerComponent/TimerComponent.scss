@@ -1,13 +1,5 @@
 // Basic reset
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-  /* Better text styling */
-  font: bold 14px Arial, sans-serif;
-}
 
 .NumInput {
   width: 260px;
@@ -131,9 +123,14 @@
 
 
 .timer-wrapper {
+  box-sizing: border-box;
+  padding: 0;
   margin-left: auto;
   margin-right: auto;
   width: max-content;
+
+  /* Better text styling */
+  font: bold 14px Arial, sans-serif;
 }
 
 .timer-title {

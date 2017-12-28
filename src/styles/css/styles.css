@@ -549,13 +549,6 @@ header {
 .profile-input {
   margin: 15px; }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* Better text styling */
-  font: bold 14px Arial, sans-serif; }
-
 .NumInput {
   width: 260px;
   height: auto;
@@ -645,9 +638,13 @@ header {
   text-align: center; }
 
 .timer-wrapper {
+  box-sizing: border-box;
+  padding: 0;
   margin-left: auto;
   margin-right: auto;
-  width: max-content; }
+  width: max-content;
+  /* Better text styling */
+  font: bold 14px Arial, sans-serif; }
 
 .timer-title {
   font-size: 5.8rem;
@@ -660,9 +657,12 @@ header {
   width: max-content; }
 
 body {
+  box-sizing: border-box;
   font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neueu", Helvetica, Arial, sans-serif;
-  margin: 0;
-  background-color: #efeff5; }
+  background-color: #efeff5;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto; }
 
 .stopwatch-wrapper {
   text-align: center; }
@@ -671,6 +671,7 @@ body {
   font-size: 76px;
   font-weight: 100;
   line-height: 160px;
+  font-weight: bold;
   margin: 0;
   border: solid #cecfd0;
   border-width: 1px 0;
@@ -694,6 +695,46 @@ body {
 
 .stopwatch-lap strong::before {
   content: "Lap "; }
+
+.interval-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; }
+
+.interval-header-row {
+  font-size: 1.4rem;
+  margin-bottom: 1px;
+  text-align: center; }
+
+.text-center {
+  font-size: 5.8rem;
+  margin-bottom: 1px; }
+
+.buttonDefaults {
+  border-radius: 500px;
+  height: 60px;
+  width: 60px; }
+
+.startButton {
+  background: #39B0E6;
+  color: #fff; }
+
+.stopButton {
+  background: #D75452; }
+
+.resetButton {
+  background: #39B0E6;
+  color: #fff; }
+
+.text-primary {
+  color: #39B0E6;
+  text-align: left;
+  margin: 0 0 1px 10px; }
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 30px; }
 
 .badges-container {
   display: flex;

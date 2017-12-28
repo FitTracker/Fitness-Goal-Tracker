@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import moment from "moment";
-import IntervalHeader from "./IntervalHeader";
 import IntervalDisplay from "./IntervalDisplay";
 import IntervalButton from "./IntervalButton";
 import IntervalConfig from "./IntervalConfig";
@@ -8,10 +7,6 @@ import * as timerStates from "../timerStates";
 
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import PlayArrow from "material-ui/svg-icons/av/play-arrow";
-
-const style = {
-  marginRight: 20
-};
 
 class IntervalComponent extends Component {
   constructor(props) {
@@ -87,8 +82,7 @@ class IntervalComponent extends Component {
 
   render() {
     return (
-      <div>
-        <IntervalHeader />
+      <div className="interval-container">
         <IntervalDisplay
           currentTime={this.state.currentTime}
           timerState={this.state.timerState}
@@ -98,15 +92,15 @@ class IntervalComponent extends Component {
           stopTimer={this.stopTimer}
           timerState={this.state.timerState}
         />
+
         {this.state.timerState !== timerStates.RUNNING && (
           <IntervalConfig
             baseTime={this.state.baseTime}
             setBaseTime={this.setBaseTime}
           />
         )}
-        <FloatingActionButton style={style}>
-          <PlayArrow />
-        </FloatingActionButton>
+
+        <br />
       </div>
     );
   }
