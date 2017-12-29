@@ -44,7 +44,7 @@ class Goals extends Component {
                 height={200}
                 data={[
                   { x: "Goal Steps", y: Number(element.goal_value) },
-                  { x: "Current", y: this.props.currentSteps }
+                  { x: "Current", y: this.props.currentStats[0].steps }
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
@@ -99,8 +99,10 @@ class Goals extends Component {
                     label: "Goal"
                   },
                   {
-                    x: `Current Distance: ${this.props.distanceKm}`,
-                    y: this.props.distanceKm,
+                    x: `Current Distance: ${
+                      this.props.currentStats[0].distance_km
+                    }`,
+                    y: this.props.currentStats[0].distance_km,
                     label: "Progress"
                   }
                 ]}
