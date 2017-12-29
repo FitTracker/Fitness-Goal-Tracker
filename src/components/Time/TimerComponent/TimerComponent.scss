@@ -1,127 +1,54 @@
-// Basic reset
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-  /* Better text styling */
-  font: bold 14px Arial, sans-serif;
+.interval-container {
+    margin-left: auto;
+    margin-right: auto;
+    // width: max-content;
+    text-align: center;
 }
 
-.NumInput {
-  width: 260px;
-  height: auto;
-
-  margin: 30px auto;
-  padding: 20px 20px 9px;
-
-  border-radius: 3px;
-
-  /* Using box shadows to create 3D effects */
-  background: #9dd2ea;
-  background: linear-gradient(#9dd2ea, #8bceec);
-  border-radius: 3px;
-  box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
+.interval-header-row {
+    font-size: $font-size-small;
+    margin-bottom: 1px;
+    text-align: center;
 }
 
-/* Top portion */
-.top button.clear {
-  float: left;
+.text-center {
+    font-size: $font-size-large;
+    margin-bottom: 1px;
 }
 
-/* Inset shadow on the screen to create indent */
-.top .screen {
-  height: 40px;
-  width: 212px;
-
-  float: right;
-
-  padding: 0 10px;
-
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
-
-  /* Typography */
-  font-size: 17px;
-  line-height: 40px;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  text-align: right;
-  letter-spacing: 1px;
+.buttonDefaults {
+    border-radius: 500px;
+    height: 60px;
+    width: 60px;
 }
 
-/* Clear floats */
-.keys {
-  overflow: hidden;
+.startButton {
+    background: #39B0E6;
+    color: #fff;
 }
 
-.keys button {
-  float: left;
-
-  width: 66px;
-  height: 40px;
-
-  margin: 0 7px 11px 0;
+.stopButton {
+    background: #D75452;
 }
 
-/* Applying same to the keys */
-.keys button,
-.top button.clear {
-  float: left;
-  position: relative;
-  top: 0;
-
-  cursor: pointer;
-
-  width: 66px;
-  height: 36px;
-
-  background: white;
-  border-radius: 3px;
-  box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-
-  margin: 0 7px 11px 0;
-
-  color: #888;
-  line-height: 36px;
-  text-align: center;
-
-  /* prevent selection of text inside keys */
-  user-select: none;
-
-  /* Smoothing out hover and active states using css3 transitions */
-  transition: all 0.2s ease;
+.resetButton {
+    background: #39B0E6;
+    color: #fff;
 }
 
-/* Some hover effects */
-.keys button:hover {
-  background: $grey;
-  box-shadow: 0px 4px $blue;
-  color: white;
+.text-primary {
+    color: #39B0E6;
+    text-align: left;
+    margin: 0 0 1px 10px;
 }
 
-.keys button:active {
-  box-shadow: 0px 0px $blue;
-  top: 4px;
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 30px;
+    
 }
 
+.center-block {
 
-.timer-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  width: max-content;
-}
-
-.timer-title {
-  font-size: $font-size-large;
-  margin-bottom: 1px;
-  text-align: center;
-}
-
-.play-buttons {
-  margin-left: auto;
-  margin-right: auto;
-  width: max-content;
 }

@@ -1,8 +1,11 @@
 body {
+  box-sizing: border-box;
   font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight",
     "Helvetica Neueu", Helvetica, Arial, sans-serif;
-  margin: 0;
   background-color: #efeff5;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stopwatch-wrapper {
@@ -12,6 +15,7 @@ body {
   font-size: 76px;
   font-weight: 100;
   line-height: 160px;
+  font-weight: bold;
 
   margin: 0;
 
