@@ -73,10 +73,9 @@ class Goals extends Component {
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
               onLoad={completeGoal(element.goal_id)}
+              // ^ this is supposed to set goal completion status to true in db
             />
           );
-        // onClick={this.props.completeGoal(element.goal_id)}
-        // </div>
       });
     const distGoals =
       this.props.goals.length > 0 &&
@@ -93,21 +92,18 @@ class Goals extends Component {
                 // innerRadius={68} // style={{ labels: { fontSize: 12, fill: "white" } }}
                 // labelRadius={100}
                 height={200}
-                data={
-                  [
-                    {
-                      x: `Goal Distance: ${element.goal_value}`,
-                      y: Number(element.goal_value),
-                      label: "Goal"
-                    },
-                    {
-                      x: `Current Distance: ${this.props.distanceKm}`,
-                      y: this.props.distanceKm,
-                      label: "Progress"
-                    }
-                  ]
-                  // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
-                }
+                data={[
+                  {
+                    x: `Goal Distance: ${element.goal_value}`,
+                    y: Number(element.goal_value),
+                    label: "Goal"
+                  },
+                  {
+                    x: `Current Distance: ${this.props.distanceKm}`,
+                    y: this.props.distanceKm,
+                    label: "Progress"
+                  }
+                ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
                 cornerRadius={10}
@@ -137,6 +133,7 @@ class Goals extends Component {
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
               onLoad={completeGoal(element.goal_id)}
+              // ^ this is supposed to set goal completion status to true in db
             />
           );
       });
