@@ -587,7 +587,7 @@ header {
 .time-row {
   display: flex;
   justify-content: space-between;
-  margin: 10px 30px; }
+  margin: 8px 30px; }
 
 body {
   box-sizing: border-box;
