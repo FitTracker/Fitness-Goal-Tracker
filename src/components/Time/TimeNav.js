@@ -12,7 +12,6 @@ import IconTimeLapse from "material-ui/svg-icons/image/timelapse";
 // COMPONENTS
 import TimerComponent from "./TimerComponent/TimerComponent";
 import StopwatchComponent from "./StopwatchComponent/StopwatchComponent";
-import IntervalComponent from "./IntervalComponent/IntervalComponent";
 
 // VARIABLES
 const timerIcon = <IconHourglassEmpty />;
@@ -62,7 +61,7 @@ const TimeNav = () => (
     </Tab>
     <Tab icon={<IconTimeLapse />} label="Interval">
       <div>
-        <IntervalComponent />
+        <h2>Coming soon...</h2>
       </div>
     </Tab>
   </Tabs>
