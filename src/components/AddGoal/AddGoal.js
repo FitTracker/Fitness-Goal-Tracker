@@ -52,6 +52,7 @@ class AddGoal extends Component {
       })
       .catch(console.log);
   };
+
   handleChange = (event, index, value) => {
     this.setState({ goalType: value });
   };
