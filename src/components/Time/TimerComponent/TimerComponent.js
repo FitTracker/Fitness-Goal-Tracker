@@ -10,8 +10,8 @@ class TimerComponent extends Component {
     super(props);
 
     this.state = {
-      currentTime: moment.duration(0, "minutes"),
-      baseTime: moment.duration(0, "minutes"),
+      currentTime: moment.duration(2, "seconds"),
+      baseTime: moment.duration(2, "seconds"),
       timerState: timerStates.NOT_SET,
       timer: null
     };
@@ -35,7 +35,7 @@ class TimerComponent extends Component {
       this.state.currentTime.get("minutes") === 0 &&
       this.state.currentTime.get("seconds") === 0
     ) {
-      return "Enter a start time";
+      return;
     }
     this.setState({
       timerState: timerStates.RUNNING,
