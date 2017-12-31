@@ -7,21 +7,21 @@ class IntervalConfig extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(ev) {
+  handleChange(e) {
     const newBaseTime = this.props.baseTime;
 
-    if (ev.target.id === "hours")
+    if (e.target.id === "hours" && e.target.value[0] !== "-")
       newBaseTime
         .subtract(newBaseTime.get("hour"), "hours")
-        .add(parseInt(ev.target.value, 10), "hours");
-    if (ev.target.id === "minutes")
+        .add(parseInt(e.target.value, 10), "hours");
+    if (e.target.id === "minutes" && e.target.value[0] !== "-")
       newBaseTime
         .subtract(newBaseTime.get("minutes"), "minutes")
-        .add(parseInt(ev.target.value, 10), "minutes");
-    if (ev.target.id === "seconds")
+        .add(parseInt(e.target.value, 10), "minutes");
+    if (e.target.id === "seconds" && e.target.value[0] !== "-")
       newBaseTime
         .subtract(newBaseTime.get("seconds"), "seconds")
-        .add(parseInt(ev.target.value, 10), "seconds");
+        .add(parseInt(e.target.value, 10), "seconds");
 
     this.props.setBaseTime(newBaseTime);
   }
@@ -40,6 +40,7 @@ class IntervalConfig extends Component {
                 id="hours"
                 className="form-control"
                 type="number"
+                min="0"
                 defaultValue={this.props.baseTime.get("hours")}
                 onChange={this.handleChange}
               />
@@ -56,6 +57,7 @@ class IntervalConfig extends Component {
                 id="minutes"
                 className="form-control"
                 type="number"
+                min="0"
                 defaultValue={this.props.baseTime.get("minutes")}
                 onChange={this.handleChange}
               />
@@ -72,6 +74,7 @@ class IntervalConfig extends Component {
                 id="seconds"
                 className="form-control"
                 type="number"
+                min="0"
                 defaultValue={this.props.baseTime.get("seconds")}
                 onChange={this.handleChange}
               />

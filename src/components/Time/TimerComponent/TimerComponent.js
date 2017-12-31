@@ -5,16 +5,13 @@ import TimerButton from "./TimerButton";
 import TimerConfig from "./TimerConfig";
 import * as timerStates from "../timerStates";
 
-import FloatingActionButton from "material-ui/FloatingActionButton";
-import PlayArrow from "material-ui/svg-icons/av/play-arrow";
-
 class TimerComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentTime: moment.duration(25, "minutes"),
-      baseTime: moment.duration(25, "minutes"),
+      currentTime: moment.duration(0, "seconds"),
+      baseTime: moment.duration(0, "seconds"),
       timerState: timerStates.NOT_SET,
       timer: null
     };
@@ -33,6 +30,13 @@ class TimerComponent extends Component {
   }
 
   startTimer() {
+    if (
+      this.state.currentTime.get("hours") === 0 &&
+      this.state.currentTime.get("minutes") === 0 &&
+      this.state.currentTime.get("seconds") === 0
+    ) {
+      return;
+    }
     this.setState({
       timerState: timerStates.RUNNING,
       timer: setInterval(this.reduceTimer, 1000)

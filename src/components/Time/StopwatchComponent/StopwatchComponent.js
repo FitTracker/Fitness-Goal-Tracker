@@ -17,6 +17,9 @@ class StopwatchComponent extends Component {
       lastClearedIncrementer: null
     };
     this.incrementer = null;
+    this.handleStartClick = this.handleStartClick.bind(this);
+    this.handleStopClick = this.handleStopClick.bind(this);
+    this.handleLapClick = this.handleLapClick.bind(this);
   }
 
   handleStartClick = () => {
@@ -52,14 +55,14 @@ class StopwatchComponent extends Component {
         {this.state.secondsElapsed === 0 ||
         this.incrementer === this.state.lastClearedIncrementer ? (
           <FloatingActionButton
-            onClick={this.handleStartClick.bind(this)}
+            onClick={this.handleStartClick}
             style={{ margin: 12 }}
           >
             <PlayIcon />
           </FloatingActionButton>
         ) : (
           <FloatingActionButton
-            onClick={this.handleStopClick.bind(this)}
+            onClick={this.handleStopClick}
             style={{ margin: 12 }}
           >
             <StopIcon />
@@ -69,16 +72,11 @@ class StopwatchComponent extends Component {
         {this.state.secondsElapsed !== 0 &&
         this.incrementer !== this.state.lastClearedIncrementer ? (
           <FloatingActionButton
-            onClick={this.handleLapClick.bind(this)}
+            onClick={this.handleLapClick}
             style={{ margin: 12 }}
           >
             <ResetIcon />
           </FloatingActionButton>
-        ) : null}
-
-        {this.state.secondsElapsed !== 0 &&
-        this.incrementer === this.state.lastClearedIncrementer ? (
-          <Button onClick={this.handleResetClick.bind(this)}>reset</Button>
         ) : null}
 
         <ul className="stopwatch-laps">
