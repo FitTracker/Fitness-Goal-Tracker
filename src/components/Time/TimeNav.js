@@ -24,11 +24,13 @@ const TimeNav = () => (
         <StopwatchComponent />
       </div>
     </Tab>
-    <Tab icon={<IconTimeLapse />} label="Interval">
-      <div>
-        <h2>Coming soon...</h2>
-      </div>
-    </Tab>
+    {
+      //   <Tab icon={<IconTimeLapse />} label="Interval">
+      //   <div>
+      //     <h2>Coming soon...</h2>
+      //   </div>
+      // </Tab>
+    }
   </Tabs>
 );
 

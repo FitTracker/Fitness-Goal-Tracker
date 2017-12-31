@@ -10,8 +10,8 @@ class TimerComponent extends Component {
     super(props);
 
     this.state = {
-      currentTime: moment.duration(2, "seconds"),
-      baseTime: moment.duration(2, "seconds"),
+      currentTime: moment.duration(0, "seconds"),
+      baseTime: moment.duration(0, "seconds"),
       timerState: timerStates.NOT_SET,
       timer: null
     };
