@@ -28,17 +28,16 @@ class IntervalConfig extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div>
         <h2 className="text-primary">Set Timer</h2>
-        <div className="row control-row">
+        <div>
           <div className="time-row">
-            <div className="col-sm-3">
+            <div>
               <label htmlFor="hours">Hours</label>
             </div>
-            <div className="col-sm-9">
+            <div>
               <input
                 id="hours"
-                className="form-control"
                 type="number"
                 min="0"
                 defaultValue={this.props.baseTime.get("hours")}
@@ -47,15 +46,14 @@ class IntervalConfig extends Component {
             </div>
           </div>
         </div>
-        <div className="row control-row">
+        <div>
           <div className="time-row">
-            <div className="col-sm-3">
+            <div>
               <label htmlFor="minutes">Minutes</label>
             </div>
-            <div className="col-sm-9">
+            <div>
               <input
                 id="minutes"
-                className="form-control"
                 type="number"
                 min="0"
                 defaultValue={this.props.baseTime.get("minutes")}
@@ -64,15 +62,14 @@ class IntervalConfig extends Component {
             </div>
           </div>
         </div>
-        <div className="row control-row">
+        <div>
           <div className="time-row">
-            <div className="col-sm-3">
+            <div>
               <label htmlFor="seconds">Seconds</label>
             </div>
-            <div className="col-sm-9">
+            <div>
               <input
                 id="seconds"
-                className="form-control"
                 type="number"
                 min="0"
                 defaultValue={this.props.baseTime.get("seconds")}

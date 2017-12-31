@@ -6,7 +6,7 @@ import { Tabs, Tab } from "material-ui/Tabs";
 // ICONS
 import IconHourglassEmpty from "material-ui/svg-icons/action/hourglass-empty";
 import IconTimer from "material-ui/svg-icons/image/timer";
-import IconTimeLapse from "material-ui/svg-icons/image/timelapse";
+// import IconTimeLapse from "material-ui/svg-icons/image/timelapse";
 
 // COMPONENTS
 import TimerComponent from "./TimerComponent/TimerComponent";

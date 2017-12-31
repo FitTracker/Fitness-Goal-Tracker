@@ -9,7 +9,7 @@ const leftPad = val => {
 
 const IntervalDisplay = props => (
   <div>
-    <div className="center-block">
+    <div>
       {props.timerState === timerStates.COMPLETE && (
         // <iframe
         //   className="center-block youtube-responsive-width"
@@ -28,7 +28,7 @@ const IntervalDisplay = props => (
         </div>
       )}
     </div>
-    <div className="row">
+    <div>
       <h2 className="text-center">
         {`${leftPad(props.currentTime.get("hours"))}:${leftPad(
           props.currentTime.get("minutes")

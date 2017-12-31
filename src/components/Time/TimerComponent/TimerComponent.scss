@@ -1,3 +1,4 @@
+//TimerComponent
 .interval-container {
     margin-left: auto;
     margin-right: auto;
@@ -5,17 +6,26 @@
     text-align: center;
 }
 
-.interval-header-row {
-    font-size: $font-size-small;
-    margin-bottom: 1px;
-    text-align: center;
+//TimerConfig
+.text-primary {
+    color: #39B0E6;
+    text-align: left;
+    margin: 0 0 1px 10px;
 }
 
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 30px;
+}
+
+//TimerDisplay
 .text-center {
     font-size: $font-size-large;
     margin-bottom: 1px;
 }
 
+// TimerButton
 .buttonDefaults {
     border-radius: 500px;
     height: 60px;
@@ -34,21 +44,4 @@
 .resetButton {
     background: #39B0E6;
     color: #fff;
-}
-
-.text-primary {
-    color: #39B0E6;
-    text-align: left;
-    margin: 0 0 1px 10px;
-}
-
-.time-row {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px 30px;
-    
-}
-
-.center-block {
-
 }
