@@ -14,7 +14,7 @@ class IntervalButton extends Component {
     if (this.props.timerState === timerStates.NOT_SET)
       return (
         <button
-          className="startButton buttonDefaults"
+          className="buttonDefaults startButton"
           onClick={this.props.startTimer}
         >
           <PlayArrow />
@@ -24,7 +24,7 @@ class IntervalButton extends Component {
     if (this.props.timerState === timerStates.RUNNING)
       return (
         <button
-          className="stopButton buttonDefaults"
+          className="buttonDefaults stopButton"
           onClick={this.props.stopTimer}
         >
           <StopIcon />
@@ -34,7 +34,7 @@ class IntervalButton extends Component {
     if (this.props.timerState === timerStates.COMPLETE)
       return (
         <button
-          className="resetButton buttonDefaults"
+          className="buttonDefaults resetButton"
           onClick={this.props.stopTimer}
         >
           Reset
@@ -43,7 +43,7 @@ class IntervalButton extends Component {
   }
 
   render() {
-    return <div className="row">{this.getButton()}</div>;
+    return <div>{this.getButton()}</div>;
   }
 }
 

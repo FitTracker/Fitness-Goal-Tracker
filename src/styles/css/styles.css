@@ -554,10 +554,15 @@ header {
   margin-right: auto;
   text-align: center; }
 
-.interval-header-row {
-  font-size: 1.4rem;
-  margin-bottom: 1px;
-  text-align: center; }
+.text-primary {
+  color: #39B0E6;
+  text-align: left;
+  margin: 0 0 1px 10px; }
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 30px; }
 
 .text-center {
   font-size: 5.8rem;
@@ -578,16 +583,6 @@ header {
 .resetButton {
   background: #39B0E6;
   color: #fff; }
-
-.text-primary {
-  color: #39B0E6;
-  text-align: left;
-  margin: 0 0 1px 10px; }
-
-.time-row {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 30px; }
 
 body {
   box-sizing: border-box;
