@@ -7,7 +7,6 @@
   border-color: black;
   min-height: 70vh;
   width: 50vw;
-  overflow-y: scroll;
   overflow-x: hidden; }
 
 .all-pies {
@@ -16,8 +15,15 @@
   align-items: center;
   min-height: 70vh;
   max-height: 100vh;
-  width: 100%;
-  overflow-y: scroll; }
+  width: 100%; }
+  .all-pies h3 {
+    text-align: left;
+    margin-top: 3%;
+    padding-left: 2%; }
+  .all-pies p {
+    text-align: right;
+    margin-bottom: 3%;
+    padding-right: 2%; }
 
 .pie {
   height: auto;

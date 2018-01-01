@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import * as V from "victory";
-import { VictoryBar } from "victory";
 
 import Badges from "../Badges/Badges";
 import Friends from "../Friends/Friends";

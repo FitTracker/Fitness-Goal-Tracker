@@ -549,21 +549,6 @@ header {
 .profile-input {
   margin: 15px; }
 
-.timer-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  width: max-content; }
-
-.timer-title {
-  font-size: 5.8rem;
-  margin-bottom: 1px;
-  text-align: center; }
-
-.play-buttons {
-  margin-left: auto;
-  margin-right: auto;
-  width: max-content; }
-
 * {
   margin: 0;
   padding: 0;
@@ -584,7 +569,7 @@ header {
   box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2); }
 
 /* Top portion */
-.top span.clear {
+.top button.clear {
   float: left; }
 
 /* Inset shadow on the screen to create indent */
@@ -608,15 +593,15 @@ header {
 .keys {
   overflow: hidden; }
 
-.keys span {
+.keys button {
   float: left;
   width: 66px;
   height: 40px;
   margin: 0 7px 11px 0; }
 
 /* Applying same to the keys */
-.keys span,
-.top span.clear {
+.keys button,
+.top button.clear {
   float: left;
   position: relative;
   top: 0;
@@ -636,14 +621,29 @@ header {
   transition: all 0.2s ease; }
 
 /* Some hover effects */
-.keys span:hover {
+.keys button:hover {
   background: #dddbf1;
   box-shadow: 0px 4px #2d728f;
   color: white; }
 
-.keys span:active {
+.keys button:active {
   box-shadow: 0px 0px #2d728f;
   top: 4px; }
+
+.timer-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content; }
+
+.timer-title {
+  font-size: 5.8rem;
+  margin-bottom: 1px;
+  text-align: center; }
+
+.play-buttons {
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content; }
 
 body {
   font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neueu", Helvetica, Arial, sans-serif;
@@ -690,7 +690,6 @@ body {
   border-color: black;
   min-height: 70vh;
   width: 20vw;
-  overflow-y: scroll;
   overflow-x: hidden; }
 
 .card-container {
@@ -712,7 +711,6 @@ body {
   border-color: black;
   min-height: 70vh;
   width: 50vw;
-  overflow-y: scroll;
   overflow-x: hidden; }
 
 .all-pies {
@@ -721,8 +719,15 @@ body {
   align-items: center;
   min-height: 70vh;
   max-height: 100vh;
-  width: 100%;
-  overflow-y: scroll; }
+  width: 100%; }
+  .all-pies h3 {
+    text-align: left;
+    margin-top: 3%;
+    padding-left: 2%; }
+  .all-pies p {
+    text-align: right;
+    margin-bottom: 3%;
+    padding-right: 2%; }
 
 .pie {
   height: auto;

@@ -4,7 +4,7 @@ import axios from "axios";
 //MATERIAL UI
 
 import TextField from "material-ui/TextField";
-import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
+import { Card } from "material-ui/Card";
 import RaisedButton from "material-ui/RaisedButton";
 
 const style = {
@@ -41,7 +41,10 @@ class AddProfile extends Component {
         this.setState({
           firstName: response.data[0].first_name,
           lastName: response.data[0].last_name,
-          avatarURL: response.data[0].avatar
+          avatarURL: response.data[0].avatar,
+          city: response.data[0].city,
+          us_state: response.data[0].us_state,
+          email: response.data[0].email
         });
       })
       .catch(console.log);
@@ -96,7 +99,8 @@ class AddProfile extends Component {
       })
       .then(response => {
         this.setState({ editDisabled: true });
-      });
+      })
+      .catch(console.log);
   }
 
   render() {
@@ -104,7 +108,11 @@ class AddProfile extends Component {
       <div className="profile-view">
         <Card className="profile-wrapper">
           <div className="profile-top">
-            <img className="profile-pic" src={this.state.avatarURL} />
+            <img
+              className="profile-pic"
+              alt="avatar"
+              src={this.state.avatarURL}
+            />
           </div>
           <form onSubmit={this.handleSaveButton}>
             <div className="profile-mid">

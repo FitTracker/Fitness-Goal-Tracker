@@ -13,10 +13,13 @@ let fitbitToken;
 // let stravaId;
 
 // IMPORT CONTROLLERS
+
 const goalsController = require("./controllers/goalsController");
 const friendsController = require("./controllers/friendsController");
-
+const profileController = require("./controllers/profileController");
+const badgesController = require("./controllers/badgesController");
 // BEGIN SERVER
+
 const app = express();
 
 // SERVE FRONTEND
@@ -24,6 +27,7 @@ const app = express();
 // app.use(express.static(`${__dirname}/../build`));
 
 // INITIALIZE SESSION
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -32,6 +36,7 @@ app.use(
   })
 );
 // CONNECT TO DATABASE
+
 massive(process.env.DATABASE_URL)
   .then(db => app.set("db", db))
   .catch(console.log);
@@ -41,25 +46,30 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // GOALS ENDPOINTS
+
 app.post("/api/goals", goalsController.createGoal);
 app.get("/api/friendgoals", goalsController.friendGoals);
 app.post("/api/upvotes", goalsController.addUpvote);
+app.post("/api/completedgoal", goalsController.addCompletedGoal);
 
 // FRIENDS ENDPOINTS
+
 app.post("/api/unfollow", friendsController.unfollow);
+app.post("/api/follow", friendsController.follow);
+app.get("/api/search/:name", friendsController.searchFriends);
+
+// PROFILE ENDPOINTS
+
+app.put("/api/profileInfo", profileController.editUserProfile);
+app.get("/api/userInfo", profileController.getUserProfile);
+app.get("/api/logout", profileController.logout);
 
 // BADGES ENDPOINTS
-app.get("/api/badges", (req, res) => {
-  app
-    .get("db")
-    .getUserBadges([req.session.passport.user.id])
-    .then(badges => {
-      res.status(200).json(badges);
-    })
-    .catch(console.log);
-});
 
-// FITBIT STRATEGY
+app.get("/api/badges", badgesController.getUsersCurrentBadges);
+
+// FITBIT STRATEGY AND LOGIN
+
 passport.use(
   new FitBitStrategy(
     {
@@ -78,47 +88,81 @@ passport.deserializeUser((obj, done) => {
   done(null, obj);
 });
 
-// ENDPOINTS
-app.get("/api/userInfo", (req, res) => {
+app.get(
+  "/api/fitbit/login",
+  passport.authenticate("fitbit", {
+    scope: [
+      "activity",
+      "heartrate",
+      "location",
+      "nutrition",
+      "profile",
+      "sleep",
+      "social",
+      "weight"
+    ]
+  })
+);
+app.get(
+  "/api/fitbit/callback",
+  passport.authenticate("fitbit", {
+    successRedirect: "http://localhost:3000/dashboard"
+  })
+);
+
+// FITBIT ENDPOINTS
+
+app.get("/api/fitbit/currentdata", getCurrentFitbitData);
+
+// CATCH-ALL TO SERVE FRONT END FILES
+
+// const path = require("path");
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/../build/index.html"));
+// });
+
+const port = process.env.PORT || 3001;
+
+app.listen(port, () => {
+  console.log(`Listening on port: ${port}`);
+});
+
+// --------------------- Separating for readability---------------------------
+
+function getOrCreatUserFitbit(
+  accessToken,
+  refreshToken,
+  extraParams,
+  profile,
+  done
+) {
+  fitbitToken = accessToken;
   app
     .get("db")
-    .getUserByFitbitId([req.session.passport.user.fitbit_id])
-    .then(user => {
-      res.status(200).json(user);
-    })
-    .catch(console.log);
-});
-
-// PROFILE ENDPOINTS
-
-app.put("/api/profileInfo", (req, res) => {
-  console.log(req.session);
-  const dbInstance = req.app.get("db");
-  const { firstName, lastName, city, us_state, email, avatarURL } = req.body;
-
-  dbInstance.profile
-    .addProfileInfo([
-      firstName,
-      lastName,
-      city,
-      us_state,
-      email,
-      avatarURL,
-      req.session.passport.user.fitbit_id
-    ])
+    .getUserByFitbitId([profile.id])
     .then(response => {
-      return res.status(200).json(response);
-    })
-    .catch(() => res.status(500).json());
-});
+      if (!response[0]) {
+        app
+          .get("db")
+          .createUserFromFitbitLogin([
+            profile.id,
+            profile._json.user.firstName,
+            profile._json.user.lastName,
+            profile._json.user.avatar,
+            profile._json.user.dateOfBirth,
+            profile._json.user.height,
+            profile._json.user.weight
+          ])
+          .then(created => {
+            return done(null, created[0]);
+          });
+      } else {
+        return done(null, response[0]);
+      }
+    });
+}
 
-app.get("/api/logout", function(req, res) {
-  req.logout();
-  res.redirect("/");
-});
-
-// GET CURRENT LIFETIME STATS FITBIT
-app.get("/api/fitbit/currentdata", (req, res) => {
+function getCurrentFitbitData(req, res) {
   request.get(
     {
       url: `https://api.fitbit.com/1/user/-/activities.json`,
@@ -147,78 +191,6 @@ app.get("/api/fitbit/currentdata", (req, res) => {
         .catch(console.log);
     }
   );
-});
-
-// Redirect To FITBIT
-app.get(
-  "/api/fitbit/login",
-  passport.authenticate("fitbit", {
-    scope: [
-      "activity",
-      "heartrate",
-      "location",
-      "nutrition",
-      "profile",
-      "sleep",
-      "social",
-      "weight"
-    ]
-  })
-);
-app.get(
-  "/api/fitbit/callback",
-  passport.authenticate("fitbit", {
-    successRedirect: "http://localhost:3000/dashboard"
-  })
-);
-
-// CATCH-ALL TO SERVE FRONT END FILES
-
-// const path = require("path");
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/../build/index.html"));
-// });
-
-const port = process.env.PORT || 3001;
-
-app.listen(port, () => {
-  console.log(`Listening on port: ${port}`);
-});
-
-// --------------------- Separating for readability---------------------------
-
-function getOrCreatUserFitbit(
-  accessToken,
-  refreshToken,
-  extraParams,
-  profile,
-  done
-) {
-  fitbitToken = accessToken;
-  console.log(profile);
-  app
-    .get("db")
-    .getUserByFitbitId([profile.id])
-    .then(response => {
-      if (!response[0]) {
-        app
-          .get("db")
-          .createUserFromFitbitLogin([
-            profile.id,
-            profile._json.user.firstName,
-            profile._json.user.lastName,
-            profile._json.user.avatar,
-            profile._json.user.dateOfBirth,
-            profile._json.user.height,
-            profile._json.user.weight
-          ])
-          .then(created => {
-            return done(null, created[0]);
-          });
-      } else {
-        return done(null, response[0]);
-      }
-    });
 }
 
 // function getOrCreatUserStrava(

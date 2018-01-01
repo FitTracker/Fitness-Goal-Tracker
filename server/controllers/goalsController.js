@@ -19,7 +19,6 @@ module.exports = {
             req.body.goalEndDate
           ])
           .then(goals => {
-            console.log(goals);
             res.status(200).json(goals);
           })
           .catch(console.log);
@@ -39,6 +38,14 @@ module.exports = {
     req.app
       .get("db")
       .addUpvote([req.body.id, req.session.passport.user.id])
+      .then(goals => {
+        res.status(200).json(goals);
+      });
+  },
+  addCompletedGoal: (req, res, next) => {
+    req.app
+      .get("db")
+      .addCompletedGoal([req.body.goal_id])
       .then(goals => {
         res.status(200).json(goals);
       });
