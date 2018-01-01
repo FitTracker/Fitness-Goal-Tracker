@@ -181,6 +181,7 @@ export function completeGoal(id) {
     payload: axios
       .post("/api/completedgoal", { goal_id: id })
       .then(response => response)
+      .then(console.log(id))
   };
 }
 

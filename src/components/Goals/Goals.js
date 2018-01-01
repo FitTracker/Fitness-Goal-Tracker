@@ -4,6 +4,7 @@ import { Card } from "material-ui/Card";
 import { connect } from "react-redux";
 import moment from "moment";
 import * as V from "victory";
+import FlatButton from "material-ui/FlatButton";
 
 import {
   getCurrentGoalsAndData,
@@ -18,6 +19,7 @@ class Goals extends Component {
   componentDidMount() {
     this.props.getCurrentGoalsAndData();
     this.props.getBadges();
+    this.props.completeGoal();
   }
 
   render() {
@@ -42,7 +44,7 @@ class Goals extends Component {
                 height={200}
                 data={[
                   { x: "Goal Steps", y: Number(element.goal_value) },
-                  { x: "Current", y: this.props.testSteps }
+                  { x: "Current", y: this.props.currentStats[0].steps }
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
@@ -50,7 +52,7 @@ class Goals extends Component {
               <p>
                 {" "}
                 You have {moment(element.end_date).fromNow(true)} left to
-                accomplish this goal!{" "}
+                accomplish this goal!
               </p>
             </Card>
           );
@@ -70,10 +72,10 @@ class Goals extends Component {
               avatar={
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
+              onLoad={completeGoal(element.goal_id)}
+              // ^ this is supposed to set goal completion status to true in db
             />
           );
-        // onClick={this.props.completeGoal(element.goal_id)}
-        // </div>
       });
     const distGoals =
       this.props.goals.length > 0 &&
@@ -90,21 +92,20 @@ class Goals extends Component {
                 // innerRadius={68} // style={{ labels: { fontSize: 12, fill: "white" } }}
                 // labelRadius={100}
                 height={200}
-                data={
-                  [
-                    {
-                      x: `Goal Distance: ${element.goal_value}`,
-                      y: Number(element.goal_value),
-                      label: "Goal"
-                    },
-                    {
-                      x: `Current Distance: ${this.props.testSteps}`,
-                      y: this.props.testSteps,
-                      label: "Progress"
-                    }
-                  ]
-                  // added test steps since we dont have access to actual fitbit user who would bother to walk and update current steps in db
-                }
+                data={[
+                  {
+                    x: `Goal Distance: ${element.goal_value}`,
+                    y: Number(element.goal_value),
+                    label: "Goal"
+                  },
+                  {
+                    x: `Current Distance: ${
+                      this.props.currentStats[0].distance_km
+                    }`,
+                    y: this.props.currentStats[0].distance_km,
+                    label: "Progress"
+                  }
+                ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
                 cornerRadius={10}
@@ -133,6 +134,8 @@ class Goals extends Component {
               avatar={
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
+              onLoad={completeGoal(element.goal_id)}
+              // ^ this is supposed to set goal completion status to true in db
             />
           );
       });
@@ -155,7 +158,7 @@ function mapStateToProps(state) {
   return {
     goals: state.goals,
     testSteps: state.testSteps,
-    goal_id: state.goal_id,
+    // goal_id: state.goal_id,
     userBadges: state.userBadges,
     currentStats: state.currentStats
   };
