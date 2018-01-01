@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
+import { connect } from "react-redux";
 import { getBadges } from "../../ducks/reducer.js";
 
 import BadgeCard from "../BadgeCard/BadgeCard";

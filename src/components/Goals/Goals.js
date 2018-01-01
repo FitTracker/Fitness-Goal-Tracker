@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import "./Goals.scss";
+
 import { Card } from "material-ui/Card";
 import { connect } from "react-redux";
 import moment from "moment";
 import * as V from "victory";
-import FlatButton from "material-ui/FlatButton";
 
 import {
   getCurrentGoalsAndData,
