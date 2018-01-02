@@ -54,7 +54,7 @@ class StopwatchComponent extends Component {
 
   render() {
     return (
-      <div className="stospwatch-wrapper">
+      <div className="stopwatch-wrapper">
         <h1 className="stopwatch-header">
           {formattedSeconds(this.state.secondsElapsed)}
         </h1>
