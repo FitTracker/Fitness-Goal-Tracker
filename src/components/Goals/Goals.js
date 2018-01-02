@@ -37,14 +37,19 @@ class Goals extends Component {
                 animate={{ duration: 1000 }}
                 height={200}
                 data={[
-                  { x: `Remaining: ${(endVal - (
-                currentSteps - element.starting_value
-              )).toLocaleString()}`, y: (
-                currentSteps - element.starting_value
-              )},
-                  { x: `Current: ${(
-                currentSteps - element.starting_value
-              ).toLocaleString()}`, y: endVal }
+                  {
+                    x: `Remaining: ${(
+                      endVal -
+                      (currentSteps - element.starting_value)
+                    ).toLocaleString()}`,
+                    y: currentSteps - element.starting_value
+                  },
+                  {
+                    x: `Current: ${(
+                      currentSteps - element.starting_value
+                    ).toLocaleString()}`,
+                    y: endVal
+                  }
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
@@ -97,20 +102,19 @@ class Goals extends Component {
                   {
                     x: `Goal Distance: ${element.goal_value}`,
                     y: endVal,
-                    label: `Remaining: ${(endVal - (
-                distanceKm - element.starting_value
-              ) ).toLocaleString()} kmrs`
+                    label: `Remaining: ${(
+                      endVal -
+                      (distanceKm - element.starting_value)
+                    ).toLocaleString()} kms`
                   },
                   {
                     x: `Current Distance: ${
                       this.props.currentStats[0].distance_km
                     }`,
-                    y: (
-                distanceKm - element.starting_value
-              ),
+                    y: distanceKm - element.starting_value,
                     label: `Current: ${(
-                distanceKm - element.starting_value
-              ).toLocaleString()} km`
+                      distanceKm - element.starting_value
+                    ).toLocaleString()} kms`
                   }
                 ]}
                 theme={V.VictoryTheme.material}
