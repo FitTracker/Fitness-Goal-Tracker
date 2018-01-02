@@ -15,9 +15,6 @@ export default (
   <Switch>
     <Route exact path="/" component={Landing} />
     <Route path="/dashboard" component={Dashboard} />
-    <Route path="/friends" component={Friends} />
-    <Route path="/goals" component={Goals} />
-    <Route path="/badges" component={Badges} />
     <Route path="/time" component={Time} />
     <Route path="/create-profile" component={AddProfile} />
     <Route path="*" component={NotFound} />
