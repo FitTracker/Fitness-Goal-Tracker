@@ -1,0 +1,1 @@
+SELECT DISTINCT id, title, subtitle, avatar, badge_id FROM badges INNER JOIN user_badges ON badges.id = user_badges.badge_id WHERE user_id = $1;

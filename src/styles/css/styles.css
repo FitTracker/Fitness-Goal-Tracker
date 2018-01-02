@@ -428,17 +428,19 @@ button:disabled {
   color: #383f51; }
 
 .middle-container {
-  height: 90vh;
+  height: 95vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-image: url("/runner");
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-weight: bold; }
+  font-weight: bold;
+  overflow: hidden; }
 
 .banner {
   color: #3b8ea5;
