@@ -19,7 +19,17 @@ module.exports = {
             req.body.goalEndDate
           ])
           .then(goals => {
-            res.status(200).json(goals);
+            if (goals.length === 1) {
+              req.app
+                .get("db")
+                .addFirstGoalBadge([goals[0].user_id])
+                .then(badges => {
+                  res.status(200).json(goals);
+                })
+                .catch(console.log);
+            } else {
+              res.status(200).json(goals);
+            }
           })
           .catch(console.log);
       })
@@ -43,6 +53,7 @@ module.exports = {
       });
   },
   addComplGoal: (req, res, next) => {
+    console.log("hit hit hit hit hit hit hit");
     req.app
       .get("db")
       .addCompletedGoal([req.body.goal_id])

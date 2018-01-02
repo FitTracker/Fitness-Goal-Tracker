@@ -1,0 +1,1 @@
+INSERT INTO user_badges (user_id, badge_id) VALUES ($1, 3);

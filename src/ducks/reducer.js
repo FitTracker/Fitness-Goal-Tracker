@@ -24,7 +24,6 @@ const HANDLE_UNFOLLOW = "HANDLE_UNFOLLOW";
 const COMPLETE_GOAL = "COMPLETE_GOAL";
 const SEARCH_FRIENDS = "SEARCH_FRIENDS";
 const FOLLOW = "FOLLOW";
-const UPDATE_BADGES = "UPDATE_BADGES";
 
 // REDUCER
 export default function(state = initialState, action) {
@@ -103,6 +102,9 @@ export default function(state = initialState, action) {
         isLoading: false
       });
     case COMPLETE_GOAL + "_REJECTED":
+      console.log(action.payload);
+      break;
+
     case SEARCH_FRIENDS + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
 
@@ -175,6 +177,7 @@ export function handleUpvote(id) {
     payload: axios.post("/api/upvotes", { id: id }).then(response => response)
   };
 }
+
 export function completeGoal(id) {
   return {
     type: COMPLETE_GOAL,

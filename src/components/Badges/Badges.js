@@ -10,8 +10,16 @@ class Badges extends Component {
     this.props.getBadges();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (
+      this.props.goals !== nextProps.goals ||
+      this.props.userBadges !== nextProps.userBadges
+    ) {
+      this.props.getBadges();
+    }
+  }
   render() {
-    const { userBadges } = this.props;
+    const { userBadges, goals } = this.props;
 
     const badgeDisplay = userBadges.map(badge => (
       <BadgeCard
@@ -32,6 +40,9 @@ class Badges extends Component {
 }
 
 function mapStateToProps(state) {
-  return state;
+  return {
+    goals: state.goals,
+    userBadges: state.userBadges
+  };
 }
 export default connect(mapStateToProps, { getBadges })(Badges);

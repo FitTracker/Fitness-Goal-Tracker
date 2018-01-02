@@ -68,6 +68,10 @@ app.get("/api/logout", profileController.logout);
 
 app.get("/api/badges", badgesController.getUsersCurrentBadges);
 
+// FITBIT ENDPOINTS
+
+app.get("/api/fitbit/currentdata", getCurrentFitbitData);
+
 // FITBIT STRATEGY AND LOGIN
 
 passport.use(
@@ -109,10 +113,6 @@ app.get(
     successRedirect: "http://localhost:3000/dashboard"
   })
 );
-
-// FITBIT ENDPOINTS
-
-app.get("/api/fitbit/currentdata", getCurrentFitbitData);
 
 // CATCH-ALL TO SERVE FRONT END FILES
 
@@ -183,7 +183,7 @@ function getCurrentFitbitData(req, res) {
       app
         .get("db")
         .addCurrentDataToLifetimeStatsTable([
-          body.lifetime.total.distance,
+          Math.floor(body.lifetime.total.distance),
           body.lifetime.total.steps,
           req.session.passport.user.id
         ])
