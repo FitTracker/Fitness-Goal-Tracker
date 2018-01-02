@@ -98,7 +98,7 @@ export default function(state = initialState, action) {
 
     case COMPLETE_GOAL + "_FULFILLED":
       return Object.assign({}, state, {
-        goal_id: action.payload.data,
+        userBadges: action.payload.data,
         isLoading: false
       });
     case COMPLETE_GOAL + "_REJECTED":

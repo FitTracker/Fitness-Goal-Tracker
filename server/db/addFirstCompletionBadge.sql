@@ -1,1 +1,2 @@
+INSERT INTO user_badges (user_id, badge_id) VALUES ($1, 4);
 SELECT DISTINCT id, title, subtitle, avatar, badge_id FROM badges INNER JOIN user_badges ON badges.id = user_badges.badge_id WHERE user_id = $1;
