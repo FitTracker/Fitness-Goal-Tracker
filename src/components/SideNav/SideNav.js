@@ -72,6 +72,10 @@ class SideNav extends Component {
         ) : (
           <div>
             <AppBar
+              style={{
+                backgroundColor: "#2d728f",
+                fontFamily: '"Open Sans", sans-serif'
+              }}
               title={this.state.name}
               onLeftIconButtonClick={() =>
                 this.setState(
@@ -82,30 +86,58 @@ class SideNav extends Component {
               iconElementRight={rightButtons}
             />
             <Drawer
+              className="drawer"
+              containerStyle={{ backgroundColor: "#2d728f", padding: "20px" }}
               open={this.state.open}
               docked={false}
               onRequestChange={open => this.setState({ open })}
             >
-              <div className="SideNavlogo">Fittr</div>
-
-              <Link to="/create-profile">
-                <MenuItem onTouchTap={this.handleClose}>Profile</MenuItem>
-              </Link>
-              <Link to="/dashboard">
-                <MenuItem onTouchTap={this.handleClose}>Dashboard</MenuItem>
-              </Link>
-              <Link to="/friends">
-                <MenuItem onTouchTap={this.handleClose}>Friends</MenuItem>
-              </Link>
-              <Link to="/goals">
-                <MenuItem onTouchTap={this.handleClose}>Goals</MenuItem>
-              </Link>
-              <Link to="/badges">
-                <MenuItem onTouchTap={this.handleClose}>Badges</MenuItem>
-              </Link>
-              <Link to="/Timer">
-                <MenuItem onTouchTap={this.handleClose}>Timer</MenuItem>
-              </Link>
+              <div className="SideNavLogo">
+                <img
+                  src={require("../../Images/F.png")}
+                  alt="logo"
+                  style={{ height: "85px", width: "85px", borderRadius: "50%" }}
+                />
+                <div className="SideNavLogoText">ittr</div>
+              </div>
+              <div className="SideNavLinks">
+                <Link to="/create-profile">
+                  <MenuItem
+                    style={{
+                      color: "#f7f7ff",
+                      fontFamily: '"Open Sans", sans-serif',
+                      fontSize: "20px"
+                    }}
+                    onTouchTap={this.handleClose}
+                  >
+                    Profile
+                  </MenuItem>
+                </Link>
+                <Link to="/dashboard">
+                  <MenuItem
+                    style={{
+                      color: "#f7f7ff",
+                      fontFamily: '"Open Sans", sans-serif',
+                      fontSize: "20px"
+                    }}
+                    onTouchTap={this.handleClose}
+                  >
+                    Dashboard
+                  </MenuItem>
+                </Link>
+                <Link to="/Timer">
+                  <MenuItem
+                    style={{
+                      color: "#f7f7ff",
+                      fontFamily: '"Open Sans", sans-serif',
+                      fontSize: "20px"
+                    }}
+                    onTouchTap={this.handleClose}
+                  >
+                    Time
+                  </MenuItem>
+                </Link>
+              </div>
             </Drawer>
           </div>
         )}
