@@ -30,6 +30,7 @@ class Goals extends Component {
     const stepGoals =
       this.props.goals.length > 0 &&
       this.props.goals.map((element, index) => {
+        console.log(this.props.currentStats[0].steps);
         let endVal = Number(element.goal_value - element.starting_value);
 
         if (element.goal_type === "steps" && element.goal_value > currentSteps)
@@ -38,7 +39,7 @@ class Goals extends Component {
               <h3>{`You have walked ${(
                 currentSteps - element.starting_value
               ).toLocaleString()} steps out of your goal of ${endVal.toLocaleString()}`}</h3>
-              <V.VictoryPie
+              {/* <V.VictoryPie
                 animate={{ duration: 1000 }}
                 height={200}
                 data={[
@@ -47,7 +48,33 @@ class Goals extends Component {
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
+              /> */}
+              {/* <div>
+                <svg width={200} height={200}>
+                  <text x={100} y={110} textAnchor="middle">
+                    {this.props.currentStats[0].steps} steps
+                  </text> */}
+              <V.VictoryPie
+                padAngle={0}
+                // used to hide labels
+                labelComponent={<span />}
+                // innerRadius={50}
+                // width={200}
+                height={200}
+                data={[
+                  { key: "", y: Number(this.props.currentStats[0].steps) },
+                  {
+                    key: "",
+                    y:
+                      Number(element.goal_value) -
+                      Number(this.props.currentStats[0].steps)
+                  }
+                ]}
+                theme={V.VictoryTheme.material}
+                colorScale="blue"
               />
+              {/* </svg>
+              </div> */}
               <p>
                 {" "}
                 You have {moment(element.end_date).fromNow(true)} left to
@@ -88,8 +115,6 @@ class Goals extends Component {
                 distanceKm - element.starting_value
               ).toLocaleString()} km out of your goal of ${endVal.toLocaleString()}`}</h3>
               <V.VictoryPie
-                // innerRadius={68} // style={{ labels: { fontSize: 12, fill: "white" } }}
-                // labelRadius={100}
                 height={200}
                 data={[
                   {

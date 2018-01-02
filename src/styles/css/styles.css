@@ -425,6 +425,12 @@ button:disabled {
   justify-content: center;
   align-items: center; }
 
+.teal-button {
+  background-color: #383f51 !important;
+  margin: 0 !important;
+  display: flex;
+  color: #f7f7ff !important; }
+
 .main {
   width: 100%; }
 
@@ -446,22 +452,21 @@ button:disabled {
   color: #383f51; }
 
 .middle-container {
-  min-height: 100vh;
+  height: 90vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-image: url("/runner");
-  background-attachment: fixed;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold; }
 
 .banner {
-  color: #383f51; }
+  color: #3b8ea5;
+  margin-top: -20vh; }
 
 @media (max-width: 1025px) {
   .main {
