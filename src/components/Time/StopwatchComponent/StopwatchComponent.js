@@ -25,7 +25,6 @@ class StopwatchComponent extends Component {
   }
 
   startStopwatch() {
-    console.log("started");
     this.setState({ stopwatchState: stopwatchStates.RUNNING });
 
     this.incrementer = setInterval(
