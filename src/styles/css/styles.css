@@ -410,30 +410,6 @@ button:disabled {
 .is-active {
   font-weight: bold; }
 
-.splash {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.splash-main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.teal-button {
-  background-color: #383f51 !important;
-  margin: 0 !important;
-  display: flex;
-  color: #f7f7ff !important; }
-
-.main {
-  width: 100%; }
-
 .mid-card {
   min-height: 80vh;
   width: 100%;
@@ -466,7 +442,8 @@ button:disabled {
 
 .banner {
   color: #3b8ea5;
-  margin-top: -20vh; }
+  margin-top: -20vh;
+  margin-left: 40vh; }
 
 @media (max-width: 1025px) {
   .main {

@@ -34,27 +34,7 @@ class Goals extends Component {
               <h3>{`You have walked ${(
                 currentSteps - element.starting_value
               ).toLocaleString()} steps out of your goal of ${endVal.toLocaleString()}`}</h3>
-              {/* <V.VictoryPie
-                animate={{ duration: 1000 }}
-                height={200}
-                data={[
-                  { x: `Remaining: ${(endVal - (
-                currentSteps - element.starting_value
-              )).toLocaleString()}`, y: (
-                currentSteps - element.starting_value
-              )},
-                  { x: `Current: ${(
-                currentSteps - element.starting_value
-              ).toLocaleString()}`, y: endVal }
-                ]}
-                theme={V.VictoryTheme.material}
-                colorScale="blue"
-              /> */}
-              {/* <div>
-                <svg width={200} height={200}>
-                  <text x={100} y={110} textAnchor="middle">
-                    {this.props.currentStats[0].steps} steps
-                  </text> */}
+
               <V.VictoryPie
                 padAngle={0}
                 // used to hide labels
@@ -122,20 +102,19 @@ class Goals extends Component {
                   {
                     x: `Goal Distance: ${element.goal_value}`,
                     y: endVal,
-                    label: `Remaining: ${(endVal - (
-                distanceKm - element.starting_value
-              ) ).toLocaleString()} kmrs`
+                    label: `Remaining: ${(
+                      endVal -
+                      (distanceKm - element.starting_value)
+                    ).toLocaleString()} kmrs`
                   },
                   {
                     x: `Current Distance: ${
                       this.props.currentStats[0].distance_km
                     }`,
-                    y: (
-                distanceKm - element.starting_value
-              ),
+                    y: distanceKm - element.starting_value,
                     label: `Current: ${(
-                distanceKm - element.starting_value
-              ).toLocaleString()} km`
+                      distanceKm - element.starting_value
+                    ).toLocaleString()} km`
                   }
                 ]}
                 theme={V.VictoryTheme.material}
