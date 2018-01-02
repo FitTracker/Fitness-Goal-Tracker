@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
+import { connect } from "react-redux";
 import { getBadges } from "../../ducks/reducer.js";
 
 import BadgeCard from "../BadgeCard/BadgeCard";
@@ -10,8 +10,14 @@ class Badges extends Component {
     this.props.getBadges();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.goals !== nextProps.goals) {
+      this.props.getBadges();
+    }
+
+  }
   render() {
-    const { userBadges } = this.props;
+    const { userBadges, goals } = this.props;
 
     const badgeDisplay = userBadges.map(badge => (
       <BadgeCard
@@ -25,7 +31,6 @@ class Badges extends Component {
     return (
       <div className="badges-container">
         <h1> Badges </h1>
-
         {badgeDisplay}
       </div>
     );
@@ -33,6 +38,9 @@ class Badges extends Component {
 }
 
 function mapStateToProps(state) {
-  return state;
+  return {
+    goals: state.goals,
+    userBadges: state.userBadges
+  };
 }
 export default connect(mapStateToProps, { getBadges })(Badges);

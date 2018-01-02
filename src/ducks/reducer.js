@@ -98,10 +98,13 @@ export default function(state = initialState, action) {
 
     case COMPLETE_GOAL + "_FULFILLED":
       return Object.assign({}, state, {
-        goal_id: action.payload.data,
+        userBadges: action.payload.data,
         isLoading: false
       });
     case COMPLETE_GOAL + "_REJECTED":
+      console.log(action.payload);
+      break;
+
     case SEARCH_FRIENDS + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
 
@@ -118,7 +121,6 @@ export default function(state = initialState, action) {
 
     case FOLLOW + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
-
     case FOLLOW + "_FULFILLED":
       return Object.assign({}, state, {
         friendsGoals: action.payload.data,
@@ -175,13 +177,13 @@ export function handleUpvote(id) {
     payload: axios.post("/api/upvotes", { id: id }).then(response => response)
   };
 }
+
 export function completeGoal(id) {
   return {
     type: COMPLETE_GOAL,
     payload: axios
       .post("/api/completedgoal", { goal_id: id })
       .then(response => response)
-      .then(console.log(id))
   };
 }
 
