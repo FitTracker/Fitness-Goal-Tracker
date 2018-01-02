@@ -38,10 +38,14 @@ class Goals extends Component {
                 animate={{ duration: 1000 }}
                 height={200}
                 data={[
-                  { x: "Goal Steps", y: (
+                  { x: `Remaining: ${(endVal - (
+                currentSteps - element.starting_value
+              )).toLocaleString()}`, y: (
                 currentSteps - element.starting_value
               )},
-                  { x: "Current", y: endVal }
+                  { x: `Current: ${(
+                currentSteps - element.starting_value
+              ).toLocaleString()}`, y: endVal }
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
@@ -94,7 +98,9 @@ class Goals extends Component {
                   {
                     x: `Goal Distance: ${element.goal_value}`,
                     y: endVal,
-                    label: "Goal"
+                    label: `Remaining: ${(endVal - (
+                distanceKm - element.starting_value
+              ) ).toLocaleString()} km`
                   },
                   {
                     x: `Current Distance: ${
@@ -103,7 +109,9 @@ class Goals extends Component {
                     y: (
                 distanceKm - element.starting_value
               ),
-                    label: "Progress"
+                    label: `Current: ${(
+                distanceKm - element.starting_value
+              ).toLocaleString()} km`
                   }
                 ]}
                 theme={V.VictoryTheme.material}
