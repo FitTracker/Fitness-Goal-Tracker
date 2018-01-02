@@ -410,24 +410,6 @@ button:disabled {
 .is-active {
   font-weight: bold; }
 
-.splash {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.splash-main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.main {
-  width: 100%; }
-
 .mid-card {
   min-height: 80vh;
   width: 100%;
@@ -446,7 +428,7 @@ button:disabled {
   color: #383f51; }
 
 .middle-container {
-  min-height: 100vh;
+  height: 95vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -454,14 +436,19 @@ button:disabled {
   justify-content: center;
   background-image: url("/runner");
   background-attachment: fixed;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-weight: bold; }
+  font-weight: bold;
+  overflow: hidden; }
 
 .banner {
-  color: #383f51; }
+  color: #3b8ea5;
+  margin-top: -20vh;
+  margin-left: 100vh; }
+
+.button-front {
+  margin-left: 100vh; }
 
 @media (max-width: 1025px) {
   .main {
@@ -494,8 +481,20 @@ header {
   justify-content: space-around;
   padding: 1% 5%; }
 
-.SideNavlogo {
-  color: blue; }
+.SideNavLogo {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px; }
+
+.SideNavLogoText {
+  margin-top: 21px;
+  font-size: 45px;
+  font-style: italic;
+  color: #353535;
+  font-family: "Open Sans", sans-serif; }
+
+.SideNavLinks a {
+  text-decoration: none; }
 
 .profile-view {
   height: 100vh;
