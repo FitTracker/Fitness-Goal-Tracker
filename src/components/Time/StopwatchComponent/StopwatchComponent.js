@@ -76,10 +76,7 @@ class StopwatchComponent extends Component {
 
         {this.state.secondsElapsed !== 0 &&
         this.incrementer !== this.state.lastClearedIncrementer ? (
-          <button
-            className="buttonDefaults resetButton"
-            onClick={this.handleLapClick}
-          >
+          <button className="buttonDefaults" onClick={this.handleLapClick}>
             <ResetIcon />
           </button>
         ) : null}
