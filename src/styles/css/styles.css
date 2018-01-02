@@ -534,13 +534,13 @@ header {
 .profile-input {
   margin: 15px; }
 
-.interval-container {
+.timer-container {
   margin-left: auto;
   margin-right: auto;
   text-align: center; }
 
 .text-primary {
-  color: #39B0E6;
+  color: #39b0e6;
   text-align: left;
   margin: 0 0 1px 10px; }
 
@@ -559,14 +559,14 @@ header {
   width: 60px; }
 
 .startButton {
-  background: #39B0E6;
+  background: #39b0e6;
   color: #fff; }
 
 .stopButton {
-  background: #D75452; }
+  background: #d75452; }
 
 .resetButton {
-  background: #39B0E6;
+  background: #39b0e6;
   color: #fff; }
 
 body {
@@ -608,6 +608,9 @@ body {
 
 .stopwatch-lap strong::before {
   content: "Lap "; }
+
+.stopwatch-wrapper button {
+  margin: 12px; }
 
 .badges-container {
   display: flex;

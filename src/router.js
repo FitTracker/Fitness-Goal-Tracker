@@ -18,7 +18,7 @@ export default (
     <Route path="/friends" component={Friends} />
     <Route path="/goals" component={Goals} />
     <Route path="/badges" component={Badges} />
-    <Route path="/time" component={Time} />
+    <Route path="/timer" component={Time} />
     <Route path="/create-profile" component={AddProfile} />
     <Route path="*" component={NotFound} />
   </Switch>
