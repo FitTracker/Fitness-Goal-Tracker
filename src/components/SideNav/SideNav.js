@@ -100,8 +100,8 @@ class SideNav extends Component {
           <Link to="/badges">
             <MenuItem onTouchTap={this.handleClose}>Badges</MenuItem>
           </Link>
-          <Link to="/Time">
-            <MenuItem onTouchTap={this.handleClose}>Time</MenuItem>
+          <Link to="/Timer">
+            <MenuItem onTouchTap={this.handleClose}>Timer</MenuItem>
           </Link>
         </Drawer>
       </div>
