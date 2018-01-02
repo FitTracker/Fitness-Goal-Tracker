@@ -83,7 +83,6 @@ class TimerComponent extends Component {
   completeTimer() {
     if (this.state.timer) {
       clearInterval(this.state.timer);
-      console.log("play sound");
     }
 
     this.setState({
