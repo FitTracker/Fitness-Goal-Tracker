@@ -7,7 +7,7 @@ const leftPad = val => {
   return `${val}`;
 };
 
-const IntervalDisplay = props => (
+const TimerDisplay = props => (
   <div>
     <div>
       {props.timerState === timerStates.COMPLETE && (
@@ -38,4 +38,4 @@ const IntervalDisplay = props => (
   </div>
 );
 
-export default IntervalDisplay;
+export default TimerDisplay;

@@ -86,7 +86,7 @@ class TimerComponent extends Component {
 
   render() {
     return (
-      <div className="interval-container">
+      <div className="timer-container">
         <TimerDisplay
           currentTime={this.state.currentTime}
           timerState={this.state.timerState}
@@ -99,7 +99,7 @@ class TimerComponent extends Component {
           timerState={this.state.timerState}
         />
 
-        {this.state.timerState !== timerStates.RUNNING && (
+        {this.state.timerState === timerStates.NOT_SET && (
           <TimerConfig
             baseTime={this.state.baseTime}
             setBaseTime={this.setBaseTime}

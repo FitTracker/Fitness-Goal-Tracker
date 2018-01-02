@@ -3,7 +3,7 @@ import * as timerStates from "../timerStates";
 import PlayArrow from "material-ui/svg-icons/av/play-arrow";
 import StopIcon from "material-ui/svg-icons/av/stop";
 
-class IntervalButton extends Component {
+class TimerButton extends Component {
   constructor() {
     super();
 
@@ -47,4 +47,4 @@ class IntervalButton extends Component {
   }
 }
 
-export default IntervalButton;
+export default TimerButton;
