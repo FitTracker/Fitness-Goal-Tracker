@@ -14,6 +14,7 @@ class Badges extends Component {
     if (this.props.goals !== nextProps.goals) {
       this.props.getBadges();
     }
+
   }
   render() {
     const { userBadges, goals } = this.props;

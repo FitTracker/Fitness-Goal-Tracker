@@ -17,7 +17,6 @@ class Goals extends Component {
   }
 
   render() {
-    console.log(this.props);
     const currentSteps =
       this.props.currentStats[0] && this.props.currentStats[0].steps;
     const distanceKm =
@@ -100,7 +99,7 @@ class Goals extends Component {
                     y: endVal,
                     label: `Remaining: ${(endVal - (
                 distanceKm - element.starting_value
-              ) ).toLocaleString()} km`
+              ) ).toLocaleString()} kmrs`
                   },
                   {
                     x: `Current Distance: ${

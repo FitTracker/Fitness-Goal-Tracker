@@ -61,6 +61,8 @@ module.exports = {
           req.app.get('db').addFirstCompletionBadge([req.session.passport.user.id]).then( badges => {
             res.status(200).json(badges)
           }).catch(console.log)
+        } else {
+          res.status(200).json(badges)
         }
       })
       .catch(console.log);
