@@ -37,14 +37,19 @@ class Goals extends Component {
                 animate={{ duration: 1000 }}
                 height={200}
                 data={[
-                  { x: `Remaining: ${(endVal - (
-                currentSteps - element.starting_value
-              )).toLocaleString()}`, y: (
-                currentSteps - element.starting_value
-              )},
-                  { x: `Current: ${(
-                currentSteps - element.starting_value
-              ).toLocaleString()}`, y: endVal }
+                  {
+                    x: `Remaining: ${(
+                      endVal -
+                      (currentSteps - element.starting_value)
+                    ).toLocaleString()}`,
+                    y: currentSteps - element.starting_value
+                  },
+                  {
+                    x: `Current: ${(
+                      currentSteps - element.starting_value
+                    ).toLocaleString()}`,
+                    y: endVal
+                  }
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
@@ -63,8 +68,8 @@ class Goals extends Component {
           return (
             <BadgeCard
               key={index}
-              title={element.goal_type}
-              subtitle={`you have completed your goal to walk  ${Number(
+              title={"Congrats!"}
+              subtitle={`You have completed your goal to walk  ${Number(
                 endVal
               ).toLocaleString()} steps by ${moment(element.end_date).format(
                 "MMMM Do, YY"
@@ -97,20 +102,19 @@ class Goals extends Component {
                   {
                     x: `Goal Distance: ${element.goal_value}`,
                     y: endVal,
-                    label: `Remaining: ${(endVal - (
-                distanceKm - element.starting_value
-              ) ).toLocaleString()} kmrs`
+                    label: `Remaining: ${(
+                      endVal -
+                      (distanceKm - element.starting_value)
+                    ).toLocaleString()} kms`
                   },
                   {
                     x: `Current Distance: ${
                       this.props.currentStats[0].distance_km
                     }`,
-                    y: (
-                distanceKm - element.starting_value
-              ),
+                    y: distanceKm - element.starting_value,
                     label: `Current: ${(
-                distanceKm - element.starting_value
-              ).toLocaleString()} km`
+                      distanceKm - element.starting_value
+                    ).toLocaleString()} kms`
                   }
                 ]}
                 theme={V.VictoryTheme.material}
@@ -134,8 +138,8 @@ class Goals extends Component {
           return (
             <BadgeCard
               key={index}
-              title={element.goal_type}
-              subtitle={`you have completed your goal to walk a distance of ${endVal.toLocaleString()} km by ${moment(
+              title={"Congrats!"}
+              subtitle={`You have completed your goal to walk a distance of ${endVal.toLocaleString()} km by ${moment(
                 element.end_date
               ).format("MMMM Do, YY")}`}
               avatar={
@@ -147,13 +151,15 @@ class Goals extends Component {
           );
       });
     return (
-      <div className="goals-container">
-        <h1> Goals </h1>
-        <div className="all-pies">
-          {stepGoals}
-          {distGoals}
-          <div className="goal">
-            <AddGoal />
+      <div>
+        <h1 className="friends-header"> Goals </h1>
+        <div className="goals-container">
+          <div className="all-pies">
+            {stepGoals}
+            {distGoals}
+            <div className="goal">
+              <AddGoal />
+            </div>
           </div>
         </div>
       </div>
