@@ -125,7 +125,7 @@ class SideNav extends Component {
                     Dashboard
                   </MenuItem>
                 </Link>
-                <Link to="/Time">
+                <Link to="/Timer">
                   <MenuItem
                     style={{
                       color: "#f7f7ff",
