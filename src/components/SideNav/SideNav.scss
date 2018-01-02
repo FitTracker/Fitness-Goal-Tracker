@@ -1,3 +1,17 @@
-.SideNavlogo {
-  color: blue;
+.SideNavLogo {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.SideNavLogoText {
+  margin-top: 21px;
+  font-size: 45px;
+  font-style: italic;
+  color: #353535;
+  font-family: $primary-font;
+}
+
+.SideNavLinks a {
+  text-decoration: none;
 }

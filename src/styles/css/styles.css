@@ -479,10 +479,23 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 1% 0; }
+  padding: 1% 0;
+  background-color: #f7f7ff; }
 
-.SideNavlogo {
-  color: blue; }
+.SideNavLogo {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px; }
+
+.SideNavLogoText {
+  margin-top: 21px;
+  font-size: 45px;
+  font-style: italic;
+  color: #353535;
+  font-family: "Open Sans", sans-serif; }
+
+.SideNavLinks a {
+  text-decoration: none; }
 
 .profile-view {
   height: 100vh;
