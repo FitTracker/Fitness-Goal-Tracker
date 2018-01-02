@@ -37,3 +37,6 @@ body {
 
 .stopwatch-lap strong::before {
   content: "Lap "; }
+
+.stopwatch-wrapper button {
+  margin: 12px; }
