@@ -410,24 +410,6 @@ button:disabled {
 .is-active {
   font-weight: bold; }
 
-.splash {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.splash-main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.main {
-  width: 100%; }
-
 .mid-card {
   min-height: 80vh;
   width: 100%;
@@ -446,7 +428,7 @@ button:disabled {
   color: #383f51; }
 
 .middle-container {
-  min-height: 100vh;
+  height: 95vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -454,14 +436,19 @@ button:disabled {
   justify-content: center;
   background-image: url("/runner");
   background-attachment: fixed;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-weight: bold; }
+  font-weight: bold;
+  overflow: hidden; }
 
 .banner {
-  color: #383f51; }
+  color: #3b8ea5;
+  margin-top: -20vh;
+  margin-left: 100vh; }
+
+.button-front {
+  margin-left: 100vh; }
 
 @media (max-width: 1025px) {
   .main {
@@ -562,13 +549,13 @@ header {
 .profile-input {
   margin: 15px; }
 
-.interval-container {
+.timer-container {
   margin-left: auto;
   margin-right: auto;
   text-align: center; }
 
 .text-primary {
-  color: #39B0E6;
+  color: #39b0e6;
   text-align: left;
   margin: 0 0 1px 10px; }
 
@@ -587,14 +574,14 @@ header {
   width: 60px; }
 
 .startButton {
-  background: #39B0E6;
+  background: #39b0e6;
   color: #fff; }
 
 .stopButton {
-  background: #D75452; }
+  background: #d75452; }
 
 .resetButton {
-  background: #39B0E6;
+  background: #39b0e6;
   color: #fff; }
 
 body {
@@ -636,6 +623,9 @@ body {
 
 .stopwatch-lap strong::before {
   content: "Lap "; }
+
+.stopwatch-wrapper button {
+  margin: 12px; }
 
 .badges-container {
   display: flex;

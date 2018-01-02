@@ -5,6 +5,8 @@ import TimerButton from "./TimerButton";
 import TimerConfig from "./TimerConfig";
 import * as timerStates from "../timerStates";
 
+const timerAudio = document.getElementById("timerAudio");
+
 class TimerComponent extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,8 @@ class TimerComponent extends Component {
       currentTime: moment.duration(0, "seconds"),
       baseTime: moment.duration(0, "seconds"),
       timerState: timerStates.NOT_SET,
-      timer: null
+      timer: null,
+      playSound: false
     };
 
     this.setBaseTime = this.setBaseTime.bind(this);
@@ -51,8 +54,12 @@ class TimerComponent extends Component {
     this.setState({
       timerState: timerStates.NOT_SET,
       timer: null,
-      currentTime: moment.duration(this.state.baseTime)
+      currentTime: moment.duration(this.state.baseTime),
+      playSound: false
     });
+    if (this.state.playSound) {
+      timerAudio.pause();
+    }
   }
 
   reduceTimer() {
@@ -80,13 +87,18 @@ class TimerComponent extends Component {
 
     this.setState({
       timerState: timerStates.COMPLETE,
-      timer: null
+      timer: null,
+      playSound: true
     });
+
+    if (this.state.playSound) {
+      timerAudio.play();
+    }
   }
 
   render() {
     return (
-      <div className="interval-container">
+      <div className="timer-container">
         <TimerDisplay
           currentTime={this.state.currentTime}
           timerState={this.state.timerState}
@@ -99,7 +111,7 @@ class TimerComponent extends Component {
           timerState={this.state.timerState}
         />
 
-        {this.state.timerState !== timerStates.RUNNING && (
+        {this.state.timerState === timerStates.NOT_SET && (
           <TimerConfig
             baseTime={this.state.baseTime}
             setBaseTime={this.setBaseTime}

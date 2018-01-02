@@ -51,11 +51,12 @@ class SideNav extends Component {
       <div>
         {this.state.name === "" ? (
           <FlatButton
-            label="Login"
-            onClick={() => {
-              this.Login();
-            }}
-            style={styles}
+          // label="Login"
+          // onClick={() => {
+          //   this.Login();
+          // }}
+          // style={styles}
+          //the button is hidden unless user is logged in, then logout button is shown on the navbar
           />
         ) : (
           <div>
@@ -134,6 +135,48 @@ class SideNav extends Component {
             </Link>
           </div>
         </Drawer>
+        {this.state.name === "" ? (
+          <AppBar />
+        ) : (
+          <div>
+            <AppBar
+              title={this.state.name}
+              onLeftIconButtonClick={() =>
+                this.setState(
+                  // iconClassNameRight="muidocs-icon-navigation-expand-more"
+                  { open: !this.state.open }
+                )
+              }
+              iconElementRight={rightButtons}
+            />
+            <Drawer
+              open={this.state.open}
+              docked={false}
+              onRequestChange={open => this.setState({ open })}
+            >
+              <div className="SideNavlogo">Fittr</div>
+
+              <Link to="/create-profile">
+                <MenuItem onTouchTap={this.handleClose}>Profile</MenuItem>
+              </Link>
+              <Link to="/dashboard">
+                <MenuItem onTouchTap={this.handleClose}>Dashboard</MenuItem>
+              </Link>
+              <Link to="/friends">
+                <MenuItem onTouchTap={this.handleClose}>Friends</MenuItem>
+              </Link>
+              <Link to="/goals">
+                <MenuItem onTouchTap={this.handleClose}>Goals</MenuItem>
+              </Link>
+              <Link to="/badges">
+                <MenuItem onTouchTap={this.handleClose}>Badges</MenuItem>
+              </Link>
+              <Link to="/Timer">
+                <MenuItem onTouchTap={this.handleClose}>Timer</MenuItem>
+              </Link>
+            </Drawer>
+          </div>
+        )}
       </div>
     );
   }

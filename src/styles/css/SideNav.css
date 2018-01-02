@@ -2,8 +2,10 @@
   color: black;
   display: flex;
   flex-direction: row;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 .SideNavLogoText {
   margin-top: 9px;
-  font-size: 30px; }
+  font-size: 30px;
+}

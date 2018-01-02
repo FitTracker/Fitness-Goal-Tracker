@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class IntervalConfig extends Component {
+class TimerConfig extends Component {
   constructor() {
     super();
 
@@ -83,4 +83,4 @@ class IntervalConfig extends Component {
   }
 }
 
-export default IntervalConfig;
+export default TimerConfig;
