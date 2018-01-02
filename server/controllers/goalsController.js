@@ -48,7 +48,6 @@ module.exports = {
       .addCompletedGoal([req.body.goal_id])
       .then(goals => {
         res.status(200).json(goals);
-        console.log(goals);
       })
       .catch(console.log);
   }

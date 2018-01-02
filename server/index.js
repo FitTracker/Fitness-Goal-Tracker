@@ -66,9 +66,6 @@ app.get("/api/logout", profileController.logout);
 
 // BADGES ENDPOINTS
 
-app.get("/api/updatebadges", (req, res, next) => {
-  res.json("finish this endpoint up tomorrow my man!");
-});
 app.get("/api/badges", badgesController.getUsersCurrentBadges);
 
 // FITBIT STRATEGY AND LOGIN
@@ -157,8 +154,15 @@ function getOrCreatUserFitbit(
             profile._json.user.weight
           ])
           .then(created => {
-            return done(null, created[0]);
-          });
+            app
+              .get("db")
+              .addWelcomeBadge([created[0].id])
+              .then(results => {
+                return done(null, created[0]);
+              })
+              .catch(console.log);
+          })
+          .catch(console.log);
       } else {
         return done(null, response[0]);
       }

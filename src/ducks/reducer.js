@@ -24,6 +24,7 @@ const HANDLE_UNFOLLOW = "HANDLE_UNFOLLOW";
 const COMPLETE_GOAL = "COMPLETE_GOAL";
 const SEARCH_FRIENDS = "SEARCH_FRIENDS";
 const FOLLOW = "FOLLOW";
+const UPDATE_BADGES = "UPDATE_BADGES";
 
 // REDUCER
 export default function(state = initialState, action) {
@@ -118,7 +119,6 @@ export default function(state = initialState, action) {
 
     case FOLLOW + "_PENDING":
       return Object.assign({}, state, { isLoading: true });
-
     case FOLLOW + "_FULFILLED":
       return Object.assign({}, state, {
         friendsGoals: action.payload.data,
@@ -181,7 +181,6 @@ export function completeGoal(id) {
     payload: axios
       .post("/api/completedgoal", { goal_id: id })
       .then(response => response)
-      .then(console.log(id))
   };
 }
 

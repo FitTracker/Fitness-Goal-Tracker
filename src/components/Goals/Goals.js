@@ -5,11 +5,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import * as V from "victory";
 
-import {
-  getCurrentGoalsAndData,
-  completeGoal,
-  getBadges
-} from "../../ducks/reducer.js";
+import { getCurrentGoalsAndData, completeGoal } from "../../ducks/reducer.js";
 
 import AddGoal from "../AddGoal/AddGoal";
 import BadgeCard from "../BadgeCard/BadgeCard";
@@ -17,7 +13,6 @@ import BadgeCard from "../BadgeCard/BadgeCard";
 class Goals extends Component {
   componentDidMount() {
     this.props.getCurrentGoalsAndData();
-    this.props.getBadges();
     this.props.completeGoal();
   }
 
@@ -165,6 +160,5 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, {
   getCurrentGoalsAndData,
-  completeGoal,
-  getBadges
+  completeGoal
 })(Goals);
