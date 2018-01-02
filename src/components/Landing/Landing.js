@@ -19,7 +19,7 @@ export default class Landing extends Component {
           <div>
             <h1 className="banner">Challenge yourself and your friends</h1>
           </div>
-          <div>
+          <div className="button-front">
             <RaisedButton
               label="Login with Fitbit"
               labelposition="before"

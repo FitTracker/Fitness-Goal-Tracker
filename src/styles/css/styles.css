@@ -443,7 +443,10 @@ button:disabled {
 .banner {
   color: #3b8ea5;
   margin-top: -20vh;
-  margin-left: 40vh; }
+  margin-left: 100vh; }
+
+.button-front {
+  margin-left: 100vh; }
 
 @media (max-width: 1025px) {
   .main {
