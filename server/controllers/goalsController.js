@@ -53,7 +53,7 @@ module.exports = {
       });
   },
   addComplGoal: (req, res, next) => {
-    console.log("hit hit hit hit hit hit hit");
+    console.log("hit hit hit hit ");
     req.app
       .get("db")
       .addCompletedGoal([req.body.goal_id])

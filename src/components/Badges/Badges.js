@@ -11,10 +11,7 @@ class Badges extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (
-      this.props.goals !== nextProps.goals ||
-      this.props.userBadges !== nextProps.userBadges
-    ) {
+    if (this.props.goals !== nextProps.goals) {
       this.props.getBadges();
     }
   }

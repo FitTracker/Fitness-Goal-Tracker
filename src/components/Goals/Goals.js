@@ -17,6 +17,7 @@ class Goals extends Component {
   }
 
   render() {
+    console.log(this.props);
     const currentSteps =
       this.props.currentStats[0] && this.props.currentStats[0].steps;
     const distanceKm =
@@ -37,8 +38,10 @@ class Goals extends Component {
                 animate={{ duration: 1000 }}
                 height={200}
                 data={[
-                  { x: "Goal Steps", y: Number(element.goal_value) },
-                  { x: "Current", y: this.props.currentStats[0].steps }
+                  { x: "Goal Steps", y: (
+                currentSteps - element.starting_value
+              )},
+                  { x: "Current", y: endVal }
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
@@ -53,7 +56,7 @@ class Goals extends Component {
         else if (
           element.goal_type === "steps" &&
           element.goal_value <= currentSteps
-        )
+        ) {
           return (
             <BadgeCard
               key={index}
@@ -70,6 +73,7 @@ class Goals extends Component {
               // ^ this is supposed to set goal completion status to true in db
             />
           );
+        }
       });
     const distGoals =
       this.props.goals.length > 0 &&
@@ -89,14 +93,16 @@ class Goals extends Component {
                 data={[
                   {
                     x: `Goal Distance: ${element.goal_value}`,
-                    y: Number(element.goal_value),
+                    y: endVal,
                     label: "Goal"
                   },
                   {
                     x: `Current Distance: ${
                       this.props.currentStats[0].distance_km
                     }`,
-                    y: this.props.currentStats[0].distance_km,
+                    y: (
+                distanceKm - element.starting_value
+              ),
                     label: "Progress"
                   }
                 ]}
