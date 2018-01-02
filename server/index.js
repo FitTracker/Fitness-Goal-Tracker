@@ -66,6 +66,9 @@ app.get("/api/logout", profileController.logout);
 
 // BADGES ENDPOINTS
 
+app.get("/api/updatebadges", (req, res, next) => {
+  res.json("finish this endpoint up tomorrow my man!");
+});
 app.get("/api/badges", badgesController.getUsersCurrentBadges);
 
 // FITBIT STRATEGY AND LOGIN
