@@ -5,11 +5,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import * as V from "victory";
 
-import {
-  getCurrentGoalsAndData,
-  completeGoal,
-  getBadges
-} from "../../ducks/reducer.js";
+import { getCurrentGoalsAndData, completeGoal } from "../../ducks/reducer.js";
 
 import AddGoal from "../AddGoal/AddGoal";
 import BadgeCard from "../BadgeCard/BadgeCard";
@@ -17,7 +13,6 @@ import BadgeCard from "../BadgeCard/BadgeCard";
 class Goals extends Component {
   componentDidMount() {
     this.props.getCurrentGoalsAndData();
-    this.props.getBadges();
     this.props.completeGoal();
   }
 
@@ -43,8 +38,14 @@ class Goals extends Component {
                 animate={{ duration: 1000 }}
                 height={200}
                 data={[
-                  { x: "Goal Steps", y: Number(element.goal_value) },
-                  { x: "Current", y: this.props.currentStats[0].steps }
+                  { x: `Remaining: ${(endVal - (
+                currentSteps - element.starting_value
+              )).toLocaleString()}`, y: (
+                currentSteps - element.starting_value
+              )},
+                  { x: `Current: ${(
+                currentSteps - element.starting_value
+              ).toLocaleString()}`, y: endVal }
                 ]}
                 theme={V.VictoryTheme.material}
                 colorScale="blue"
@@ -85,7 +86,7 @@ class Goals extends Component {
         else if (
           element.goal_type === "steps" &&
           element.goal_value <= currentSteps
-        )
+        ) {
           return (
             <BadgeCard
               key={index}
@@ -102,6 +103,7 @@ class Goals extends Component {
               // ^ this is supposed to set goal completion status to true in db
             />
           );
+        }
       });
     const distGoals =
       this.props.goals.length > 0 &&
@@ -119,15 +121,21 @@ class Goals extends Component {
                 data={[
                   {
                     x: `Goal Distance: ${element.goal_value}`,
-                    y: Number(element.goal_value),
-                    label: "Goal"
+                    y: endVal,
+                    label: `Remaining: ${(endVal - (
+                distanceKm - element.starting_value
+              ) ).toLocaleString()} kmrs`
                   },
                   {
                     x: `Current Distance: ${
                       this.props.currentStats[0].distance_km
                     }`,
-                    y: this.props.currentStats[0].distance_km,
-                    label: "Progress"
+                    y: (
+                distanceKm - element.starting_value
+              ),
+                    label: `Current: ${(
+                distanceKm - element.starting_value
+              ).toLocaleString()} km`
                   }
                 ]}
                 theme={V.VictoryTheme.material}
@@ -190,6 +198,5 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, {
   getCurrentGoalsAndData,
-  completeGoal,
-  getBadges
+  completeGoal
 })(Goals);

@@ -19,7 +19,17 @@ module.exports = {
             req.body.goalEndDate
           ])
           .then(goals => {
-            res.status(200).json(goals);
+            if (goals.length === 1) {
+              req.app
+                .get("db")
+                .addFirstGoalBadge([goals[0].user_id])
+                .then(badges => {
+                  res.status(200).json(goals);
+                })
+                .catch(console.log);
+            } else {
+              res.status(200).json(goals);
+            }
           })
           .catch(console.log);
       })
@@ -45,10 +55,15 @@ module.exports = {
   addComplGoal: (req, res, next) => {
     req.app
       .get("db")
-      .addCompletedGoal([req.body.goal_id])
+      .addCompletedGoal([req.body.goal_id, req.session.passport.user.id])
       .then(goals => {
-        res.status(200).json(goals);
-        console.log(goals);
+        if(goals.length === 1){
+          req.app.get('db').addFirstCompletionBadge([req.session.passport.user.id]).then( badges => {
+            res.status(200).json(badges)
+          }).catch(console.log)
+        } else {
+          res.status(200).json(badges)
+        }
       })
       .catch(console.log);
   }
