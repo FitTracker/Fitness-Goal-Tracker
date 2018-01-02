@@ -3,6 +3,7 @@ import FloatingActionButton from "material-ui/FloatingActionButton";
 import PlayIcon from "material-ui/svg-icons/av/play-arrow";
 import StopIcon from "material-ui/svg-icons/av/stop";
 import ResetIcon from "material-ui/svg-icons/av/replay";
+import * as stopwatchStates from "../stopwatchStates";
 
 const formattedSeconds = sec =>
   Math.floor(sec / 60) + ":" + ("0" + sec % 60).slice(-2);
@@ -14,15 +15,19 @@ class StopwatchComponent extends Component {
     this.state = {
       secondsElapsed: 0,
       laps: [],
-      lastClearedIncrementer: null
+      lastClearedIncrementer: null,
+      stopwatchState: stopwatchStates.NOT_RUNNING
     };
     this.incrementer = null;
-    this.handleStartClick = this.handleStartClick.bind(this);
-    this.handleStopClick = this.handleStopClick.bind(this);
+    this.startStopwatch = this.startStopwatch.bind(this);
+    this.stopStopwatch = this.stopStopwatch.bind(this);
     this.handleLapClick = this.handleLapClick.bind(this);
   }
 
-  handleStartClick = () => {
+  startStopwatch() {
+    console.log("started");
+    this.setState({ stopwatchState: stopwatchStates.RUNNING });
+
     this.incrementer = setInterval(
       () =>
         this.setState({
@@ -30,15 +35,16 @@ class StopwatchComponent extends Component {
         }),
       1000
     );
-  };
+  }
 
-  handleStopClick = () => {
+  stopStopwatch() {
     clearInterval(this.incrementer);
     this.setState({
+      stopwatchState: stopwatchStates.NOT_RUNNING,
       secondsElapsed: 0,
       laps: []
     });
-  };
+  }
 
   handleLapClick() {
     this.setState({
@@ -48,35 +54,35 @@ class StopwatchComponent extends Component {
 
   render() {
     return (
-      <div className="stopwatch-wrapper">
+      <div className="stospwatch-wrapper">
         <h1 className="stopwatch-header">
           {formattedSeconds(this.state.secondsElapsed)}
         </h1>
-        {this.state.secondsElapsed === 0 ||
+        {this.state.stopwatchState === 0 ||
         this.incrementer === this.state.lastClearedIncrementer ? (
-          <FloatingActionButton
-            onClick={this.handleStartClick}
-            style={{ margin: 12 }}
+          <button
+            className="buttonDefaults startButton"
+            onClick={this.startStopwatch}
           >
             <PlayIcon />
-          </FloatingActionButton>
+          </button>
         ) : (
-          <FloatingActionButton
-            onClick={this.handleStopClick}
-            style={{ margin: 12 }}
+          <button
+            className="buttonDefaults stopButton"
+            onClick={this.stopStopwatch}
           >
-            <StopIcon />
-          </FloatingActionButton>
+            <StopIcon style={{ backgroundColor: "#d75452" }} />
+          </button>
         )}
 
         {this.state.secondsElapsed !== 0 &&
         this.incrementer !== this.state.lastClearedIncrementer ? (
-          <FloatingActionButton
+          <button
+            className="buttonDefaults resetButton"
             onClick={this.handleLapClick}
-            style={{ margin: 12 }}
           >
             <ResetIcon />
-          </FloatingActionButton>
+          </button>
         ) : null}
 
         <ul className="stopwatch-laps">

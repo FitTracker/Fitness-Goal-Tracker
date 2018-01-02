@@ -581,7 +581,6 @@ header {
   background: #d75452; }
 
 .resetButton {
-  background: #39b0e6;
   color: #fff; }
 
 body {
@@ -623,6 +622,9 @@ body {
 
 .stopwatch-lap strong::before {
   content: "Lap "; }
+
+.stopwatch-wrapper button {
+  margin: 12px; }
 
 .badges-container {
   display: flex;

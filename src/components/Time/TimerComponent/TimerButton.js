@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as timerStates from "../timerStates";
-import PlayArrow from "material-ui/svg-icons/av/play-arrow";
+import PlayIcon from "material-ui/svg-icons/av/play-arrow";
 import StopIcon from "material-ui/svg-icons/av/stop";
 
 class TimerButton extends Component {
@@ -17,7 +17,7 @@ class TimerButton extends Component {
           className="buttonDefaults startButton"
           onClick={this.props.startTimer}
         >
-          <PlayArrow />
+          <PlayIcon />
         </button>
       );
 
