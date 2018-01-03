@@ -427,6 +427,19 @@ button:disabled {
 .card-p {
   color: #383f51; }
 
+.bottom {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3b8ea5; }
+
+.bottom-card {
+  margin-left: 5vh;
+  width: 20%;
+  height: 10vh; }
+
 .middle-container {
   height: 95vh;
   width: 100%;
