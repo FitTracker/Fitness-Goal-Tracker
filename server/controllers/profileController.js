@@ -1,5 +1,8 @@
 module.exports = {
   editUserProfile: (req, res) => {
+    const ID = req.session.passport
+      ? req.session.passport.user.fitbit_id
+      : "66RNY4";
     const { firstName, lastName, city, us_state, email, avatarURL } = req.body;
 
     req.app
@@ -11,7 +14,7 @@ module.exports = {
         us_state,
         email,
         avatarURL,
-        req.session.passport.user.fitbit_id
+        ID
       ])
       .then(response => {
         return res.status(200).json(response);
@@ -19,9 +22,12 @@ module.exports = {
       .catch(() => res.status(500).json());
   },
   getUserProfile: (req, res) => {
+    const ID = req.session.passport
+      ? req.session.passport.user.fitbit_id
+      : "66RNY4";
     req.app
       .get("db")
-      .getUserByFitbitId([req.session.passport.user.fitbit_id])
+      .getUserByFitbitId([ID])
       .then(user => {
         res.status(200).json(user);
       })
