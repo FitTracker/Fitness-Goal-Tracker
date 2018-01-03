@@ -14,9 +14,12 @@ class FriendCard extends Component {
     this.state = {
       profileOpen: false
     };
+    this.handleToggle = this.handleToggle.bind(this);
   }
 
-  handleToggle = () => this.setState({ profileOpen: !this.state.profileOpen });
+  handleToggle() {
+    this.setState({ profileOpen: !this.state.profileOpen });
+  }
 
   render() {
     const {
