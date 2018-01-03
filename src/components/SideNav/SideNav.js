@@ -134,7 +134,7 @@ class SideNav extends Component {
                     }}
                     onTouchTap={this.handleClose}
                   >
-                    Time
+                    Timer
                   </MenuItem>
                 </Link>
               </div>
