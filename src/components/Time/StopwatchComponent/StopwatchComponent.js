@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import FloatingActionButton from "material-ui/FloatingActionButton";
 import PlayIcon from "material-ui/svg-icons/av/play-arrow";
 import StopIcon from "material-ui/svg-icons/av/stop";
 import ResetIcon from "material-ui/svg-icons/av/replay";
