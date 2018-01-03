@@ -93,8 +93,4 @@ class StopwatchComponent extends Component {
   }
 }
 
-const Button = props => (
-  <button type="button" {...props} className={"btn " + props.className} />
-);
-
 export default StopwatchComponent;
