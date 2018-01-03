@@ -17,6 +17,8 @@ class SideNav extends Component {
       name: ""
     };
     this.Login = this.Login.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
@@ -40,7 +42,9 @@ class SideNav extends Component {
     window.location.href = "/";
   }
 
-  handleClose = () => this.setState({ open: false });
+  handleClose() {
+    this.setState({ open: false });
+  }
 
   render() {
     const styles = {
