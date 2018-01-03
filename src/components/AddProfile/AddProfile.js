@@ -117,6 +117,7 @@ class AddProfile extends Component {
           <form onSubmit={this.handleSaveButton}>
             <div className="profile-mid">
               <TextField
+                style={{ fontFamily: '"Open Sans", sans-serif' }}
                 onChange={e => this.handleFirstName(e.target.value)}
                 className="profile-input profile-name"
                 value={this.state.firstName}
@@ -175,6 +176,7 @@ class AddProfile extends Component {
                 primary={true}
                 style={style}
                 disabled={!this.state.editDisabled}
+                style={{ backgroundColor: "#383f51" }}
               />
               <RaisedButton
                 label="SAVE"
@@ -182,6 +184,7 @@ class AddProfile extends Component {
                 style={style}
                 type="submit"
                 disabled={this.state.editDisabled}
+                style={{ backgroundColor: "#383f51" }}
               />
             </div>
           </form>
