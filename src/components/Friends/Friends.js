@@ -62,16 +62,14 @@ class Friends extends Component {
         );
       });
     return (
-      <div className="badges-container">
-        <h1>Friends</h1>
-        <div>
-          <SearchBar
-            onChange={value => this.props.searchFriends(value)}
-            style={{ margin: "0 auto", width: "100%" }}
-            onRequestSearch={() => console.log("search")}
-          />
-        </div>
-        {searchDisplay || goalsDisplay}
+      <div>
+        <h1 className="friends-header">Friends</h1>
+        <SearchBar
+          onChange={value => this.props.searchFriends(value)}
+          style={{ margin: "0px auto 5px auto", width: "100%" }}
+          onRequestSearch={() => console.log("search")}
+        />
+        <div className="badges-container">{searchDisplay || goalsDisplay}</div>
       </div>
     );
   }
