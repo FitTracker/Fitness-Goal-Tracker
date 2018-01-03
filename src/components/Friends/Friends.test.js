@@ -5,8 +5,8 @@ import store from "../../ducks/store/configureStore";
 
 configure({ adapter: new Adapter() });
 
-import Goals from "./Goals";
+import Friends from "./Friends";
 
-test("Goals should render as expected", () => {
-  shallow(<Goals store={store} />);
+test("Friends should render as expected", () => {
+  shallow(<Friends store={store} />);
 });

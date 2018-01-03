@@ -31,13 +31,19 @@ class AddGoal extends Component {
       goalAmount: null,
       amountError: ""
     };
+
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleDate = this.handleDate.bind(this);
+    this.handleAmount = this.handleAmount.bind(this);
   }
 
-  handleToggle = () => {
+  handleToggle() {
     this.setState({ open: !this.state.open });
-  };
+  }
 
-  handleSubmit = event => {
+  handleSubmit(event) {
     event.preventDefault();
     axios
       .post("/api/goals", {
@@ -51,19 +57,19 @@ class AddGoal extends Component {
         this.setState({ open: false, goalType: "", goalAmount: null });
       })
       .catch(console.log);
-  };
+  }
 
-  handleChange = (event, index, value) => {
+  handleChange(event, index, value) {
     this.setState({ goalType: value });
-  };
+  }
 
-  handleDate = (obj, newDate) => {
+  handleDate(obj, newDate) {
     this.setState({ goalEndDate: moment(newDate).format("L") });
-  };
+  }
 
-  handleAmount = event => {
+  handleAmount(event) {
     this.setState({ goalAmount: event.target.value });
-  };
+  }
 
   render() {
     const actions = [

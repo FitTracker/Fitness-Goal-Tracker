@@ -6,6 +6,7 @@
   "dependencies": {
     "auth0": "^2.9.1",
     "axios": "^0.17.1",
+    "babel-preset-env": "^1.6.1",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "cors": "^2.8.4",
@@ -53,17 +54,20 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/styles/scss/*.scss -o src/styles/css/ --watch --recursive"
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jest-cli": "^22.0.4",
-    "jest-enzyme": "^4.0.2",
-    "react-test-renderer": "^16.2.0"
+    "jest-cli": "^22.0.4"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "<rootDir>/CSSStub.js"
+    }
   },
   "nodemonConfig": {
     "ignore": [

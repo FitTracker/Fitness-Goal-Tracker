@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Landing.scss";
+
 import RaisedButton from "material-ui/RaisedButton";
 import woman from "./woman.jpg";
 import runner from "./runner.jpg";
