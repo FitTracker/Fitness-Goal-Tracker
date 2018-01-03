@@ -10,15 +10,15 @@ class TimerConfig extends Component {
   handleChange(e) {
     const newBaseTime = this.props.baseTime;
 
-    if (e.target.id === "hours" && e.target.value[0] !== "-")
+    if (e.target.id === "hours" && e.target.value >= 0)
       newBaseTime
         .subtract(newBaseTime.get("hour"), "hours")
         .add(parseInt(e.target.value, 10), "hours");
-    if (e.target.id === "minutes" && e.target.value[0] !== "-")
+    if (e.target.id === "minutes" && e.target.value >= 0)
       newBaseTime
         .subtract(newBaseTime.get("minutes"), "minutes")
         .add(parseInt(e.target.value, 10), "minutes");
-    if (e.target.id === "seconds" && e.target.value[0] !== "-")
+    if (e.target.id === "seconds" && e.target.value >= 0)
       newBaseTime
         .subtract(newBaseTime.get("seconds"), "seconds")
         .add(parseInt(e.target.value, 10), "seconds");

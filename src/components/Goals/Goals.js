@@ -68,8 +68,8 @@ class Goals extends Component {
           return (
             <BadgeCard
               key={index}
-              title={element.goal_type}
-              subtitle={`you have completed your goal to walk  ${Number(
+              title={"Congrats!"}
+              subtitle={`You have completed your goal to walk  ${Number(
                 endVal
               ).toLocaleString()} steps by ${moment(element.end_date).format(
                 "MMMM Do, YY"
@@ -138,8 +138,8 @@ class Goals extends Component {
           return (
             <BadgeCard
               key={index}
-              title={element.goal_type}
-              subtitle={`you have completed your goal to walk a distance of ${endVal.toLocaleString()} km by ${moment(
+              title={"Congrats!"}
+              subtitle={`You have completed your goal to walk a distance of ${endVal.toLocaleString()} km by ${moment(
                 element.end_date
               ).format("MMMM Do, YY")}`}
               avatar={
@@ -151,13 +151,19 @@ class Goals extends Component {
           );
       });
     return (
-      <div className="goals-container">
-        <h1> Goals </h1>
-        <div className="all-pies">
-          {stepGoals}
-          {distGoals}
-          <div className="goal">
-            <AddGoal />
+      <div>
+        <h1 className="friends-header"> Goals </h1>
+        <div className="goals-container">
+          <img
+            src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=1400&q=80"
+            style={{ height: "425px", width: "845px", padding: "25px" }}
+          />
+          <div className="all-pies">
+            {stepGoals}
+            {distGoals}
+            <div className="goal">
+              <AddGoal />
+            </div>
           </div>
         </div>
       </div>

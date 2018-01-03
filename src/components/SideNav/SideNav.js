@@ -43,10 +43,7 @@ class SideNav extends Component {
   handleClose = () => this.setState({ open: false });
 
   render() {
-    const styles = {
-      backgroundColor: "transparent",
-      color: "white"
-    };
+    const styles = { backgroundColor: "transparent", color: "#383f51" };
     const rightButtons = (
       <div>
         {this.state.name === "" ? (
@@ -68,12 +65,17 @@ class SideNav extends Component {
     return (
       <div>
         {this.state.name === "" ? (
-          <AppBar />
+          <AppBar
+            style={{
+              backgroundColor: "#2d728f",
+              fontFamily: '"Open Sans", sans-serif'
+            }}
+          />
         ) : (
           <div>
             <AppBar
               style={{
-                backgroundColor: "#2d728f",
+                backgroundColor: "#FFFFFF",
                 fontFamily: '"Open Sans", sans-serif'
               }}
               title={this.state.name}
@@ -134,7 +136,7 @@ class SideNav extends Component {
                     }}
                     onTouchTap={this.handleClose}
                   >
-                    Time
+                    Timer
                   </MenuItem>
                 </Link>
               </div>

@@ -37,44 +37,21 @@ export default class Landing extends Component {
     window.location.href = "/";
   }
   render() {
-    return (
-      <div>
-        <div
-          className="middle-container"
-          style={{
-            backgroundImage: `url(${runner})`
-          }}
-        >
+    return <div>
+        <div className="middle-container" style={{ backgroundImage: `url(${runner})` }}>
           <div>
             <h1 className="banner">
               Fittr: challenge yourself and your friends
             </h1>
           </div>
           <div className="button-front">
-            {this.state.name === "" ? (
-              <RaisedButton
-                label="Login / Sign up with Fitbit"
-                labelposition="before"
-                containerElement="label"
-                primary={true}
-                onClick={() => {
+            {this.state.name === "" ? <RaisedButton label="Login / Sign up with Fitbit" labelposition="before" containerElement="label" primary={true} onClick={() => {
                   this.Login();
-                }}
-              />
-            ) : (
-              <div>
-                <RaisedButton
-                  label="Log Out"
-                  onClick={this.logout}
-                  labelposition="before"
-                  containerElement="label"
-                  primary={true}
-                />
-              </div>
-            )}
+                }} style={{ backgroundColor: "#2d728f" }} /> : <div>
+                <RaisedButton label="Log Out" onClick={this.logout} labelposition="before" containerElement="label" primary={true} style={{ backgroundColor: "#2d728f" }} />
+              </div>}
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }

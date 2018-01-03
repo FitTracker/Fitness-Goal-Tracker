@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import FloatingActionButton from "material-ui/FloatingActionButton";
 import PlayIcon from "material-ui/svg-icons/av/play-arrow";
 import StopIcon from "material-ui/svg-icons/av/stop";
 import ResetIcon from "material-ui/svg-icons/av/replay";
@@ -92,9 +91,5 @@ class StopwatchComponent extends Component {
     );
   }
 }
-
-const Button = props => (
-  <button type="button" {...props} className={"btn " + props.className} />
-);
 
 export default StopwatchComponent;
