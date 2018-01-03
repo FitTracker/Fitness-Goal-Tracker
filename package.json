@@ -17,7 +17,7 @@
     "eslint-plugin-react": "^7.5.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
-    "jest": "^22.0.4",
+    "jest-cli": "^22.0.4",
     "massive": "^4.5.0",
     "material-ui": "^0.20.0",
     "material-ui-search-bar": "^0.4.1",
@@ -37,6 +37,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "react-tap-event-plugin": "^3.0.2",
+    "react-test-renderer": "^16.2.0",
     "react.timer": "^2.1.0",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
@@ -48,7 +49,7 @@
   "scripts": {
     "start": "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\"",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar  src/styles/scss/styles.scss -o src/styles/css",
     "watch-css": "npm run build-css && node-sass-chokidar src/styles/scss/*.scss -o src/styles/css/ --watch --recursive"
@@ -58,7 +59,8 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^20.0.4"
   },
   "nodemonConfig": {
     "ignore": [
