@@ -85,7 +85,11 @@ class AddGoal extends Component {
 
     return (
       <div>
-        <FloatingActionButton id="goal-add" onClick={this.handleToggle}>
+        <FloatingActionButton
+          style={{ backgroundColor: "#2d728f", opacity: "0.7" }}
+          id="goal-add"
+          onClick={this.handleToggle}
+        >
           <ContentAdd />
         </FloatingActionButton>
         <Dialog

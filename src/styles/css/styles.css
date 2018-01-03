@@ -479,8 +479,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 1% 0;
-  background-color: #f7f7ff; }
+  padding: 1% 5%; }
 
 .SideNavLogo {
   display: flex;
@@ -631,16 +630,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  min-height: 70vh;
+  height: 66vh;
   width: 20vw;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  margin-top: 2px 0; }
+  .badges-container h1 {
+    color: #383f51; }
 
 .card-container {
   margin: 2% 2%;
   width: 95%; }
+
+.friends-header {
+  text-align: center;
+  color: #383f51; }
 
 .friend-card-header:hover {
   cursor: pointer; }
@@ -652,10 +655,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  min-height: 70vh;
+  height: 74vh;
   width: 50vw;
   overflow-x: hidden; }
 
