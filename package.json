@@ -17,7 +17,7 @@
     "eslint-plugin-react": "^7.5.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
-    "jest": "^22.0.0",
+    "jest": "^20.0.4",
     "massive": "^4.5.0",
     "material-ui": "^0.20.0",
     "material-ui-search-bar": "^0.4.1",
@@ -48,7 +48,7 @@
   "scripts": {
     "start": "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\"",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar  src/styles/scss/styles.scss -o src/styles/css",
     "watch-css": "npm run build-css && node-sass-chokidar src/styles/scss/*.scss -o src/styles/css/ --watch --recursive"
