@@ -410,6 +410,9 @@ button:disabled {
 .is-active {
   font-weight: bold; }
 
+.cards {
+  border-radius: 5px; }
+
 .mid-card {
   min-height: 80vh;
   width: 100%;
