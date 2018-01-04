@@ -50,7 +50,7 @@ module.exports = {
     const ID = req.session.passport ? req.session.passport.user.id : 3;
     req.app
       .get("db")
-      .addUpvote([ID])
+      .addUpvote([req.body.id, ID])
       .then(goals => {
         res.status(200).json(goals);
       });
