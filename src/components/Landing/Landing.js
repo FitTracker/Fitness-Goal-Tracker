@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-
 import RaisedButton from "material-ui/RaisedButton";
-import woman from "./woman.jpg";
-import runner from "./runner.jpg";
 import axios from "axios";
-
-import { Card, CardText, CardHeader } from "material-ui/Card";
 
 export default class Landing extends Component {
   constructor(props) {
@@ -15,7 +10,6 @@ export default class Landing extends Component {
     };
     this.Login = this.Login.bind(this);
   }
-
   componentDidMount() {
     axios.get("/api/userInfo").then(response => {
       this.setState({
@@ -27,11 +21,9 @@ export default class Landing extends Component {
       });
     });
   }
-
   Login() {
     window.location.href = "http://localhost:3001/api/fitbit/login";
   }
-
   logout() {
     axios.get("/api/logout").then(response => response.data);
     window.location.href = "/";
@@ -39,17 +31,10 @@ export default class Landing extends Component {
   render() {
     return (
       <div className="landing">
-        <div
-          className="middle-container"
-          style={{
-            backgroundImage: `url(${runner})`
-          }}
-        >
-          <div>
-            <h1 className="banner">
-              Fittr: challenge yourself and your friends
-            </h1>
-          </div>
+        <div className="landing-info">
+          <h1>Fittr</h1>
+          <p>Set goals, achieve them, become a better you.</p>
+          <p>Join us.</p>
           <div className="button-front">
             {this.state.name === "" ? (
               <RaisedButton
@@ -74,38 +59,12 @@ export default class Landing extends Component {
             )}
           </div>
         </div>
-        <div className="bottom">
-          <div className="bottom-card">
-            <Card>
-              <CardHeader
-                title="Steven Isbell"
-                avatar="http://lorempixel.com/150/150"
-              />
-              <CardText>
-                "Amazing piece of technology, feels good man!"
-              </CardText>
-            </Card>
-          </div>
-          <div className="bottom-card">
-            <Card>
-              <CardHeader
-                title="Shea Close"
-                avatar="http://lorempixel.com/150/150"
-              />
-              <CardText>
-                "Not as good as my home brewed beer, but it'll' do"
-              </CardText>
-            </Card>
-          </div>
-          <div className="bottom-card">
-            <Card>
-              <CardHeader
-                title="Andy Parker"
-                avatar="http://lorempixel.com/150/150"
-              />
-              <CardText>"This app made me want to gt a Fitbit!"</CardText>
-            </Card>
-          </div>
+        <div className="crossfade">
+          <figure />
+          <figure />
+          <figure />
+          <figure />
+          <figure />
         </div>
       </div>
     );

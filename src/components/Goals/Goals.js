@@ -95,7 +95,6 @@ class Goals extends Component {
                 distanceKm - element.starting_value
               ).toLocaleString()} km out of your goal of ${endVal.toLocaleString()}`}</h3>
               <V.VictoryPie
-               
                 height={200}
                 data={[
                   {
