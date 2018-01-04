@@ -10,42 +10,62 @@
   position: absolute;
   top: 0px;
   width: 100%;
-  z-index: 0;
-  margin: auto; }
+  z-index: -999;
+  margin: auto;
+}
 
 .crossfade > figure:nth-child(1) {
-  background-image: url("../../components/Landing/runner.jpg"); }
+  background-image: url("../../components/Landing/runner.jpg");
+}
 
 .crossfade > figure:nth-child(2) {
   animation-delay: 6s;
-  background-image: url("../../components/Landing/woman.jpg"); }
+  background-image: url("../../components/Landing/woman.jpg");
+}
 
 .crossfade > figure:nth-child(3) {
   animation-delay: 12s;
-  background-image: url("https://assets.entrepreneur.com/content/3x2/1300/20171108215301-GettyImages-512891759.jpeg?width=750&crop=16:9"); }
+  background-image: url("../../components/Landing/weights.jpg");
+}
 
 .crossfade > figure:nth-child(4) {
   animation-delay: 18s;
-  background-image: url("https://cdn-maf0.heartyhosting.com/sites/muscleandfitness.com/files/media/triceps-pushup-muscular-lean.jpg"); }
+  background-image: url("../../components/Landing/situps.jpg");
+}
 
 .crossfade > figure:nth-child(5) {
   animation-delay: 24s;
-  background-image: url("http://www.microbiologybytes.com/wp-content/uploads/2016/12/Personal_Trainer_Education-1170x780.jpg"); }
+  background-image: url("../../components/Landing/sunset.jpg");
+}
 
 @keyframes imageAnimation {
   0% {
     animation-timing-function: ease-in;
-    opacity: 0; }
+    opacity: 0;
+  }
   8% {
     animation-timing-function: ease-out;
-    opacity: 1; }
+    opacity: 1;
+  }
   17% {
-    opacity: 1; }
+    opacity: 1;
+  }
   25% {
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
-    opacity: 0; } }
+    opacity: 0;
+  }
+}
 
-.button-front {
-  margin-top: 30vh;
-  margin-left: 100vh; }
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100%;
+}
+.landing h1 {
+  font-size: 6em;
+  color: white;
+}

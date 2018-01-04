@@ -1,40 +1,37 @@
 .crossfade > figure {
+  background-color: black;
   animation: imageAnimation 30s linear infinite 0s;
   backface-visibility: hidden;
   background-size: cover;
   background-position: center center;
-  color: transparent;
+  color: black;
   height: 100%;
   left: 0px;
   opacity: 0;
   position: absolute;
   top: 0px;
   width: 100%;
-  z-index: 0;
+  z-index: -999;
   margin: auto;
 }
 .crossfade > figure:nth-child(1) {
-  background-image: url("../../components/Landing/runner.jpg");
+  background-image: url("../../components/Landing/sunset.jpg");
 }
-
 .crossfade > figure:nth-child(2) {
   animation-delay: 6s;
   background-image: url("../../components/Landing/woman.jpg");
 }
-
 .crossfade > figure:nth-child(3) {
   animation-delay: 12s;
-  background-image: url("https://assets.entrepreneur.com/content/3x2/1300/20171108215301-GettyImages-512891759.jpeg?width=750&crop=16:9");
+  background-image: url("../../components/Landing/weights.jpg");
 }
-
 .crossfade > figure:nth-child(4) {
   animation-delay: 18s;
-  background-image: url("https://cdn-maf0.heartyhosting.com/sites/muscleandfitness.com/files/media/triceps-pushup-muscular-lean.jpg");
+  background-image: url("../../components/Landing/situps.jpg");
 }
-
 .crossfade > figure:nth-child(5) {
   animation-delay: 24s;
-  background-image: url("http://www.microbiologybytes.com/wp-content/uploads/2016/12/Personal_Trainer_Education-1170x780.jpg");
+  background-image: url("../../components/Landing/ripped.jpg");
 }
 @keyframes imageAnimation {
   0% {
@@ -55,87 +52,49 @@
     opacity: 0;
   }
 }
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100%;
 
-// .mid-card {
-//   min-height: 80vh;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   background-color: $off-white;
-// }
+  h1 {
+    font-size: 6em;
+    color: $off-white;
+    margin: 0 0;
+    padding: 0 0;
+    text-align: center;
+    text-shadow: 2px 2px 5px $dark-grey;
+  }
 
-// .mid-card h1 {
-//   color: $dark-grey;
-//   font-size: $font-size-large;
-//   font-weight: bold;
-// }
+  p {
+    color: $off-white;
+    font-size: 2em;
+    margin: 0 0;
+    font-weight: bold;
+    margin-bottom: 1%;
+    text-shadow: 3px 3px 5px $dark-grey;
+  }
 
-// .card-p {
-//   color: $dark-grey;
-// }
-// .bottom {
-//   height: 30vh;
-//   width: 100%;
-//   display: flex;
-
-//   align-items: center;
-//   justify-content: center;
-//   background-color: $teal;
-// }
-// .bottom-card {
-//   margin-left: 5vh;
-//   width: 20%;
-//   height: 10vh;
-// }
-
-// .middle-container {
-//   height: 95vh;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-
-//   background-image: url("/runner");
-//   background-attachment: fixed;
-
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   font-weight: bold;
-//   overflow: hidden;
-// }
-// .landing {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .banner {
-//   color: $teal;
-//   margin-top: -20vh;
-//   margin-left: 100vh;
-// }
-.button-front {
-  margin-top: 30vh;
-  margin-left: 100vh;
+  div {
+    text-align: center;
+  }
 }
 
-// @media (max-width: 1025px) {
-//   .main {
-//     height: 65%;
-//   }
-// }
-
-// @media (max-width: 376px) {
-//   .landing {
-//     width: 100%;
-//   }
-//   .middle-container {
-//     width: 100%;
-//   }
-//   .middle-container {
-//     height: 50%;
-//   }
-// }
+@media (max-width: 415px) {
+  .crossfade > figure {
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: -999;
+    margin: auto;
+    animation: none;
+    opacity: 1;
+  }
+}

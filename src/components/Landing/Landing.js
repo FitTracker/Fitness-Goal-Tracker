@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-
 import RaisedButton from "material-ui/RaisedButton";
-import woman from "./woman.jpg";
-import runner from "./runner.jpg";
 import axios from "axios";
-
-import { Card, CardText, CardHeader } from "material-ui/Card";
 
 export default class Landing extends Component {
   constructor(props) {
@@ -15,7 +10,6 @@ export default class Landing extends Component {
     };
     this.Login = this.Login.bind(this);
   }
-
   componentDidMount() {
     axios.get("/api/userInfo").then(response => {
       this.setState({
@@ -27,11 +21,9 @@ export default class Landing extends Component {
       });
     });
   }
-
   Login() {
     window.location.href = "http://localhost:3001/api/fitbit/login";
   }
-
   logout() {
     axios.get("/api/logout").then(response => response.data);
     window.location.href = "/";
@@ -39,24 +31,10 @@ export default class Landing extends Component {
   render() {
     return (
       <div className="landing">
-        <div
-        // className="middle-container"
-        // style={{
-        //   backgroundImage: `url(${runner})`
-        // }}
-        >
-          <div className="crossfade">
-            <figure />
-            <figure />
-            <figure />
-            <figure />
-            <figure />
-          </div>
-          <div>
-            <h1 className="banner">
-              Fittr: challenge yourself and your friends
-            </h1>
-          </div>
+        <div className="landing-info">
+          <h1>Fittr</h1>
+          <p>Set goals, achieve them, become a better you.</p>
+          <p>Join us.</p>
           <div className="button-front">
             {this.state.name === "" ? (
               <RaisedButton
@@ -80,6 +58,13 @@ export default class Landing extends Component {
               </div>
             )}
           </div>
+        </div>
+        <div className="crossfade">
+          <figure />
+          <figure />
+          <figure />
+          <figure />
+          <figure />
         </div>
       </div>
     );
