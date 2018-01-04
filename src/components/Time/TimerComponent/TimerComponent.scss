@@ -9,7 +9,7 @@
 //TimerConfig
 .text-primary {
   font-size: $font-size-medium;
-  color: #39b0e6;
+  color: $teal;
   text-align: left;
   margin: 15px 20% 20px 20%;
 }
@@ -41,7 +41,7 @@
 }
 
 .startButton {
-  background: #39b0e6;
+  background: $teal;
   color: #fff;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .resetButton {
-  background: #39b0e6;
+  background: $teal;
   color: #fff;
 }
 
