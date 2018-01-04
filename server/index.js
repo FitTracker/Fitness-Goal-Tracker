@@ -57,6 +57,7 @@ app.post("/api/completedgoal", goalsController.addComplGoal);
 app.post("/api/unfollow", friendsController.unfollow);
 app.post("/api/follow", friendsController.follow);
 app.get("/api/search/:name", friendsController.searchFriends);
+app.get("/api/followers", friendsController.getFollowers);
 
 // PROFILE ENDPOINTS
 

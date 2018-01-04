@@ -27,5 +27,15 @@ module.exports = {
         res.status(200).json(response);
       })
       .catch(console.log);
+  },
+  getFollowers: (req, res, next) => {
+    const ID = req.session.passport ? req.session.passport.user.id : 3;
+    req.app
+      .get("db")
+      .getFollowerCount([ID])
+      .then(response => {
+        res.status(200).json(response);
+      })
+      .catch(console.log);
   }
 };
