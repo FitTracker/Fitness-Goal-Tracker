@@ -1,13 +1,14 @@
 module.exports = {
   createGoal: (req, res, next) => {
+    const ID = req.session.passport ? req.session.passport.user.id : 3;
     req.app
       .get("db")
-      .getLatestFitbitLifetimeStats([req.session.passport.user.id])
+      .getLatestFitbitLifetimeStats([ID])
       .then(stats => {
         req.app
           .get("db")
           .createNewGoal([
-            req.session.passport.user.id,
+            ID,
             req.body.goalType,
             req.body.goalType === "distance"
               ? Number(stats[0].distance_km) + req.body.goalAmount
@@ -36,33 +37,40 @@ module.exports = {
       .catch(console.log);
   },
   friendGoals: (req, res, next) => {
+    const ID = req.session.passport ? req.session.passport.user.id : 3;
     req.app
       .get("db")
-      .getFriendsGoals([req.session.passport.user.id])
+      .getFriendsGoals([ID])
       .then(goals => {
         res.status(200).json(goals);
       })
       .catch(console.log);
   },
   addUpvote: (req, res, next) => {
+    const ID = req.session.passport ? req.session.passport.user.id : 3;
     req.app
       .get("db")
-      .addUpvote([req.body.id, req.session.passport.user.id])
+      .addUpvote([ID])
       .then(goals => {
         res.status(200).json(goals);
       });
   },
   addComplGoal: (req, res, next) => {
+    const ID = req.session.passport ? req.session.passport.user.id : 3;
     req.app
       .get("db")
-      .addCompletedGoal([req.body.goal_id, req.session.passport.user.id])
+      .addCompletedGoal([req.body.goal_id, ID])
       .then(goals => {
-        if(goals.length === 1){
-          req.app.get('db').addFirstCompletionBadge([req.session.passport.user.id]).then( badges => {
-            res.status(200).json(badges)
-          }).catch(console.log)
+        if (goals.length === 1) {
+          req.app
+            .get("db")
+            .addFirstCompletionBadge([ID])
+            .then(badges => {
+              res.status(200).json(badges);
+            })
+            .catch(console.log);
         } else {
-          res.status(200).json(badges)
+          res.status(200).json(badges);
         }
       })
       .catch(console.log);

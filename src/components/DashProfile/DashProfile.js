@@ -41,8 +41,8 @@ class DashProfile extends Component {
               <div>{this.state.lastName}</div>
             </div>
             <div className="profile-dash-following">
-              <h5>Followers</h5>
-              <h5>Following</h5>
+              <div id="followers">Followers</div>
+              <div id="following">Following</div>
             </div>
           </div>
         </Card>

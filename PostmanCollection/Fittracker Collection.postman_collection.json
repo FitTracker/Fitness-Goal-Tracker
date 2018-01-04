@@ -1,0 +1,260 @@
+{
+  "info": {
+    "name": "Fittracker Collection",
+    "_postman_id": "18c7d683-b7dd-aff0-74ec-058ed9838129",
+    "description":
+      "This is a compilation of different endpoint tests for the FitTracker application.",
+    "schema":
+      "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET- Get Friends Goals",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "fea3c3ae-0a2a-4cd0-a30a-87d2d1a2543d",
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "f97d1193-3100-4e41-95f7-4b1f7a0f11ba",
+            "type": "text/javascript",
+            "exec": [
+              "let res = pm.response.json();",
+              "",
+              "pm.test('Returns an array of friendsgoals that is not empty', function() {",
+              "    let isArray = res.length > 0",
+              "    pm.expect(isArray).to.eql(true);",
+              "})",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/friendgoals",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "friendgoals"]
+        },
+        "description":
+          "This test looks for whether a new goal is added to the database"
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Get User Badges",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "3b851143-f3b1-4aaa-a684-8fda42390313",
+            "type": "text/javascript",
+            "exec": [
+              "let res = pm.response.json();",
+              "",
+              "pm.test('Returns an array of badges that is not empty', function() {",
+              "    let isArray = res.length > 0",
+              "    pm.expect(isArray).to.eql(true);",
+              "})",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3001/api/badges",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "badges"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Search For Users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Follow User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "414267dc-39a6-4244-9b9c-1e8f32ec7d2d",
+            "type": "text/javascript",
+            "exec": [
+              "let res = pm.response.json();",
+              "",
+              "pm.test('Returns an array which contains the requested user', function() {",
+              "    var found = false;",
+              "    ",
+              "    ",
+              "   for(var i = 0; i < res.length; i++) {",
+              "    if (res[i].id == 1) {",
+              "        found = true;",
+              "        break;",
+              "    }",
+              "",
+              "}",
+              "    pm.expect(found).to.eql(true);",
+              "})",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"1\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/follow",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "follow"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Unfollow User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "94c25c02-19ce-408f-a6da-336baa4ab165",
+            "type": "text/javascript",
+            "exec": [
+              "let res = pm.response.json();",
+              "",
+              "pm.test('Returns an array which contains the requested user', function() {",
+              "    var found = false;",
+              "    ",
+              "    ",
+              "   for(var i = 0; i < res.length; i++) {",
+              "    if (res[i].id == 1) {",
+              "        found = true;",
+              "        break;",
+              "    }",
+              "",
+              "}",
+              "    pm.expect(found).to.eql(false);",
+              "})",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/unfollow",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "unfollow"]
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessToken",
+        "value":
+          "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJGaXRiaXQiLCJhdWQiOiIyMkNISzUiLCJ0eXAiOiJjbGllbnRfYWNjZXNzX3Rva2VuIiwic2NvcGVzIjoiIiwiZXhwIjoxNTE1MDQwMDIyLCJpYXQiOjE1MTUwMTEyMjJ9.XWorhlZa7hOsnKVqF0NVllHVaF7GPrm0Bk8X03CNk7I",
+        "type": "string"
+      },
+      {
+        "key": "tokenType",
+        "value": "Bearer",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "df93d1b1-7d2b-4745-a70d-664c35117ed7",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "a34b11ca-a955-489d-92ed-abfa605288c4",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

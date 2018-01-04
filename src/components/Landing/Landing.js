@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-
 import RaisedButton from "material-ui/RaisedButton";
-import woman from "./woman.jpg";
-import runner from "./runner.jpg";
 import axios from "axios";
-
-import Paper from "material-ui/Paper";
 
 export default class Landing extends Component {
   constructor(props) {
@@ -15,7 +10,6 @@ export default class Landing extends Component {
     };
     this.Login = this.Login.bind(this);
   }
-
   componentDidMount() {
     axios.get("/api/userInfo").then(response => {
       this.setState({
@@ -27,31 +21,54 @@ export default class Landing extends Component {
       });
     });
   }
-
   Login() {
     window.location.href = "http://localhost:3001/api/fitbit/login";
   }
-
   logout() {
     axios.get("/api/logout").then(response => response.data);
     window.location.href = "/";
   }
   render() {
-    return <div>
-        <div className="middle-container" style={{ backgroundImage: `url(${runner})` }}>
-          <div>
-            <h1 className="banner">
-              Fittr: challenge yourself and your friends
-            </h1>
-          </div>
+    return (
+      <div className="landing">
+        <div className="landing-info">
+          <h1>Fittr</h1>
+          <p>Set goals, achieve them, become a better you.</p>
+          <p>Join us.</p>
           <div className="button-front">
-            {this.state.name === "" ? <RaisedButton label="Login / Sign up with Fitbit" labelposition="before" containerElement="label" primary={true} onClick={() => {
+            {this.state.name === "" ? (
+              <RaisedButton
+                label="Login / Sign up with Fitbit"
+                labelposition="before"
+                containerElement="label"
+                primary={true}
+                onClick={() => {
                   this.Login();
-                }} style={{ backgroundColor: "#2d728f" }} /> : <div>
-                <RaisedButton label="Log Out" onClick={this.logout} labelposition="before" containerElement="label" primary={true} style={{ backgroundColor: "#2d728f" }} />
-              </div>}
+                }}
+                style={{ backgroundColor: "#2d728f" }}
+              />
+            ) : (
+              <div>
+                <RaisedButton
+                  label="Log Out"
+                  onClick={this.logout}
+                  labelposition="before"
+                  containerElement="label"
+                  primary={true}
+                  style={{ backgroundColor: "#2d728f" }}
+                />
+              </div>
+            )}
           </div>
         </div>
-      </div>;
+        <div className="crossfade">
+          <figure />
+          <figure />
+          <figure />
+          <figure />
+          <figure />
+        </div>
+      </div>
+    );
   }
 }
