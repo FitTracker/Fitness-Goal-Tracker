@@ -1,0 +1,498 @@
+{
+	"info": {
+		"name": "Fittracker Collection",
+		"_postman_id": "72d8e8d2-faa1-c337-ba5b-2d38cb265929",
+		"description": "This is a compilation of different endpoint tests for the FitTracker application.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET- Get Friends Goals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();",
+							"",
+							"pm.test('Returns an array of friendsgoals that is not empty', function() {",
+							"    let isArray = res.length > 0",
+							"    pm.expect(isArray).to.eql(true);",
+							"})",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/friendgoals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"friendgoals"
+					]
+				},
+				"description": "This test looks for whether a new goal is added to the database"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Get User Badges",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();",
+							"",
+							"pm.test('Returns an array of badges that is not empty', function() {",
+							"    let isArray = res.length > 0",
+							"    pm.expect(isArray).to.eql(true);",
+							"})",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/badges",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"badges"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Search For Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();\r",
+							"\r",
+							"pm.test('Returns an array of 2 users with jo in the name', function() {\r",
+							"    \r",
+							"    pm.expect(res.length).to.eql(2);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/search/jo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"search",
+						"jo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Follow User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();",
+							"",
+							"pm.test('Returns an array which contains the requested user', function() {",
+							"    var found = false;",
+							"    ",
+							"    ",
+							"   for(var i = 0; i < res.length; i++) {",
+							"    if (res[i].id == 1) {",
+							"        found = true;",
+							"        break;",
+							"    }",
+							"",
+							"}",
+							"    pm.expect(found).to.eql(true);",
+							"})",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/follow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"follow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Unfollow User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();",
+							"",
+							"pm.test('Returns an array which contains the requested user', function() {",
+							"    var found = false;",
+							"    ",
+							"    ",
+							"   for(var i = 0; i < res.length; i++) {",
+							"    if (res[i].id == 1) {",
+							"        found = true;",
+							"        break;",
+							"    }",
+							"",
+							"}",
+							"    pm.expect(found).to.eql(false);",
+							"})",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/unfollow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"unfollow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: Get Specific Friend Goals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"const response = pm.response.json();",
+							"const goal =  {",
+							"        \"id\": 9,",
+							"        \"user_id_follower\": 3,",
+							"        \"following_id\": 9,",
+							"        \"goal_id\": 23,",
+							"        \"user_id\": 9,",
+							"        \"goal_type\": \"distance\",",
+							"        \"goal_value\": \"23\",",
+							"        \"starting_value\": \"0\",",
+							"        \"starting_date\": \"12/22/2017\",",
+							"        \"end_date\": \"12/23/2017\",",
+							"        \"complete_status\": true,",
+							"        \"upvotes\": 42,",
+							"        \"fitbit_id\": \"290576\",",
+							"        \"first_name\": \"John\",",
+							"        \"last_name\": \"Tucker\",",
+							"        \"avatar\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjSaAv-b7tuhZmeeat_f9jYf9pkpvSvxH6SribZ6rbngvYgfYzA\",",
+							"        \"dob\": \"01-31-1975\",",
+							"        \"height_cm\": 180,",
+							"        \"weight_kg\": 78,",
+							"        \"city\": null,",
+							"        \"us_state\": null,",
+							"        \"email\": null",
+							"    }",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Correct goals for user', function() {",
+							"    pm.expect(goal).to.eql(response[0])",
+							"})",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/friendgoals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"friendgoals"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET: Get specific badges for user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"const response = pm.response.json();",
+							"const firstBadge =    {   \"id\": 2,",
+							"        \"title\": \"Welcome!!\",",
+							"        \"subtitle\": \"Thank you for joining fittr!\",",
+							"        \"avatar\": \"https://pandaresearchproject.files.wordpress.com/2016/09/welcome.png?w=760\",",
+							"        \"badge_id\": 2",
+							"    }",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Correct badge from the array of user badges', function() {",
+							"    pm.expect(firstBadge).to.eql(response[0])",
+							"})",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/badges",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"badges"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search for specific user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();\r",
+							"\r",
+							"pm.test('Returns an array of 1 with va in the name', function() {\r",
+							"    \r",
+							"    pm.expect(res.length).to.eql(1);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/search/va",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"search",
+						"va"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST: post completedGoal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/completedgoal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"completedgoal"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST: follow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/follow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"follow"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
