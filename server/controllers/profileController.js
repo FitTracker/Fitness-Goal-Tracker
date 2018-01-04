@@ -22,12 +22,9 @@ module.exports = {
       .catch(() => res.status(500).json());
   },
   getUserProfile: (req, res) => {
-    const ID = req.session.passport
-      ? req.session.passport.user.fitbit_id
-      : "66RNY4";
     req.app
       .get("db")
-      .getUserByFitbitId([ID])
+      .getUserByFitbitId([req.session.passport.user.fitbit_id])
       .then(user => {
         res.status(200).json(user);
       })
