@@ -5,10 +5,6 @@ import TimerButton from "../TimerComponent/TimerButton";
 
 configure({ adapter: new Adapter() });
 
-// test("TimerComponent should render as expected", () => {
-//   shallow(<TimerComponent />);
-// });
-
 test("hours input should be positive", () => {
   const value = 2;
   expect(value).toBeGreaterThanOrEqual(0);
@@ -36,13 +32,3 @@ function timerTest(callback) {
     callback && callback();
   }, 1000);
 }
-
-// describe("Test TimerButton component", () => {
-//   it("Test click event", () => {
-//     const mockCallBack = jest.fn();
-
-//     const TimerButton = shallow(<button onClick={mockCallBack}>Ok!</button>);
-//     button.find("button").simulate("click");
-//     expect(mockCallBack.mock.calls.length).toEqual(1);
-//   });
-// });
