@@ -38,7 +38,7 @@ export default class Landing extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="landing">
         <div
           className="middle-container"
           style={{

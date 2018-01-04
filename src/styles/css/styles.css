@@ -455,6 +455,10 @@ button:disabled {
   font-weight: bold;
   overflow: hidden; }
 
+.landing {
+  display: flex;
+  flex-direction: column; }
+
 .banner {
   color: #3b8ea5;
   margin-top: -20vh;
@@ -468,9 +472,11 @@ button:disabled {
     height: 65%; } }
 
 @media (max-width: 376px) {
-  .splash-main {
+  .landing {
     width: 100%; }
-  .main {
+  .middle-container {
+    width: 100%; }
+  .middle-container {
     height: 50%; } }
 
 header {

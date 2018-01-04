@@ -49,6 +49,10 @@
   font-weight: bold;
   overflow: hidden;
 }
+.landing {
+  display: flex;
+  flex-direction: column;
+}
 
 .banner {
   color: $teal;
@@ -66,10 +70,13 @@
 }
 
 @media (max-width: 376px) {
-  .splash-main {
+  .landing {
     width: 100%;
   }
-  .main {
+  .middle-container {
+    width: 100%;
+  }
+  .middle-container {
     height: 50%;
   }
 }
