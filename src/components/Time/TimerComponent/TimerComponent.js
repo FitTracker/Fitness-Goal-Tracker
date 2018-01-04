@@ -106,6 +106,7 @@ class TimerComponent extends Component {
         <hr />
         <br />
         <TimerButton
+          className="timerButton"
           startTimer={this.startTimer}
           stopTimer={this.stopTimer}
           timerState={this.state.timerState}
