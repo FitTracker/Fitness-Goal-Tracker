@@ -40,11 +40,18 @@ export default class Landing extends Component {
     return (
       <div className="landing">
         <div
-          className="middle-container"
-          style={{
-            backgroundImage: `url(${runner})`
-          }}
+        // className="middle-container"
+        // style={{
+        //   backgroundImage: `url(${runner})`
+        // }}
         >
+          <div className="crossfade">
+            <figure />
+            <figure />
+            <figure />
+            <figure />
+            <figure />
+          </div>
           <div>
             <h1 className="banner">
               Fittr: challenge yourself and your friends
@@ -72,39 +79,6 @@ export default class Landing extends Component {
                 />
               </div>
             )}
-          </div>
-        </div>
-        <div className="bottom">
-          <div className="bottom-card">
-            <Card>
-              <CardHeader
-                title="Steven Isbell"
-                avatar="http://lorempixel.com/150/150"
-              />
-              <CardText>
-                "Amazing piece of technology, feels good man!"
-              </CardText>
-            </Card>
-          </div>
-          <div className="bottom-card">
-            <Card>
-              <CardHeader
-                title="Shea Close"
-                avatar="http://lorempixel.com/150/150"
-              />
-              <CardText>
-                "Not as good as my home brewed beer, but it'll' do"
-              </CardText>
-            </Card>
-          </div>
-          <div className="bottom-card">
-            <Card>
-              <CardHeader
-                title="Andy Parker"
-                avatar="http://lorempixel.com/150/150"
-              />
-              <CardText>"This app made me want to gt a Fitbit!"</CardText>
-            </Card>
           </div>
         </div>
       </div>
