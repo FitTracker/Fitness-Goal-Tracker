@@ -583,6 +583,25 @@ header {
   background: #39b0e6;
   color: #fff; }
 
+@media (max-width: 1024px) {
+  .text-primary {
+    font-size: 5.8rem;
+    margin: 30px 0 30px 10px;
+    text-align: center; }
+  .time-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 30px;
+    font-size: 3.8rem; }
+  .buttonDefaults {
+    border-radius: 500px;
+    height: 100px;
+    width: 100px; } }
+
+@media (max-width: 622px) {
+  .timerInput {
+    width: 70%; } }
+
 body {
   box-sizing: border-box;
   font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neueu", Helvetica, Arial, sans-serif;

@@ -37,6 +37,7 @@ class TimerConfig extends Component {
             </div>
             <div>
               <input
+                className="timerInput"
                 id="hours"
                 type="number"
                 min="0"
@@ -53,6 +54,7 @@ class TimerConfig extends Component {
             </div>
             <div>
               <input
+                className="timerInput"
                 id="minutes"
                 type="number"
                 min="0"
@@ -69,6 +71,7 @@ class TimerConfig extends Component {
             </div>
             <div>
               <input
+                className="timerInput"
                 id="seconds"
                 type="number"
                 min="0"
