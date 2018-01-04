@@ -1,8 +1,9 @@
 module.exports = {
   unfollow: (req, res, next) => {
+    const ID = req.session.passport ? req.session.passport.user.id : 3;
     req.app
       .get("db")
-      .unfollowUser([req.session.passport.user.id, req.body.id])
+      .unfollowUser([ID, req.body.id])
       .then(goals => {
         res.status(200).json(goals);
       })
@@ -18,9 +19,10 @@ module.exports = {
       .catch(console.log);
   },
   follow: (req, res, next) => {
+    const ID = req.session.passport ? req.session.passport.user.id : 3;
     req.app
       .get("db")
-      .followUser([req.session.passport.user.id, req.body.id])
+      .followUser([ID, req.body.id])
       .then(response => {
         res.status(200).json(response);
       })

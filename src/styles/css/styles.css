@@ -427,6 +427,19 @@ button:disabled {
 .card-p {
   color: #383f51; }
 
+.bottom {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3b8ea5; }
+
+.bottom-card {
+  margin-left: 5vh;
+  width: 20%;
+  height: 10vh; }
+
 .middle-container {
   height: 95vh;
   width: 100%;
@@ -442,6 +455,10 @@ button:disabled {
   font-weight: bold;
   overflow: hidden; }
 
+.landing {
+  display: flex;
+  flex-direction: column; }
+
 .banner {
   color: #3b8ea5;
   margin-top: -20vh;
@@ -455,9 +472,11 @@ button:disabled {
     height: 65%; } }
 
 @media (max-width: 376px) {
-  .splash-main {
+  .landing {
     width: 100%; }
-  .main {
+  .middle-container {
+    width: 100%; }
+  .middle-container {
     height: 50%; } }
 
 header {
@@ -554,14 +573,21 @@ header {
   text-align: center; }
 
 .text-primary {
+  font-size: 3.8rem;
   color: #39b0e6;
   text-align: left;
-  margin: 0 0 1px 10px; }
+  margin: 15px 20% 20px 20%; }
 
 .time-row {
   display: flex;
+  font-size: 3rem;
+  font-weight: 700;
   justify-content: space-between;
-  margin: 8px 30px; }
+  margin: 8px 20%; }
+
+.timerInput {
+  width: 500px;
+  height: 40px; }
 
 .text-center {
   font-size: 5.8rem;
@@ -582,6 +608,39 @@ header {
 .resetButton {
   background: #39b0e6;
   color: #fff; }
+
+@media (max-width: 1200px) {
+  .text-primary {
+    font-size: 5.8rem;
+    margin: 30px 0 30px 10px;
+    text-align: center; }
+  .time-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 12% 30px 12%;
+    font-size: 3.8rem; } }
+
+@media (max-width: 965px) {
+  .buttonDefaults {
+    border-radius: 500px;
+    height: 60px;
+    width: 60px; }
+  .text-center {
+    font-size: 3.8rem;
+    margin-bottom: 1px; }
+  .text-primary {
+    display: none;
+    font-size: 3.8rem;
+    margin: 15px 0 10px 0; }
+  .timerInput {
+    width: 70%;
+    height: 30px; }
+  .time-row {
+    display: inline-block;
+    font-size: 3rem;
+    margin-bottom: 5px; }
+  .timerLabel {
+    font-size: 1.7rem; } }
 
 body {
   box-sizing: border-box;
