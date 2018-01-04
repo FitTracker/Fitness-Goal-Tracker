@@ -70,7 +70,7 @@ module.exports = {
             })
             .catch(console.log);
         } else {
-          res.status(200).json(badges);
+          res.status(200);
         }
       })
       .catch(console.log);

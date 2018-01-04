@@ -8,6 +8,7 @@ import FlatButton from "material-ui/FlatButton";
 import IconButton from "material-ui/IconButton";
 import Dialog from "material-ui/Dialog/Dialog";
 import TextField from "material-ui/TextField";
+import DashProfile from "../DashProfile/DashProfile";
 
 class FriendCard extends Component {
   constructor(props) {
@@ -77,8 +78,10 @@ class FriendCard extends Component {
           onRequestClose={this.handleToggle}
           actionsContainerStyle={{ textAlign: "center" }}
         >
-          <div>
+          <div className="friend-wrapper">
             <Card className="friend-profile">
+              <DashProfile />
+              <h1>hellloooo</h1>
               <div className="profile-top">
                 <img className="profile-pic" src={avatar} alt="avatar" />
               </div>
