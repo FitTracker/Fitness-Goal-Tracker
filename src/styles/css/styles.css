@@ -589,6 +589,15 @@ header {
 .profile-input {
   margin: 15px; }
 
+@media (max-width: 500px) {
+  .profile-pic {
+    border-radius: 50%;
+    height: 110px;
+    width: 110px;
+    margin-top: 60%; }
+  .profile-mid {
+    padding-bottom: 20px; } }
+
 .timer-container {
   margin-left: auto;
   margin-right: auto;
