@@ -515,12 +515,25 @@ header {
 
 .dashboard-container {
   width: 100%;
-  height: 90vh;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   padding: 1% 5%;
   margin-top: 3%; }
+
+.response-dash {
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2%; }
+
+@media (max-width: 1024px) {
+  .dashboard-container {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; } }
 
 .SideNavLogo {
   display: flex;
@@ -573,6 +586,9 @@ header {
   justify-content: center;
   align-items: flex-end; }
 
+.profile-input {
+  margin: 15px; }
+
 .profile-buttons {
   display: flex;
   justify-content: center;
@@ -586,8 +602,28 @@ header {
     justify-content: center;
     align-items: center; } }
 
-.profile-input {
-  margin: 15px; }
+@media (max-width: 604px) {
+  .profile-wrapper {
+    height: 100vh;
+    overflow: scroll;
+    width: 90%;
+    display: flex;
+    justify-content: center; }
+  .profile-pic {
+    border-radius: 50%;
+    height: 110px;
+    width: 110px;
+    margin-top: 50%; }
+  .profile-top {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .profile-mid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 5%; } }
 
 .timer-container {
   margin-left: auto;
@@ -715,27 +751,48 @@ body {
   align-items: center;
   height: auto;
   width: 20vw;
-  overflow-x: hidden;
-  margin-top: 2px 0; }
+  margin-top: 2px;
+  margin-bottom: 2%; }
   .badges-container h1 {
     color: #383f51; }
+
+@media (max-width: 1024px) {
+  .badges-container {
+    font-size: 0.75em;
+    width: 40vw; } }
 
 .card-container {
   margin: 2% 2%;
   width: 95%; }
 
 .friends-wrapper {
-  background: white; }
+  background: white;
+  width: 20vw;
+  height: 20vh;
+  margin-left: 2%; }
 
 .friends-header {
   text-align: center;
   color: #383f51; }
+
+@media (max-width: 1025px) {
+  .friends-wrapper {
+    height: auto;
+    width: 40vw; } }
 
 .friend-card-header:hover {
   cursor: pointer; }
 
 .friend-profile {
   padding: 2%; }
+
+.goals-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 50vw;
+  overflow-x: hidden; }
 
 .goals-header {
   display: flex;
@@ -748,7 +805,6 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 70vh;
-  max-height: 100vh;
   width: 100%; }
   .all-pies h3 {
     text-align: left;
@@ -769,6 +825,10 @@ body {
   bottom: 5%;
   right: 27%;
   z-index: 500; }
+
+@media (max-width: 1024px) {
+  .goals-container {
+    width: 90vw; } }
 
 .profile-dash-container {
   height: auto;
@@ -804,3 +864,9 @@ body {
 .pipe {
   font-weight: bold;
   font-size: 1.2em; }
+
+@media (max-width: 1025px) {
+  p {
+    font-size: 0.4em; }
+  .pipe {
+    font-size: 0.6em; } }

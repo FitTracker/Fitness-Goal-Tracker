@@ -47,3 +47,12 @@
   font-weight: bold;
   font-size: 1.2em;
 }
+
+@media (max-width: 1025px) {
+  p {
+    font-size: 0.4em;
+  }
+  .pipe {
+    font-size: 0.6em;
+  }
+}
