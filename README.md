@@ -1,6 +1,6 @@
-# Fittr.me
+# Fittr.us
 
-[Fittr.me](http://fittr.me) is a Fitness tracker web app that provides visualization for Fitbit data. Fittr.me also includes social features and a badging system along with a timer & stopwatch for workouts.
+[Fittr.us](http://fittr.us) is a Fitness tracker web app that provides visualization for Fitbit data. Fittr.us also includes social features and a badging system along with a timer & stopwatch for workouts.
 
 ## Features
 
@@ -15,13 +15,13 @@
 
 ## Usage
 
-### Signing up with `Fittr.me`
+### Signing up with `Fittr.us`
 
-To sign up, visit [Fittr.me](http://fittr.me) and click the SIGN UP button. You will be redirected to Fitbit to login. After successfully logging in, you will be redirected to your `Fittr.me` dashboard.
+To sign up, visit [Fittr.us](http://fittr.us) and click the SIGN UP button. You will be redirected to Fitbit to login. After successfully logging in, you will be redirected to your `Fittr.us` dashboard.
 
 ### Adding Goals
 
-To add new goals in `Fittr.me`, click on the plus icon at near the bottom of your screen.
+To add new goals in `Fittr.us`, click on the plus icon at near the bottom of your screen.
 
 * First, use the dropdown menu to select a metric.
 * Next, use the input field to enter the amount of Steps or KMs you'd like to achieve.
@@ -29,7 +29,7 @@ To add new goals in `Fittr.me`, click on the plus icon at near the bottom of you
 
 ### Viewing Progress
 
-Graphs are displayed on your dashboard, showing you how much is left progress remains to complete your goals.
+Graphs are displayed on your dashboard, displaying how much progress is remaining on your goals.
 
 ### Interacting with Friends
 
