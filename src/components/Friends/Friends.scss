@@ -16,3 +16,11 @@
     width: 40vw;
   }
 }
+
+@media (max-width: 457px) {
+  .friends-wrapper {
+    height: auto;
+    width: 90vw;
+    margin-left: 0;
+  }
+}

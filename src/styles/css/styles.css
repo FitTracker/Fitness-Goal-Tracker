@@ -535,6 +535,10 @@ header {
     justify-content: space-around;
     align-items: center; } }
 
+@media (max-width: 457px) {
+  .response-dash {
+    flex-direction: column; } }
+
 .SideNavLogo {
   display: flex;
   flex-direction: row;
@@ -761,6 +765,11 @@ body {
     font-size: 0.75em;
     width: 40vw; } }
 
+@media (max-width: 457px) {
+  .badges-container {
+    font-size: 0.75em;
+    width: 90vw; } }
+
 .card-container {
   margin: 2% 2%;
   width: 95%; }
@@ -779,6 +788,12 @@ body {
   .friends-wrapper {
     height: auto;
     width: 40vw; } }
+
+@media (max-width: 457px) {
+  .friends-wrapper {
+    height: auto;
+    width: 90vw;
+    margin-left: 0; } }
 
 .friend-card-header:hover {
   cursor: pointer; }
