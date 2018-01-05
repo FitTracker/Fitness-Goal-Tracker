@@ -9,12 +9,14 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard-container">
-        <Friends />
-        <Goals />
-        <div>
-          <DashProfile />
-          <Badges />
+        <div className="response-dash">
+          <div>
+            <DashProfile />
+            <Badges />
+          </div>
+          <Friends />
         </div>
+        <Goals />
       </div>
     );
   }
