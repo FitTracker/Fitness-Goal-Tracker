@@ -25,16 +25,22 @@ module.exports = {
                 .get("db")
                 .addFirstGoalBadge([goals[0].user_id])
                 .then(badges => {
-                  res.status(200).json(goals);
+                  res.status(201).json(goals);
                 })
                 .catch(console.log);
             } else {
-              res.status(200).json(goals);
+              res.status(201).json(goals);
             }
           })
-          .catch(console.log);
+          .catch(error => {
+            console.log(error);
+            res.status(500).json(error);
+          });
       })
-      .catch(console.log);
+      .catch(error => {
+        console.log(error);
+        res.status(500).json(error);
+      });
   },
   friendGoals: (req, res, next) => {
     const ID = req.session.passport ? req.session.passport.user.id : 3;
@@ -44,7 +50,10 @@ module.exports = {
       .then(goals => {
         res.status(200).json(goals);
       })
-      .catch(console.log);
+      .catch(error => {
+        console.log(error);
+        res.status(500).json(error);
+      });
   },
   addUpvote: (req, res, next) => {
     const ID = req.session.passport ? req.session.passport.user.id : 3;
@@ -53,6 +62,10 @@ module.exports = {
       .addUpvote([req.body.id, ID])
       .then(goals => {
         res.status(200).json(goals);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).json(error);
       });
   },
   addComplGoal: (req, res, next) => {
@@ -68,16 +81,26 @@ module.exports = {
             .then(badges => {
               res.status(200).json(badges);
             })
-            .catch(console.log);
+            .catch(error => {
+              console.log(error);
+              res.status(500).json(error);
+            });
         } else {
           req.app
             .get("db")
             .getUserBadges([ID])
             .then(badges => {
               res.status(200).json(badges);
+            })
+            .catch(error => {
+              console.log(error);
+              res.status(500).json(error);
             });
         }
       })
-      .catch(console.log);
+      .catch(error => {
+        console.log(error);
+        res.status(500).json(error);
+      });
   }
 };
