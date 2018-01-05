@@ -573,6 +573,9 @@ header {
   justify-content: center;
   align-items: flex-end; }
 
+.profile-input {
+  margin: 15px; }
+
 .profile-buttons {
   display: flex;
   justify-content: center;
@@ -586,17 +589,28 @@ header {
     justify-content: center;
     align-items: center; } }
 
-.profile-input {
-  margin: 15px; }
-
-@media (max-width: 500px) {
+@media (max-width: 604px) {
+  .profile-wrapper {
+    height: 100vh;
+    overflow: scroll;
+    width: 90%;
+    display: flex;
+    justify-content: center; }
   .profile-pic {
     border-radius: 50%;
     height: 110px;
     width: 110px;
-    margin-top: 60%; }
+    margin-top: 50%; }
+  .profile-top {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .profile-mid {
-    padding-bottom: 20px; } }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 5%; } }
 
 .timer-container {
   margin-left: auto;
