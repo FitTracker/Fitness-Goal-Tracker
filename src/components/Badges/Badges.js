@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getBadges } from "../../ducks/reducer.js";
 
 import BadgeCard from "../BadgeCard/BadgeCard";
+import DashProfile from "../DashProfile/DashProfile";
 
 class Badges extends Component {
   componentDidMount() {

@@ -37,29 +37,26 @@ class DashProfile extends Component {
 
   render() {
     return (
-      <div className="profile-dash-container">
-        <Card>
-          <div className="profile-dash-info">
-            <h1>Profile</h1>
-            <img
-              className="profile-dash-pic"
-              alt="avatar"
-              src={this.state.avatarURL}
-              style={{}}
-            />
-            <div className="profile-dash-name">
-              <div>{this.state.firstName}</div>
-              <div>{this.state.lastName}</div>
-            </div>
-            <div className="profile-dash-following">
-              <div id="followers">Followers</div>
-              <div>{this.state.followers}</div>
-              <div id="following">Following</div>
-              <div>{this.state.following}</div>
-            </div>
+      <Card style={{ width: "100%", marginBottom: "5%" }}>
+        <div className="profile-dash-info">
+          <img
+            className="profile-dash-pic"
+            alt="avatar"
+            src={this.state.avatarURL}
+            style={{}}
+          />
+          <div className="profile-dash-name">
+            <p>{`${this.state.firstName} ${this.state.lastName}`}</p>
           </div>
-        </Card>
-      </div>
+          <div className="profile-dash-following">
+            <span className="pipe"> |</span>
+            <p>{`Followers: ${this.state.followers}`} </p>
+            <span className="pipe">|</span>
+            <p>{`Following: ${this.state.following}`}</p>
+            <span className="pipe">|</span>
+          </div>
+        </div>
+      </Card>
     );
   }
 }

@@ -10,6 +10,7 @@ import DatePicker from "material-ui/DatePicker";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
+import IconButton from "material-ui/IconButton";
 
 import { connect } from "react-redux";
 import { updateGoals } from "../../ducks/reducer";
@@ -91,13 +92,16 @@ class AddGoal extends Component {
 
     return (
       <div>
-        <FloatingActionButton
-          style={{ backgroundColor: "#2d728f", opacity: "0.7" }}
+        <IconButton
+          style={{
+            opacity: "0.7",
+            marginLeft: "50%"
+          }}
           id="goal-add"
           onClick={this.handleToggle}
         >
           <ContentAdd />
-        </FloatingActionButton>
+        </IconButton>
         <Dialog
           title="Setting Goals Is The First Step To Achieving Them"
           actions={actions}

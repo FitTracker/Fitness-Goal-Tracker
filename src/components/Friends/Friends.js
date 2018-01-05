@@ -71,7 +71,7 @@ class Friends extends Component {
         <h1 className="friends-header">Friends</h1>
         <SearchBar
           onChange={value => this.props.searchFriends(value)}
-          style={{ margin: "0px auto 5px auto", width: "100%" }}
+          style={{ margin: "0px auto 5px auto", width: "90%" }}
           onRequestSearch={() => console.log("search")}
         />
         <div className="badges-container">{searchDisplay || goalsDisplay}</div>

@@ -1,28 +1,34 @@
 .profile-dash-container {
-  height: 300px;
-  width: 500px;
+  height: auto;
+  width: 100%;
   display: flex;
   justify-content: center; }
 
 .profile-dash-info {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   padding: 20px; }
 
 .profile-dash-pic {
   border-radius: 50%;
   height: 100px;
-  width: 100px;
-  margin-bottom: 15px;
-  margin: 30px; }
+  width: 100px; }
 
 .profile-dash-name {
   display: flex;
-  justify-content: space-around;
-  flex-direction: row; }
+  justify-content: space-between;
+  flex-direction: row;
+  font-weight: bold; }
 
 .profile-dash-following {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between; }
+  justify-content: space-around;
+  align-items: center; }
+
+.pipe {
+  font-weight: bold;
+  font-size: 1.2em; }

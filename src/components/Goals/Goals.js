@@ -30,7 +30,6 @@ class Goals extends Component {
         if (element.goal_type === "steps" && element.goal_value > currentSteps)
           return (
             <Card key={index} className="pie">
-              <h1 className="goals-header">{`Goals`}</h1>
               <h3>{`You have walked ${(
                 currentSteps - element.starting_value
               ).toLocaleString()} steps out of your goal of ${endVal.toLocaleString()}`}</h3>
@@ -157,11 +156,19 @@ class Goals extends Component {
       <div>
         <div className="goals-container">
           <div className="all-pies">
+            <Card style={{ width: "95%" }}>
+              <div className="goals-header">
+                <h1>{`Goals`}</h1>
+                <AddGoal />
+              </div>
+            </Card>
             {stepGoals}
             {distGoals}
-            <div className="goal">
-              <AddGoal />
-            </div>
+            {
+              //   <div className="goal">
+              //   <AddGoal />
+              // </div>
+            }
           </div>
         </div>
       </div>
