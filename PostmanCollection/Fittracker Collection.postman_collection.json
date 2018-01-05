@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Fittracker Collection",
-		"_postman_id": "72d8e8d2-faa1-c337-ba5b-2d38cb265929",
+		"_postman_id": "2b0a6e77-1e15-3adf-4a15-2e1f70918b74",
 		"description": "This is a compilation of different endpoint tests for the FitTracker application.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -123,7 +123,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3001/api/search/jo",
 					"protocol": "http",
@@ -173,7 +176,12 @@
 			],
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"id\": \"1\"\n}"
@@ -300,7 +308,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3001/api/friendgoals",
 					"protocol": "http",
@@ -312,8 +323,7 @@
 						"api",
 						"friendgoals"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -348,7 +358,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3001/api/badges",
 					"protocol": "http",
@@ -360,8 +373,7 @@
 						"api",
 						"badges"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -390,7 +402,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3001/api/search/va",
 					"protocol": "http",
@@ -403,8 +418,7 @@
 						"search",
 						"va"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -431,7 +445,10 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3001/api/completedgoal",
 					"protocol": "http",
@@ -443,8 +460,7 @@
 						"api",
 						"completedgoal"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -488,6 +504,397 @@
 					"path": [
 						"api",
 						"follow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Get followers and following count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75b4f5a1-67a4-4c64-9c7b-253ff23e9087",
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();",
+							"",
+							"pm.test('Returns an array of followers that is not empty', function() {",
+							"    let isArray = res.length > 0",
+							"    pm.expect(isArray).to.eql(true);",
+							"})",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/followers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"followers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Successful response from login endpoint",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3058746d-c638-4be9-9143-5de1d4baf305",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/fitbit/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"fitbit",
+						"login"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET - User Information 500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2eea1b34-13bb-427e-996f-15b10ffbc0f9",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/userInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"userInfo"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST - CompGoal 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fc7ea6d7-ec45-4e71-b843-b4fa29ce21dc",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/completedgoal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"completedgoal"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Add up vote 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05ad0d35-d56d-4917-8a31-e556ea7562ed",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/upvotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"upvotes"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Empty Search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "677ca0eb-c264-49a8-b095-57d4b3833ff9",
+						"type": "text/javascript",
+						"exec": [
+							"let res = pm.response.json();",
+							"",
+							"pm.test('Returns an array of 0 users ', function() {",
+							"    ",
+							"    pm.expect(res.length).to.eql(0);",
+							"})",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/search/jjlkjl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"search",
+						"jjlkjl"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Create new goal- distance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a678adb9-34e3-4cd5-b8a4-51d7366f0a5e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"goalType\": \"distance\",\n\t\"goalAmount\": 100,\n\t\"goalStartDate\": \"01-01-2017\",\n\t\"goalEndDate\": \"01-01-2017\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/goals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"goals"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST- create new goal steps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b37a4b8-d69d-471c-9376-8b6e16fcff41",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"goalType\": \"steps\",\n\t\"goalAmount\": 100,\n\t\"goalStartDate\": \"01-01-2017\",\n\t\"goalEndDate\": \"01-01-2017\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/goals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"goals"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Create Goal 500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5852dc48-205b-412c-aefa-951e03354937",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/goals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"goals"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET- Badges faster than 200ms",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "671a4c29-11b8-4201-85eb-3ea2635ac57d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/api/badges",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"badges"
 					]
 				},
 				"description": ""

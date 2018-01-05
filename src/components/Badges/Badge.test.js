@@ -10,3 +10,13 @@ import Badges from "./Badges";
 test("Badge should render as expected", () => {
   shallow(<Badges store={store} />);
 });
+
+it("+++ check Prop matches with initialState", () => {
+  const container = shallow(<Badges store={store} />);
+  expect(container.prop("userBadges")).toEqual([]);
+});
+
+it("+++ check Prop matches with initialState", () => {
+  const container = shallow(<Badges store={store} />);
+  expect(container.prop("goals")).toEqual([]);
+});
