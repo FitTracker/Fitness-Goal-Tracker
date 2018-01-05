@@ -72,7 +72,7 @@ class SideNav extends Component {
     return (
       <div>
         {this.state.name === "" ? (
-          <AppBar />
+          <AppBar style={{ display: "none" }} />
         ) : (
           <div>
             <AppBar
