@@ -2,9 +2,6 @@ import React, { Component } from "react";
 
 import { Card, CardHeader } from "material-ui/Card";
 
-const styles = {
-  backgroundColor: "grey"
-};
 class BadgeCard extends Component {
   render() {
     const { title, subtitle, avatar } = this.props;
@@ -12,7 +9,7 @@ class BadgeCard extends Component {
       <div className="card-container">
         <Card>
           <CardHeader
-            style={styles}
+            style={{ backgroundColor: "#EFEFF4" }}
             title={title}
             subtitle={subtitle}
             avatar={avatar}

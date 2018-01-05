@@ -59,10 +59,10 @@ class FriendCard extends Component {
             <CardHeader
               title={title}
               avatar={avatar}
-              style={{ paddingBottom: 0 }}
+              style={{ paddingBottom: 0, backgroundColor: "#EFEFF4" }}
             />
           </div>
-          <CardActions style={{ paddingTop: 0 }}>
+          <CardActions style={{ paddingTop: 0, backgroundColor: "#EFEFF4" }}>
             <IconButton
               iconClassName="fa fa-hand-o-up"
               onClick={() => this.props.handleUpvote(id)}

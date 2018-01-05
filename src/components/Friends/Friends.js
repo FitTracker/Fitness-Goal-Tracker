@@ -7,7 +7,6 @@ import { getFriendsGoals, searchFriends } from "../../ducks/reducer";
 
 import FriendCard from "../FriendCard/FriendCard";
 import FriendSearchCard from "../FriendSearchCard/FriendSearchCard";
-import DashProfile from "../DashProfile/DashProfile";
 
 const styles = {
   backgroundColor: "#383f51"
@@ -69,9 +68,7 @@ class Friends extends Component {
       });
     return (
       <div className="friends-wrapper">
-        <DashProfile />
         <h1 className="friends-header">Friends</h1>
-
         <SearchBar
           onChange={value => this.props.searchFriends(value)}
           style={{ margin: "0px auto 5px auto", width: "100%" }}

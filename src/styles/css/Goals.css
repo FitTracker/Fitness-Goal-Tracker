@@ -1,3 +1,8 @@
+.goals-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px; }
+
 .all-pies {
   display: flex;
   flex-direction: column;
