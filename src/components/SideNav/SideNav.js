@@ -43,6 +43,7 @@ class SideNav extends Component {
   handleClose = () => this.setState({ open: false });
 
   render() {
+    let width = window.screen.width;
     const styles = { backgroundColor: "transparent", color: "#222" };
     // const leftButtons = {};
     const rightButtons = (
@@ -76,7 +77,11 @@ class SideNav extends Component {
                 color: "black",
                 width: "100%"
               }}
-              title={<span style={{ color: "#222" }}>{this.state.name}</span>}
+              title={
+                <span style={{ color: "#222" }}>
+                  {width > 457 && this.state.name}
+                </span>
+              }
               onLeftIconButtonClick={() =>
                 this.setState(
                   // iconClassNameRight="muidocs-icon-navigation-expand-more"

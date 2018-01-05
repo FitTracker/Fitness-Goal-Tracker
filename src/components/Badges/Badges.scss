@@ -22,3 +22,10 @@
     width: 40vw;
   }
 }
+
+@media (max-width: 457px) {
+  .badges-container {
+    font-size: 0.75em;
+    width: 90vw;
+  }
+}

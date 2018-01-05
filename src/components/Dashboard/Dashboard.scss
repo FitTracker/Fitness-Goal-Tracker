@@ -38,3 +38,9 @@ header {
     align-items: center;
   }
 }
+
+@media (max-width: 457px) {
+  .response-dash {
+    flex-direction: column;
+  }
+}
