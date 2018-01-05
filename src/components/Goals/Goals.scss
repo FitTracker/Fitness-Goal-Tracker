@@ -6,7 +6,11 @@
 //   width: 50vw;
 //   overflow-x: hidden;
 // }
-
+.goals-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
 .all-pies {
   display: flex;
   // margin-left: 3vh;

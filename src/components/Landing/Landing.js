@@ -55,7 +55,7 @@ export default class Landing extends Component {
                   labelposition="before"
                   containerElement="label"
                   primary={true}
-                  style={{ backgroundColor: "#2d728f" }}
+                  onLoad={(window.location.href = "/dashboard")}
                 />
               </div>
             )}

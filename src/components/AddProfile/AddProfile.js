@@ -8,7 +8,8 @@ import { Card } from "material-ui/Card";
 import RaisedButton from "material-ui/RaisedButton";
 
 const style = {
-  margin: 12
+  margin: 12,
+  backgroundColor: "#dddbf1"
 };
 
 class AddProfile extends Component {
@@ -176,7 +177,6 @@ class AddProfile extends Component {
                 primary={true}
                 style={style}
                 disabled={!this.state.editDisabled}
-                style={{ backgroundColor: "#383f51" }}
               />
               <RaisedButton
                 label="SAVE"
@@ -184,7 +184,6 @@ class AddProfile extends Component {
                 style={style}
                 type="submit"
                 disabled={this.state.editDisabled}
-                style={{ backgroundColor: "#383f51" }}
               />
             </div>
           </form>

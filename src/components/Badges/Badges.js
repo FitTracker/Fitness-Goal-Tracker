@@ -26,12 +26,13 @@ class Badges extends Component {
         title={badge.title}
         subtitle={badge.subtitle}
         avatar={badge.avatar}
+        // style={{ backgroundColor: "white" }}
       />
     ));
 
     return (
       <div className="badges-container">
-        <h1> Badges </h1>
+        <h1 className="badges-header">Badges</h1>
         {badgeDisplay}
       </div>
     );

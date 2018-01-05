@@ -66,19 +66,15 @@ class SideNav extends Component {
     return (
       <div>
         {this.state.name === "" ? (
-          <AppBar
-            style={{
-              backgroundColor: "#2d728f",
-              fontFamily: '"Open Sans", sans-serif'
-            }}
-          />
+          <AppBar style={{ display: "none" }} />
         ) : (
           <div>
             <AppBar
               style={{
                 backgroundColor: "#FFFFFF",
                 fontFamily: '"Open Sans", sans-serif',
-                color: "black"
+                color: "black",
+                marginBottom: "75px"
               }}
               title={<span style={{ color: "#222" }}>{this.state.name}</span>}
               onLeftIconButtonClick={() =>

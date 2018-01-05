@@ -707,6 +707,8 @@ body {
   margin: 12px; }
 
 .badges-container {
+  background: white;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -721,6 +723,9 @@ body {
   margin: 2% 2%;
   width: 95%; }
 
+.friends-wrapper {
+  background: white; }
+
 .friends-header {
   text-align: center;
   color: #383f51; }
@@ -730,6 +735,11 @@ body {
 
 .friend-profile {
   padding: 2%; }
+
+.goals-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px; }
 
 .all-pies {
   display: flex;
