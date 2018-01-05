@@ -73,7 +73,8 @@ class SideNav extends Component {
               style={{
                 backgroundColor: "#FFFFFF",
                 fontFamily: '"Open Sans", sans-serif',
-                color: "black"
+                color: "black",
+                width: "100%"
               }}
               title={<span style={{ color: "#222" }}>{this.state.name}</span>}
               onLeftIconButtonClick={() =>

@@ -37,7 +37,7 @@ class DashProfile extends Component {
 
   render() {
     return (
-      <Card style={{ width: "100%", marginBottom: "5%" }}>
+      <Card style={{ width: "auto", marginBottom: "5%" }}>
         <div className="profile-dash-info">
           <img
             className="profile-dash-pic"
