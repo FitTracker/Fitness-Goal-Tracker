@@ -595,7 +595,7 @@ header {
 
 .text-primary {
   font-size: 3.8rem;
-  color: #39b0e6;
+  color: #3b8ea5;
   text-align: left;
   margin: 15px 20% 20px 20%; }
 
@@ -620,14 +620,14 @@ header {
   width: 60px; }
 
 .startButton {
-  background: #39b0e6;
+  background: #3b8ea5;
   color: #fff; }
 
 .stopButton {
   background: #d75452; }
 
 .resetButton {
-  background: #39b0e6;
+  background: #3b8ea5;
   color: #fff; }
 
 @media (max-width: 1200px) {

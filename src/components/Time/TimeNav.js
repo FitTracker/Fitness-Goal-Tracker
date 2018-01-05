@@ -12,25 +12,22 @@ import IconTimer from "material-ui/svg-icons/image/timer";
 import TimerComponent from "./TimerComponent/TimerComponent";
 import StopwatchComponent from "./StopwatchComponent/StopwatchComponent";
 
+const styles = {
+  backgroundColor: "#2F2F2F"
+};
+
 const TimeNav = () => (
   <Tabs>
-    <Tab icon={<IconHourglassEmpty />} label="Timer">
+    <Tab style={styles} icon={<IconHourglassEmpty />} label="Timer">
       <div>
         <TimerComponent />
       </div>
     </Tab>
-    <Tab icon={<IconTimer />} label="Stopwatch">
+    <Tab style={styles} icon={<IconTimer />} label="Stopwatch">
       <div>
         <StopwatchComponent />
       </div>
     </Tab>
-    {
-      //   <Tab icon={<IconTimeLapse />} label="Interval">
-      //   <div>
-      //     <h2>Coming soon...</h2>
-      //   </div>
-      // </Tab>
-    }
   </Tabs>
 );
 
