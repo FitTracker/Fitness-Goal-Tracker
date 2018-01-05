@@ -26,6 +26,7 @@ class Badges extends Component {
         title={badge.title}
         subtitle={badge.subtitle}
         avatar={badge.avatar}
+        // style={{ backgroundColor: "white" }}
       />
     ));
 

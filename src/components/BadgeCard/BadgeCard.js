@@ -9,7 +9,7 @@ class BadgeCard extends Component {
       <div className="card-container">
         <Card>
           <CardHeader
-            style={{ backgroundColor: "#EFEFF4" }}
+            style={{ backgroundColor: "red" }}
             title={title}
             subtitle={subtitle}
             avatar={avatar}
