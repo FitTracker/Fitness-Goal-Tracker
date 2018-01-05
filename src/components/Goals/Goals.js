@@ -38,21 +38,24 @@ class Goals extends Component {
                 height={200}
                 data={[
                   {
-                    x: `Remaining: ${(
-                      endVal -
-                      (currentSteps - element.starting_value)
+                    x: `Current: ${(
+                      currentSteps - element.starting_value
                     ).toLocaleString()}`,
                     y: currentSteps - element.starting_value
                   },
                   {
-                    x: `Current: ${(
-                      currentSteps - element.starting_value
+                    x: `Remaining: ${(
+                      endVal -
+                      (currentSteps - element.starting_value)
                     ).toLocaleString()}`,
-                    y: endVal
+                    y: endVal - (currentSteps - element.starting_value)
                   }
                 ]}
                 theme={V.VictoryTheme.material}
-                colorScale="blue"
+                colorScale={["#2d728f", "#EEEEEE"]}
+                innerRadius={70}
+                labelRadius={92}
+                padAngle={0}
               />
               <p>
                 {" "}
@@ -94,34 +97,33 @@ class Goals extends Component {
               <h3>{`You have walked ${(
                 distanceKm - element.starting_value
               ).toLocaleString()} km out of your goal of ${endVal.toLocaleString()}`}</h3>
+
               <V.VictoryPie
                 height={200}
                 data={[
                   {
-                    x: `Goal Distance: ${element.goal_value}`,
-                    y: endVal,
-                    label: `Remaining: ${(
-                      endVal -
-                      (distanceKm - element.starting_value)
-                    ).toLocaleString()} kms`
-                  },
-                  {
-                    x: `Current Distance: ${
-                      this.props.currentStats[0].distance_km
-                    }`,
+                    key: "",
                     y: distanceKm - element.starting_value,
                     label: `Current: ${(
                       distanceKm - element.starting_value
                     ).toLocaleString()} kms`
+                  },
+                  {
+                    key: "",
+                    y: endVal - (distanceKm - element.starting_value),
+                    label: `Remaining: ${(
+                      endVal -
+                      (distanceKm - element.starting_value)
+                    ).toLocaleString()} kms`
                   }
                 ]}
                 theme={V.VictoryTheme.material}
-                colorScale="blue"
-                cornerRadius={10}
-                innerRadius={25}
-                labelRadius={60}
-                padAngle={2}
+                colorScale={["#2d728f", "#EEEEEE"]}
+                innerRadius={70}
+                labelRadius={92}
+                padAngle={0}
               />
+
               <p>
                 {" "}
                 You have {moment(element.end_date).fromNow(true)} left to

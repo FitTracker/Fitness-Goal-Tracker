@@ -721,6 +721,9 @@ body {
   margin: 2% 2%;
   width: 95%; }
 
+.friends-wrapper {
+  background: white; }
+
 .friends-header {
   text-align: center;
   color: #383f51; }

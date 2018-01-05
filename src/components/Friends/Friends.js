@@ -9,6 +9,10 @@ import FriendCard from "../FriendCard/FriendCard";
 import FriendSearchCard from "../FriendSearchCard/FriendSearchCard";
 import DashProfile from "../DashProfile/DashProfile";
 
+const styles = {
+  backgroundColor: "#383f51"
+};
+
 class Friends extends Component {
   componentDidMount() {
     this.props.getFriendsGoals();
@@ -38,6 +42,7 @@ class Friends extends Component {
             city={goal.city}
             state={goal.us_state}
             userID={goal.id}
+            style={styles}
           />
         );
       });
@@ -63,10 +68,10 @@ class Friends extends Component {
         );
       });
     return (
-      <div>
-        <h1 className="friends-header">Friends fa la la la</h1>
-
+      <div className="friends-wrapper">
         <DashProfile />
+        <h1 className="friends-header">Friends</h1>
+
         <SearchBar
           onChange={value => this.props.searchFriends(value)}
           style={{ margin: "0px auto 5px auto", width: "100%" }}

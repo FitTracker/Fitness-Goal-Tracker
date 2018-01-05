@@ -40,6 +40,7 @@ class DashProfile extends Component {
       <div className="profile-dash-container">
         <Card>
           <div className="profile-dash-info">
+            <h1>Profile</h1>
             <img
               className="profile-dash-pic"
               alt="avatar"

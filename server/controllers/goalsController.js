@@ -70,7 +70,12 @@ module.exports = {
             })
             .catch(console.log);
         } else {
-          res.status(200);
+          req.app
+            .get("db")
+            .getUserBadges([ID])
+            .then(badges => {
+              res.status(200).json(badges);
+            });
         }
       })
       .catch(console.log);
