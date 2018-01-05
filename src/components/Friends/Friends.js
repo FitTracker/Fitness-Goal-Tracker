@@ -8,6 +8,10 @@ import { getFriendsGoals, searchFriends } from "../../ducks/reducer";
 import FriendCard from "../FriendCard/FriendCard";
 import FriendSearchCard from "../FriendSearchCard/FriendSearchCard";
 
+const styles = {
+  backgroundColor: "#383f51"
+};
+
 class Friends extends Component {
   componentDidMount() {
     this.props.getFriendsGoals();
@@ -37,6 +41,7 @@ class Friends extends Component {
             city={goal.city}
             state={goal.us_state}
             userID={goal.id}
+            style={styles}
           />
         );
       });
@@ -62,11 +67,11 @@ class Friends extends Component {
         );
       });
     return (
-      <div>
+      <div className="friends-wrapper">
         <h1 className="friends-header">Friends</h1>
         <SearchBar
           onChange={value => this.props.searchFriends(value)}
-          style={{ margin: "0px auto 5px auto", width: "100%" }}
+          style={{ margin: "0px auto 5px auto", width: "90%" }}
           onRequestSearch={() => console.log("search")}
         />
         <div className="badges-container">{searchDisplay || goalsDisplay}</div>

@@ -1,8 +1,10 @@
 .badges-container {
+  background: white;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 66vh;
+  height: auto;
   width: 20vw;
   // overflow-y: scroll;
   overflow-x: hidden;

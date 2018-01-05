@@ -70,6 +70,7 @@ class Goals extends Component {
         ) {
           return (
             <BadgeCard
+              style={{ backgroundColor: "white" }}
               key={index}
               title={"Congrats!"}
               subtitle={`You have completed your goal to walk  ${Number(
@@ -137,6 +138,7 @@ class Goals extends Component {
         )
           return (
             <BadgeCard
+              style={{ backgroundColor: "white" }}
               key={index}
               title={"Congrats!"}
               subtitle={`You have completed your goal to walk a distance of ${endVal.toLocaleString()} km by ${moment(
@@ -146,20 +148,27 @@ class Goals extends Component {
                 "https://static0.fitbit.com/images/badges_new/300px/badge_daily_steps30k.png"
               }
               onLoad={completeGoal(element.goal_id)}
-              // ^ this is supposed to set goal completion status to true in db
             />
           );
+        // ^ this is supposed to set goal completion status to true in db
       });
     return (
       <div>
-        <h1 className="friends-header"> Goals </h1>
         <div className="goals-container">
           <div className="all-pies">
+            <Card style={{ width: "95%" }}>
+              <div className="goals-header">
+                <h1>{`Goals`}</h1>
+                <AddGoal />
+              </div>
+            </Card>
             {stepGoals}
             {distGoals}
-            <div className="goal">
-              <AddGoal />
-            </div>
+            {
+              //   <div className="goal">
+              //   <AddGoal />
+              // </div>
+            }
           </div>
         </div>
       </div>

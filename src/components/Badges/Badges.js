@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getBadges } from "../../ducks/reducer.js";
 
 import BadgeCard from "../BadgeCard/BadgeCard";
+import DashProfile from "../DashProfile/DashProfile";
 
 class Badges extends Component {
   componentDidMount() {
@@ -21,16 +22,18 @@ class Badges extends Component {
 
     const badgeDisplay = userBadges.map(badge => (
       <BadgeCard
+        className="cards"
         key={Math.random()}
         title={badge.title}
         subtitle={badge.subtitle}
         avatar={badge.avatar}
+        // style={{ backgroundColor: "white" }}
       />
     ));
 
     return (
       <div className="badges-container">
-        <h1> Badges </h1>
+        <h1 className="badges-header">Badges</h1>
         {badgeDisplay}
       </div>
     );

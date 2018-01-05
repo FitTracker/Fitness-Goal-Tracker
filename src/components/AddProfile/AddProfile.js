@@ -8,7 +8,8 @@ import { Card } from "material-ui/Card";
 import RaisedButton from "material-ui/RaisedButton";
 
 const style = {
-  margin: 12
+  margin: 12,
+  backgroundColor: "#dddbf1"
 };
 
 class AddProfile extends Component {
@@ -117,6 +118,7 @@ class AddProfile extends Component {
           <form onSubmit={this.handleSaveButton}>
             <div className="profile-mid">
               <TextField
+                style={{ fontFamily: '"Open Sans", sans-serif' }}
                 onChange={e => this.handleFirstName(e.target.value)}
                 className="profile-input profile-name"
                 value={this.state.firstName}

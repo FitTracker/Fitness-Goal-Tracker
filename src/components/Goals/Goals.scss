@@ -1,12 +1,17 @@
-.goals-container {
+// .goals-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   height: 74vh;
+//   width: 50vw;
+//   overflow-x: hidden;
+// }
+.goals-header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: 74vh;
-  width: 50vw;
-  overflow-x: hidden;
+  padding: 0 40%;
 }
-
 .all-pies {
   display: flex;
   // margin-left: 3vh;

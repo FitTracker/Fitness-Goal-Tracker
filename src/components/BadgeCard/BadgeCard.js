@@ -8,7 +8,14 @@ class BadgeCard extends Component {
     return (
       <div className="card-container">
         <Card>
-          <CardHeader title={title} subtitle={subtitle} avatar={avatar} />
+          <CardHeader
+            style={{
+              backgroundColor: title === "Congrats!" ? "white" : "#EFEFF5"
+            }}
+            title={title}
+            subtitle={subtitle}
+            avatar={avatar}
+          />
         </Card>
       </div>
     );
