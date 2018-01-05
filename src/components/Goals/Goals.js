@@ -154,6 +154,10 @@ class Goals extends Component {
       <div>
         <h1 className="friends-header"> Goals </h1>
         <div className="goals-container">
+          <img
+            src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=1400&q=80"
+            style={{ height: "425px", width: "845px", padding: "25px" }}
+          />
           <div className="all-pies">
             {stepGoals}
             {distGoals}

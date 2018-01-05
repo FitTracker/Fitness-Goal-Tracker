@@ -17,8 +17,6 @@ class SideNav extends Component {
       name: ""
     };
     this.Login = this.Login.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
@@ -42,15 +40,11 @@ class SideNav extends Component {
     window.location.href = "/";
   }
 
-  handleClose() {
-    this.setState({ open: false });
-  }
+  handleClose = () => this.setState({ open: false });
 
   render() {
-    const styles = {
-      backgroundColor: "transparent",
-      color: "white"
-    };
+    const styles = { backgroundColor: "transparent", color: "#222" };
+    // const leftButtons = {};
     const rightButtons = (
       <div>
         {this.state.name === "" ? (
@@ -72,15 +66,21 @@ class SideNav extends Component {
     return (
       <div>
         {this.state.name === "" ? (
-          <AppBar />
+          <AppBar
+            style={{
+              backgroundColor: "#2d728f",
+              fontFamily: '"Open Sans", sans-serif'
+            }}
+          />
         ) : (
           <div>
             <AppBar
               style={{
-                backgroundColor: "#2d728f",
-                fontFamily: '"Open Sans", sans-serif'
+                backgroundColor: "#FFFFFF",
+                fontFamily: '"Open Sans", sans-serif',
+                color: "black"
               }}
-              title={this.state.name}
+              title={<span style={{ color: "#222" }}>{this.state.name}</span>}
               onLeftIconButtonClick={() =>
                 this.setState(
                   // iconClassNameRight="muidocs-icon-navigation-expand-more"
@@ -88,6 +88,23 @@ class SideNav extends Component {
                 )
               }
               iconElementRight={rightButtons}
+              iconElementLeft={
+                <svg
+                  viewBox="0 0 24 24"
+                  style={{
+                    display: "inline-block",
+                    color: "rgb(255, 255, 255)",
+                    fill: "#222",
+                    marginTop: "10px",
+                    height: "24px",
+                    width: "24px",
+                    userSelect: "none",
+                    transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
+                  }}
+                >
+                  <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                </svg>
+              }
             />
             <Drawer
               className="drawer"
@@ -105,18 +122,6 @@ class SideNav extends Component {
                 <div className="SideNavLogoText">ittr</div>
               </div>
               <div className="SideNavLinks">
-                <Link to="/create-profile">
-                  <MenuItem
-                    style={{
-                      color: "#f7f7ff",
-                      fontFamily: '"Open Sans", sans-serif',
-                      fontSize: "20px"
-                    }}
-                    onTouchTap={this.handleClose}
-                  >
-                    Profile
-                  </MenuItem>
-                </Link>
                 <Link to="/dashboard">
                   <MenuItem
                     style={{
@@ -127,6 +132,18 @@ class SideNav extends Component {
                     onTouchTap={this.handleClose}
                   >
                     Dashboard
+                  </MenuItem>
+                </Link>
+                <Link to="/create-profile">
+                  <MenuItem
+                    style={{
+                      color: "#f7f7ff",
+                      fontFamily: '"Open Sans", sans-serif',
+                      fontSize: "20px"
+                    }}
+                    onTouchTap={this.handleClose}
+                  >
+                    Profile
                   </MenuItem>
                 </Link>
                 <Link to="/Timer">

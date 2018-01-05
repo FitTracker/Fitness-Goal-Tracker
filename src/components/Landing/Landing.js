@@ -45,6 +45,7 @@ export default class Landing extends Component {
                 onClick={() => {
                   this.Login();
                 }}
+                style={{ backgroundColor: "#2d728f" }}
               />
             ) : (
               <div>
@@ -54,6 +55,7 @@ export default class Landing extends Component {
                   labelposition="before"
                   containerElement="label"
                   primary={true}
+                  style={{ backgroundColor: "#2d728f" }}
                 />
               </div>
             )}

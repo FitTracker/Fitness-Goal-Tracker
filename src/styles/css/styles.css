@@ -410,6 +410,9 @@ button:disabled {
 .is-active {
   font-weight: bold; }
 
+.cards {
+  border-radius: 5px; }
+
 .crossfade > figure {
   background-color: black;
   animation: imageAnimation 30s linear infinite 0s;
@@ -728,14 +731,6 @@ body {
 .friend-profile {
   padding: 2%; }
 
-.goals-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 74vh;
-  width: 50vw;
-  overflow-x: hidden; }
-
 .all-pies {
   display: flex;
   flex-direction: column;
@@ -762,3 +757,32 @@ body {
   bottom: 5%;
   right: 27%;
   z-index: 500; }
+
+.profile-dash-container {
+  height: 300px;
+  width: 500px;
+  display: flex;
+  justify-content: center; }
+
+.profile-dash-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px; }
+
+.profile-dash-pic {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 15px;
+  margin: 30px; }
+
+.profile-dash-name {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row; }
+
+.profile-dash-following {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }

@@ -21,6 +21,7 @@ class Badges extends Component {
 
     const badgeDisplay = userBadges.map(badge => (
       <BadgeCard
+        className="cards"
         key={Math.random()}
         title={badge.title}
         subtitle={badge.subtitle}

@@ -1,0 +1,38 @@
+// .profile-dash-view {
+//   height: 100px;
+//   width: 100px;
+// }
+
+.profile-dash-container {
+  height: 300px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-dash-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.profile-dash-pic {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 15px;
+  margin: 30px;
+}
+
+.profile-dash-name {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.profile-dash-following {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
