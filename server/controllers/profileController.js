@@ -28,7 +28,10 @@ module.exports = {
       .then(user => {
         res.status(200).json(user);
       })
-      .catch(console.log);
+      .catch(error => {
+        console.log(error);
+        res.status(500).json(error);
+      });
   },
   logout: (req, res) => {
     req.logout();

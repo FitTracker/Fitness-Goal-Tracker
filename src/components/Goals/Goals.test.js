@@ -11,3 +11,13 @@ import Goals from "./Goals";
 test("Goals should render as expected", () => {
   shallow(<Goals store={store} />);
 });
+
+it("+++ check Prop matches with initialState", () => {
+  const container = shallow(<Goals store={store} />);
+  expect(container.prop("currentStats")).toEqual([]);
+});
+
+it("+++ check Prop matches with initialState", () => {
+  const container = shallow(<Goals store={store} />);
+  expect(container.prop("goals")).toEqual([]);
+});

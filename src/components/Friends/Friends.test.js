@@ -10,3 +10,13 @@ import Friends from "./Friends";
 test("Friends should render as expected", () => {
   shallow(<Friends store={store} />);
 });
+
+it("+++ check Prop matches with initialState", () => {
+  const container = shallow(<Friends store={store} />);
+  expect(container.prop("friendsGoals")).toEqual([]);
+});
+
+it("+++ check Prop matches with initialState", () => {
+  const container = shallow(<Friends store={store} />);
+  expect(container.prop("searchResults")).toEqual([]);
+});
