@@ -6,6 +6,9 @@ import axios from "axios";
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
+import Avatar from "material-ui/Avatar";
+import List from "material-ui/List/List";
+import ListItem from "material-ui/List/ListItem";
 
 import FlatButton from "material-ui/FlatButton";
 
@@ -44,7 +47,11 @@ class SideNav extends Component {
 
   render() {
     let width = window.screen.width;
-    const styles = { backgroundColor: "transparent", color: "#222" };
+    const styles = {
+      backgroundColor: "transparent",
+      color: "#222",
+      marginTop: "18px"
+    };
     // const leftButtons = {};
     const rightButtons = (
       <div>
@@ -76,17 +83,24 @@ class SideNav extends Component {
                 fontFamily: '"Open Sans", sans-serif',
                 color: "black",
                 width: "100%"
-              }} //   <span style={{ color: "#222" }}> // title={
-              //     {width > 457 && this.state.name}
-              //   </span>
-              // }
+              }} // } //   </span> //     {width > 457 && this.state.name} //   <span style={{ color: "#222" }}> // title={
               onLeftIconButtonClick={() =>
                 this.setState(
                   // iconClassNameRight="muidocs-icon-navigation-expand-more"
                   { open: !this.state.open }
                 )
               }
-              iconElementRight={rightButtons}
+              iconElementRight={
+                <ListItem
+                  disabled={false}
+                  leftAvatar={
+                    <Avatar src="http://goodfilmguide.co.uk/wp-content/uploads/2010/04/avatar12.jpg" />
+                  }
+                  onClick={this.logout}
+                >
+                  Logout
+                </ListItem>
+              }
               iconElementLeft={
                 <div className="appbar-row">
                   <svg
