@@ -4,7 +4,6 @@ import Badges from "../Badges/Badges";
 import Friends from "../Friends/Friends";
 import Goals from "../Goals/Goals";
 import DashProfile from "../DashProfile/DashProfile";
-import Footer from "../Footer/Footer";
 
 export default class Dashboard extends Component {
   render() {
@@ -20,7 +19,6 @@ export default class Dashboard extends Component {
           </div>
           <Goals />
         </div>
-        <Footer />
       </div>
     );
   }

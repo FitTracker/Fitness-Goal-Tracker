@@ -909,3 +909,11 @@ body {
 .footer-title {
   font-weight: 700;
   color: #606064; }
+
+.about-top-row {
+  display: flex;
+  flex-direction: row; }
+
+.about-second-row {
+  display: flex;
+  flex-direction: row; }
