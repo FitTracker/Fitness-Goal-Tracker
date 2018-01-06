@@ -539,14 +539,18 @@ header {
   .response-dash {
     flex-direction: column; } }
 
+.appbar-row {
+  display: flex;
+  flex-direction: row; }
+
 .SideNavLogo {
   display: flex;
   flex-direction: row;
-  margin-top: 20px; }
+  margin: 10px 0 10px 30px; }
 
 .SideNavLogoText {
-  margin-top: 21px;
-  font-size: 45px;
+  margin-top: 10px;
+  font-size: 30px;
   font-style: italic;
   color: #353535;
   font-family: "Open Sans", sans-serif; }

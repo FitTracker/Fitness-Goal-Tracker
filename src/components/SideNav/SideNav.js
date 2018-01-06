@@ -76,12 +76,10 @@ class SideNav extends Component {
                 fontFamily: '"Open Sans", sans-serif',
                 color: "black",
                 width: "100%"
-              }}
-              title={
-                <span style={{ color: "#222" }}>
-                  {width > 457 && this.state.name}
-                </span>
-              }
+              }} //   <span style={{ color: "#222" }}> // title={
+              //     {width > 457 && this.state.name}
+              //   </span>
+              // }
               onLeftIconButtonClick={() =>
                 this.setState(
                   // iconClassNameRight="muidocs-icon-navigation-expand-more"
@@ -90,21 +88,36 @@ class SideNav extends Component {
               }
               iconElementRight={rightButtons}
               iconElementLeft={
-                <svg
-                  viewBox="0 0 24 24"
-                  style={{
-                    display: "inline-block",
-                    color: "rgb(255, 255, 255)",
-                    fill: "#222",
-                    marginTop: "10px",
-                    height: "24px",
-                    width: "24px",
-                    userSelect: "none",
-                    transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
-                  }}
-                >
-                  <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-                </svg>
+                <div className="appbar-row">
+                  <svg
+                    viewBox="0 0 24 24"
+                    style={{
+                      display: "inline-block",
+                      color: "rgb(255, 255, 255)",
+                      fill: "#222",
+                      marginTop: "25px",
+                      marginLeft: "10px",
+                      height: "24px",
+                      width: "24px",
+                      userSelect: "none",
+                      transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
+                    }}
+                  >
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                  </svg>
+                  <div className="SideNavLogo">
+                    <img
+                      src={require("../../Images/F.png")}
+                      alt="logo"
+                      style={{
+                        height: "50px",
+                        width: "50px",
+                        borderRadius: "50%"
+                      }}
+                    />
+                    <div className="SideNavLogoText">ittr</div>
+                  </div>
+                </div>
               }
             />
             <Drawer
