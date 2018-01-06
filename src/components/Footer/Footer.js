@@ -6,8 +6,8 @@ const Footer = () => (
     <div>
       <div className="footer-container">
         <div>
-          <h1 className="footer-title"> Fittr </h1>
-          <p>© 2018 Fittr</p>
+          <h1 className="footer-logo"> Fittr </h1>
+          <p className="copyright">© 2018 Fittr</p>
         </div>
 
         <div>
@@ -24,10 +24,16 @@ const Footer = () => (
         <div>
           <p className="footer-title"> Follow </p>
           <div className="follow-container">
-            <div>Facebook</div>
-            <div>Twitter</div>
-            <div>Instagram</div>
-            <div>Premium</div>
+            <div>
+              <a href="https://twitter.com/Fittr9" target="_blank">
+                Twitter
+              </a>
+            </div>
+            <div>
+              <a href="https://www.instagram.com/fittr9/" target="_blank">
+                Instagram
+              </a>
+            </div>
           </div>
         </div>
         <div>
@@ -42,7 +48,6 @@ const Footer = () => (
             <div>Local</div>
             <div>Careers</div>
             <div>Developers</div>
-            <div>Premium</div>
           </div>
         </div>
       </div>
