@@ -9,7 +9,7 @@ import MenuItem from "material-ui/MenuItem";
 import Avatar from "material-ui/Avatar";
 import List from "material-ui/List/List";
 import ListItem from "material-ui/List/ListItem";
-
+import SearchBar from "material-ui-search-bar";
 import FlatButton from "material-ui/FlatButton";
 
 class SideNav extends Component {
@@ -83,10 +83,10 @@ class SideNav extends Component {
                 fontFamily: '"Open Sans", sans-serif',
                 color: "black",
                 width: "100%"
-              }} // } //   </span> //     {width > 457 && this.state.name} //   <span style={{ color: "#222" }}> // title={
+              }}
               onLeftIconButtonClick={() =>
                 this.setState(
-                  // iconClassNameRight="muidocs-icon-navigation-expand-more"
+                  // iconClassNameRight="muidocs-icon-navigation-expand-more" // } //   </span> //     {width > 457 && this.state.name} //   <span style={{ color: "#222" }}> // title={
                   { open: !this.state.open }
                 )
               }
@@ -134,6 +134,7 @@ class SideNav extends Component {
                 </div>
               }
             />
+
             <Drawer
               className="drawer"
               containerStyle={{ backgroundColor: "#2d728f", padding: "20px" }}

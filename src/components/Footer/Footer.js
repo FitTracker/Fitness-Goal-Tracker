@@ -16,7 +16,6 @@ const Footer = () => (
             <div>About</div>
             <div>Features</div>
             <div>Mobile</div>
-            <div>Premium</div>
             <div>Terms and Conditions</div>
             <div>About Our Maps</div>
           </div>
