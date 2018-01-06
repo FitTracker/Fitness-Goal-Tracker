@@ -917,3 +917,11 @@ body {
 .about-second-row {
   display: flex;
   flex-direction: row; }
+
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 5% 0 5%; }
+  .team-row h2 {
+    text-align: center; }
