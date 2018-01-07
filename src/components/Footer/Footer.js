@@ -22,10 +22,10 @@ class Footer extends Component {
                   <Link to="/about">About</Link>
                 </div>
                 <div>
-                  <Link to="/features">Features</Link>
+                  <Link to="/mobile">Mobile</Link>
                 </div>
                 <div>
-                  <Link to="/mobile">Mobile</Link>
+                  <Link to="/timer">Timer</Link>
                 </div>
               </div>
             </div>

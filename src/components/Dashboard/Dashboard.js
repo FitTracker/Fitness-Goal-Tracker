@@ -34,12 +34,12 @@ export default class Dashboard extends Component {
       >
         <div className="dashboard-rows">
           <div className="dashboard-row1">
-            <p>
+            <div>
               <span className="dashboard-today">Today</span>
               <span className="dashboard-date">
                 {moment().format("MMMM Do YYYY")}
               </span>
-            </p>
+            </div>
             <button type="button" onClick={this.toggleDash.bind(this)}>
               {nightText}
             </button>
