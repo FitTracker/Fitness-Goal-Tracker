@@ -45,7 +45,9 @@ const Footer = () => (
         <div>
           <p className="footer-title"> Help </p>
           <div className="help-container">
-            <div>Fittr Support</div>
+            <div>
+              <a href="mailto:fittracker1@gmail.com">Fittr Support</a>
+            </div>
           </div>
         </div>
         <div>
