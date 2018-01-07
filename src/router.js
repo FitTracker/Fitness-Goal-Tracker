@@ -7,7 +7,11 @@ import Dashboard from "./components/Dashboard/Dashboard.js";
 import Time from "./components/Time/Time.js";
 import NotFound from "./components/NotFound/NotFound.js";
 import AddProfile from "./components/AddProfile/AddProfile";
+
+//FOOTER COMPONENTS
 import About from "./components/Footer/About/About";
+import Mobile from "./components/Footer/Mobile/Mobile";
+import Features from "./components/Footer/Features/Features";
 
 export default (
   <Switch>
@@ -16,6 +20,8 @@ export default (
     <Route path="/timer" component={Time} />
     <Route path="/create-profile" component={AddProfile} />
     <Route path="/about" component={About} />
+    <Route path="/mobile" component={Mobile} />
+    <Route path="/features" component={Features} />
     <Route path="*" component={NotFound} />
   </Switch>
 );

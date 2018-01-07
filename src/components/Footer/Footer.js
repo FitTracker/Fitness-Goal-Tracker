@@ -17,8 +17,6 @@ const Footer = () => (
             <div>About</div>
             <div>Features</div>
             <div>Mobile</div>
-            <div>Terms and Conditions</div>
-            <div>About Our Maps</div>
           </div>
         </div>
         <div>
@@ -32,6 +30,14 @@ const Footer = () => (
             <div>
               <a href="https://www.instagram.com/fittr9/" target="_blank">
                 Instagram
+              </a>
+            </div>
+            <div>
+              <a
+                href="https://www.youtube.com/channel/UCAo8xnkNl2cQOo3gwt3scAw/featured"
+                target="_blank"
+              >
+                YouTube
               </a>
             </div>
           </div>
