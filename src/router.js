@@ -10,8 +10,8 @@ import AddProfile from "./components/AddProfile/AddProfile";
 
 //FOOTER COMPONENTS
 import About from "./components/Footer/About/About";
-import Mobile from "./components/Footer/Mobile/Mobile";
 import Features from "./components/Footer/Features/Features";
+import Mobile from "./components/Footer/Mobile/Mobile";
 
 export default (
   <Switch>

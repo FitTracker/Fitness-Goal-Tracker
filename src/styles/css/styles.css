@@ -1019,3 +1019,28 @@ body {
     margin: 0 1%; }
   .mobile-reviews p {
     font-style: italic; }
+
+.notFound-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+  .notFound-title img {
+    width: 200px;
+    height: 200px;
+    margin-top: -3%; }
+
+.notFound-row1 {
+  font-size: 80px;
+  font-weight: bold; }
+
+.notFound-row2 {
+  font-size: 60px;
+  margin-top: -5%; }
+
+.notFound-row3 {
+  font-size: 30px; }
+
+.notFound-link {
+  text-decoration: none; }
