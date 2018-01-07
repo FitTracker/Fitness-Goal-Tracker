@@ -526,12 +526,19 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 1% 0 2% 0; }
-  .dashboard-row1 span {
-    font-weight: 700;
-    font-size: 20px; }
+  margin: 1% 0 2% 0;
+  padding: 0 2% 0 0; }
   .dashboard-row1 button {
-    border-radius: 500px; }
+    border-radius: 500px;
+    padding: 0 2%; }
+
+.dashboard-today {
+  font-weight: 700;
+  font-size: 24px;
+  margin-right: 3%; }
+
+.dashboard-date {
+  font-size: 20px; }
 
 .dashboard-cols {
   display: flex;

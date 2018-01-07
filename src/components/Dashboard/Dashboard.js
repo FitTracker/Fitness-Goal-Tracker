@@ -11,25 +11,37 @@ export default class Dashboard extends Component {
     super(props);
 
     this.state = {
-      color_grey: true
+      color_grey: true,
+      color_black: true,
+      night_mode: false
     };
   }
 
   toggleDash() {
     this.setState({ color_grey: !this.state.color_grey });
+    this.setState({ color_black: !this.state.color_black });
+    this.setState({ night_mode: !this.state.night_mode });
   }
 
   render() {
-    let bgColor = this.state.color_grey ? "#dddbf1" : "#2C3F43";
+    let bgColor = this.state.color_grey ? "#f7f7ff" : "#2C3F43";
+    let fontColor = this.state.color_black ? "black" : "white";
+    let nightText = this.state.night_mode ? "Day Mode" : "Night Mode";
     return (
-      <div style={{ backgroundColor: bgColor }} className="dashboard-container">
+      <div
+        style={{ backgroundColor: bgColor, color: fontColor }}
+        className="dashboard-container"
+      >
         <div className="dashboard-rows">
           <div className="dashboard-row1">
             <p>
-              <span>Today</span> {moment().format("MMMM Do YYYY")}
+              <span className="dashboard-today">Today</span>
+              <span className="dashboard-date">
+                {moment().format("MMMM Do YYYY")}
+              </span>
             </p>
             <button type="button" onClick={this.toggleDash.bind(this)}>
-              Toggle Night Mode
+              {nightText}
             </button>
           </div>
           <div className="dashboard-cols">
