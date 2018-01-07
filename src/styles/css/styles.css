@@ -515,15 +515,23 @@ header {
 
 .dashboard-container {
   justify-content: space-between;
-  margin: 0 5%; }
+  padding: 0 5%;
+  width: 100%; }
 
 .dashboard-rows {
   display: flex;
   flex-direction: column; }
 
-.dashboard-row1 span {
-  font-weight: 700;
-  font-size: 20px; }
+.dashboard-row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1% 0 2% 0; }
+  .dashboard-row1 span {
+    font-weight: 700;
+    font-size: 20px; }
+  .dashboard-row1 button {
+    border-radius: 500px; }
 
 .dashboard-cols {
   display: flex;

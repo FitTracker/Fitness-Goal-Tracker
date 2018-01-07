@@ -18,7 +18,8 @@ header {
   // flex-direction: row;
   // flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 5%;
+  padding: 0 5%;
+  width: 100%;
 }
 
 .dashboard-rows {
@@ -27,9 +28,16 @@ header {
 }
 
 .dashboard-row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1% 0 2% 0;
   span {
     font-weight: 700;
     font-size: 20px;
+  }
+  button {
+    border-radius: 500px;
   }
 }
 

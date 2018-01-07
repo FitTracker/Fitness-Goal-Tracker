@@ -29,7 +29,7 @@ const Mobile = () => (
     <div className="mobile-reviews">
       <div>
         <h3> Mighty Ent. </h3>
-        <p>"I use this everyday!"</p>
+        <p>"We use this everyday!"</p>
       </div>
       <div>
         <h3> Dr. Mario's Office </h3>
