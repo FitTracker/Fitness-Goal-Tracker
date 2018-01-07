@@ -514,20 +514,24 @@ header {
   list-style-type: none; }
 
 .dashboard-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 1% 5%;
-  margin-top: 3%; }
+  justify-content: space-between;
+  margin: 0 5%; }
 
-.response-dash {
-  width: 90vw;
+.dashboard-rows {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 2%; }
+  flex-direction: column; }
+
+.dashboard-row1 span {
+  font-weight: 700;
+  font-size: 20px; }
+
+.dashboard-cols {
+  display: flex;
+  flex-direction: row; }
+
+.dashboard-col-1 {
+  display: flex;
+  flex-direction: column; }
 
 @media (max-width: 1024px) {
   .dashboard-container {
@@ -636,7 +640,8 @@ header {
 .timer-container {
   margin-left: auto;
   margin-right: auto;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 10%; }
 
 .text-primary {
   font-size: 3.8rem;
@@ -717,7 +722,8 @@ body {
   margin-right: auto; }
 
 .stopwatch-wrapper {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 10%; }
 
 .stopwatch-header {
   font-size: 76px;
@@ -807,7 +813,7 @@ body {
 
 .goals-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   height: auto;
   width: 50vw;
@@ -836,7 +842,7 @@ body {
 
 .pie {
   height: auto;
-  width: 95%;
+  width: 50%;
   margin: 2% 0; }
 
 .goal {
@@ -858,31 +864,40 @@ body {
 .profile-dash-info {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   padding: 20px; }
 
 .profile-dash-pic {
   border-radius: 50%;
   height: 100px;
-  width: 100px; }
+  width: 100px;
+  margin: 0 auto; }
 
 .profile-dash-name {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  font-weight: bold; }
+  font-weight: bold;
+  margin: 0 auto; }
 
 .profile-dash-following {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: -2%; }
 
 .pipe {
-  font-weight: bold;
+  color: #ccd0d1;
   font-size: 1.2em; }
+
+.add-goal-text {
+  color: #3b8ea5;
+  font-weight: bold; }
+
+.profile-dash-text {
+  display: flex; }
 
 @media (max-width: 1025px) {
   p {

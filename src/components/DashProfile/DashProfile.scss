@@ -13,7 +13,7 @@
 .profile-dash-info {
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   flex-direction: column;
   padding: 20px;
 }
@@ -25,7 +25,7 @@
   // text-align: center;
   // margin-bottom: 15px;
   // margin: 30px;
-  // margin: 5% 25%;
+  margin: 0 auto;
 }
 
 .profile-dash-name {
@@ -33,6 +33,7 @@
   justify-content: space-between;
   flex-direction: row;
   font-weight: bold;
+  margin: 0 auto;
 }
 
 .profile-dash-following {
@@ -41,11 +42,22 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: -2%;
 }
 
 .pipe {
-  font-weight: bold;
+  color: #ccd0d1;
+  // font-weight: bold;
   font-size: 1.2em;
+}
+
+.add-goal-text {
+  color: $teal;
+  font-weight: bold;
+}
+
+.profile-dash-text {
+  display: flex;
 }
 
 @media (max-width: 1025px) {

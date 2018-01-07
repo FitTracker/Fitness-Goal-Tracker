@@ -1,6 +1,6 @@
 .goals-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   height: auto;
   width: 50vw;
@@ -29,7 +29,7 @@
 
 .pie {
   height: auto;
-  width: 95%;
+  width: 50%;
   margin: 2% 0; }
 
 .goal {

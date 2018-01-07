@@ -58,7 +58,6 @@ class Goals extends Component {
                 padAngle={0}
               />
               <p>
-                {" "}
                 You have {moment(element.end_date).fromNow(true)} left to
                 accomplish this goal!
               </p>
@@ -157,10 +156,12 @@ class Goals extends Component {
         <div className="goals-container">
           <div className="all-pies">
             <Card style={{ width: "95%" }}>
-              <div className="goals-header">
-                <h1>{`Goals`}</h1>
-                <AddGoal />
-              </div>
+              {
+                // <div className="goals-header">
+                //   <h1>{`Goals`}</h1>
+                //   <AddGoal />
+                // </div>
+              }
             </Card>
             {stepGoals}
             {distGoals}
