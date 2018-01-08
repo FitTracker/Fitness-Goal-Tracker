@@ -1,3 +1,7 @@
+h1 {
+  font-family: $primary-font;
+}
+
 .about-container {
   margin: 0 6%;
 }
@@ -28,6 +32,28 @@
   a:link {
     text-decoration: none;
   }
+}
+
+.follow-row {
+  display: flex;
+  flex-direction: row;
+  img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.follow-us {
+  font-weight: bold;
+  background-color: rgb(22, 22, 22);
+  color: white;
+  width: 15%;
+}
+
+.follow-us-2 {
+  background-color: #000;
+  color: white;
+  width: 85%;
 }
 
 .contact-container {

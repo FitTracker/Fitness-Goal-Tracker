@@ -10,7 +10,6 @@ import AddProfile from "./components/AddProfile/AddProfile";
 
 //FOOTER COMPONENTS
 import About from "./components/Footer/About/About";
-import Features from "./components/Footer/Features/Features";
 import Mobile from "./components/Footer/Mobile/Mobile";
 
 export default (
@@ -21,7 +20,6 @@ export default (
     <Route path="/create-profile" component={AddProfile} />
     <Route path="/about" component={About} />
     <Route path="/mobile" component={Mobile} />
-    <Route path="/features" component={Features} />
     <Route path="*" component={NotFound} />
   </Switch>
 );

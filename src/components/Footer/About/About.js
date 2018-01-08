@@ -21,9 +21,6 @@ const About = () => (
               timer and stopwatch for keeping track of times during workouts.
             </p>
           </div>
-          <div>
-            <p>Follow Us</p>
-          </div>
         </div>
         <div className="about-right-col">
           <iframe

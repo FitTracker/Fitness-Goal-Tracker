@@ -25,7 +25,7 @@ export default class Dashboard extends Component {
 
   render() {
     let bgColor = this.state.color_grey ? "#f7f7ff" : "#2C3F43";
-    let fontColor = this.state.color_black ? "black" : "white";
+    let fontColor = this.state.color_black ? "#383f51" : "white";
     let nightText = this.state.night_mode ? "Day Mode" : "Night Mode";
     return (
       <div
@@ -35,7 +35,7 @@ export default class Dashboard extends Component {
         <div className="dashboard-rows">
           <div className="dashboard-row1">
             <div>
-              <span className="dashboard-today">Today</span>
+              <span className="dashboard-today">Today&nbsp;</span>
               <span className="dashboard-date">
                 {moment().format("MMMM Do YYYY")}
               </span>

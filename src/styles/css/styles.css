@@ -529,34 +529,23 @@ header {
   margin: 2% 0 2% 0;
   padding: 0 2% 0 0; }
   .dashboard-row1 button {
-    border-radius: 500px;
-    padding: 0 2%; }
+    border-radius: 500px; }
 
 .dashboard-today {
   font-weight: 700;
-  font-size: 24px;
-  margin-right: 3%; }
+  font-size: 24px; }
 
 .dashboard-date {
   font-size: 20px; }
-
-.dashboard-cols {
-  display: flex;
-  flex-direction: row; }
 
 .dashboard-col-1 {
   display: flex;
   flex-direction: column; }
 
-@media (max-width: 1024px) {
-  .dashboard-container {
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center; } }
-
-@media (max-width: 457px) {
-  .response-dash {
-    flex-direction: column; } }
+@media (min-width: 1024px) {
+  .dashboard-cols {
+    display: flex;
+    flex-direction: row; } }
 
 .appbar-row {
   display: flex;
@@ -797,7 +786,7 @@ body {
 
 .card-container {
   margin: 2% 2%;
-  width: 95%; }
+  width: 90%; }
 
 .friends-wrapper {
   background: white; }
@@ -837,6 +826,10 @@ body {
   align-items: center;
   padding: 0 40%; }
 
+.goals-header-img {
+  width: 90%;
+  margin-bottom: 2%; }
+
 .all-pies {
   display: flex;
   flex-direction: column;
@@ -854,7 +847,7 @@ body {
 
 .pie {
   height: auto;
-  width: 50%;
+  width: 90%;
   margin: 2% 0; }
 
 .goal {
@@ -937,6 +930,9 @@ body {
   font-weight: 700;
   color: #606064; }
 
+h1 {
+  font-family: "Open Sans", sans-serif; }
+
 .about-container {
   margin: 0 6%; }
 
@@ -962,6 +958,24 @@ body {
   flex-wrap: wrap; }
   .about-second-row a:link {
     text-decoration: none; }
+
+.follow-row {
+  display: flex;
+  flex-direction: row; }
+  .follow-row img {
+    width: 18px;
+    height: 18px; }
+
+.follow-us {
+  font-weight: bold;
+  background-color: #161616;
+  color: white;
+  width: 15%; }
+
+.follow-us-2 {
+  background-color: #000;
+  color: white;
+  width: 85%; }
 
 .contact-container p {
   font-size: 2rem; }
@@ -992,6 +1006,9 @@ body {
   .about-description p {
     width: 100%;
     font-size: 20px; } }
+
+h1 {
+  font-family: "Open Sans", sans-serif; }
 
 .mobile-container {
   background: #fff;

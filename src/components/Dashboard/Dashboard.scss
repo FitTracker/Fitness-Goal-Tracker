@@ -36,14 +36,12 @@ header {
 
   button {
     border-radius: 500px;
-    padding: 0 2%;
   }
 }
 
 .dashboard-today {
   font-weight: 700;
   font-size: 24px;
-  margin-right: 3%;
 }
 
 .dashboard-date {
@@ -51,19 +49,13 @@ header {
 }
 
 .dashboard-cols {
-  display: flex;
-  flex-direction: row;
+  // display: flex;
+  // flex-direction: row;
 }
 
 .dashboard-col-1 {
   display: flex;
   flex-direction: column;
-}
-
-.dashboard-col-2 {
-}
-
-.dashboard-col-3 {
 }
 
 // .dashboard-container {
@@ -84,16 +76,23 @@ header {
 //   margin-bottom: 2%;
 // }
 
-@media (max-width: 1024px) {
-  .dashboard-container {
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-}
+// @media (max-width: 1024px) {
+//   .dashboard-container {
+//     flex-direction: column;
+//     justify-content: space-around;
+//     align-items: center;
+//   }
+// }
 
-@media (max-width: 457px) {
-  .response-dash {
-    flex-direction: column;
+// @media (max-width: 457px) {
+//   .response-dash {
+//     flex-direction: column;
+//   }
+// }
+
+@media (min-width: 1024px) {
+  .dashboard-cols {
+    display: flex;
+    flex-direction: row;
   }
 }

@@ -24,6 +24,24 @@
   .about-second-row a:link {
     text-decoration: none; }
 
+.follow-row {
+  display: flex;
+  flex-direction: row; }
+  .follow-row img {
+    width: 18px;
+    height: 18px; }
+
+.follow-us {
+  font-weight: bold;
+  background-color: #161616;
+  color: white;
+  width: 15%; }
+
+.follow-us-2 {
+  background-color: #000;
+  color: white;
+  width: 85%; }
+
 .contact-container p {
   font-size: 2rem; }
 
