@@ -114,7 +114,7 @@ const About = () => (
               <h2> Mario Hoyos</h2>
             </div>
             <div>
-              <a href="https://github.com/sedate13" target="_blank">
+              <a href="https://github.com/valcodes" target="_blank">
                 <img
                   src="https://avatars1.githubusercontent.com/u/29126810?s=460&v=4"
                   alt="Valentina Abramova"

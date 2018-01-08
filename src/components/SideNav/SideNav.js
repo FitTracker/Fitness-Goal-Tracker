@@ -25,18 +25,20 @@ class SideNav extends Component {
 
   componentDidMount() {
     axios.get("/api/userInfo").then(response => {
+      console.log(response);
       this.setState({
         name:
           "Welcome, " +
           response.data[0].first_name +
           " " +
-          response.data[0].last_name
+          response.data[0].last_name,
+        avatar: response.data[0].avatar
       });
     });
   }
 
   Login() {
-    window.location.href = "http://localhost:3001/api/fitbit/login";
+    window.location.href = "/api/fitbit/login";
   }
 
   logout() {
@@ -94,9 +96,7 @@ class SideNav extends Component {
               iconElementRight={
                 <ListItem
                   disabled={false}
-                  leftAvatar={
-                    <Avatar src="http://goodfilmguide.co.uk/wp-content/uploads/2010/04/avatar12.jpg" />
-                  }
+                  leftAvatar={<Avatar src={this.state.avatar} />}
                   onClick={this.logout}
                 >
                   Logout

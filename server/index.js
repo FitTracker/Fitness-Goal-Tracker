@@ -22,7 +22,7 @@ const app = express();
 
 // SERVE FRONTEND
 
-// app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 
 // INITIALIZE SESSION
 
@@ -79,7 +79,7 @@ passport.use(
     {
       clientID: process.env.FITBIT_CLIENT,
       clientSecret: process.env.FITBIT_SECRET,
-      callbackURL: "http://localhost:3001/api/fitbit/callback"
+      callbackURL: "/api/fitbit/callback"
     },
     getOrCreatUserFitbit
   )
@@ -112,16 +112,16 @@ app.get(
 app.get(
   "/api/fitbit/callback",
   passport.authenticate("fitbit", {
-    successRedirect: "http://localhost:3000/dashboard"
+    successRedirect: "/dashboard"
   })
 );
 
 // CATCH-ALL TO SERVE FRONT END FILES
 
-// const path = require("path");
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/../build/index.html"));
-// });
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../build/index.html"));
+});
 
 const port = process.env.PORT || 3001;
 

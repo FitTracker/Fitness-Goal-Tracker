@@ -22,7 +22,7 @@ export default class Landing extends Component {
     });
   }
   Login() {
-    window.location.href = "http://localhost:3001/api/fitbit/login";
+    window.location.href = "/api/fitbit/login";
   }
   logout() {
     axios.get("/api/logout").then(response => response.data);
