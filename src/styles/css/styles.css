@@ -466,7 +466,7 @@ button:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 100vh;
   width: 100%; }
   .landing h1 {
     font-size: 6em;
@@ -798,13 +798,7 @@ body {
 @media (max-width: 1025px) {
   .friends-wrapper {
     height: auto;
-    width: 40vw; } }
-
-@media (max-width: 457px) {
-  .friends-wrapper {
-    height: auto;
-    width: 90vw;
-    margin-left: 0; } }
+    width: 90vw; } }
 
 .friend-card-header:hover {
   cursor: pointer; }
@@ -929,6 +923,10 @@ body {
 .footer-title {
   font-weight: 700;
   color: #606064; }
+
+@media (max-width: 600px) {
+  .footer-container {
+    display: none; } }
 
 h1 {
   font-family: "Open Sans", sans-serif; }

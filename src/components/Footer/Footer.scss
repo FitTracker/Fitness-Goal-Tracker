@@ -23,3 +23,9 @@
   font-weight: 700;
   color: #606064;
 }
+
+@media (max-width: 600px) {
+  .footer-container {
+    display: none;
+  }
+}

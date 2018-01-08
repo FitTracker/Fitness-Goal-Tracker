@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 
 //MATERIAL UI
 import AppBar from "material-ui/AppBar";
