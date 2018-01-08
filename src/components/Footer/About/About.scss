@@ -93,6 +93,13 @@ h1 {
   }
 }
 
+@media (max-width: 1216px) {
+  .map-video {
+    height: 100px;
+    width: 200px;
+  }
+}
+
 @media (max-width: 910px) {
   .about-left-col {
     width: 100vw;
@@ -100,5 +107,11 @@ h1 {
   .about-description p {
     width: 100%;
     font-size: 20px;
+  }
+}
+
+@media (max-width: 570px) {
+  .map-photo {
+    width: 100%;
   }
 }
