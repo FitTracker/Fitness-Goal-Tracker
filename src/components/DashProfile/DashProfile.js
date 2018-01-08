@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import AddGoal from "../AddGoal/AddGoal";
 
 // MATERIAL UI
 import { Card, CardHeader } from "material-ui/Card";
@@ -48,12 +49,22 @@ class DashProfile extends Component {
           <div className="profile-dash-name">
             <p>{`${this.state.firstName} ${this.state.lastName}`}</p>
           </div>
-          <div className="profile-dash-following">
-            <span className="pipe"> |</span>
-            <p>{`Followers: ${this.state.followers}`} </p>
-            <span className="pipe">|</span>
-            <p>{`Following: ${this.state.following}`}</p>
-            <span className="pipe">|</span>
+          <div>
+            <div className="profile-dash-following">
+              <span className="pipe">|</span>
+              <p>{`Followers: ${this.state.followers}`} </p>
+              <span className="pipe">|</span>
+              <p>{`Following: ${this.state.following}`}</p>
+              <span className="pipe">|</span>
+            </div>
+            <hr />
+            <div className="profile-dash-text">
+              <p>
+                <span className="add-goal-text"> Add a Goal.</span> Click the
+                plus sign to add a new goal.
+              </p>
+              <AddGoal />
+            </div>
           </div>
         </div>
       </Card>

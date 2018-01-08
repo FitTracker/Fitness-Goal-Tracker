@@ -1,0 +1,23 @@
+.mobile-container {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%; }
+
+.mobile-downloads {
+  display: flex; }
+  .mobile-downloads img {
+    margin: 0 10px; }
+
+.mobile-reviews {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 6%;
+  text-align: center;
+  color: #606065; }
+  .mobile-reviews div {
+    margin: 0 1%; }
+  .mobile-reviews p {
+    font-style: italic; }

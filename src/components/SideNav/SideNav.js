@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 
 //MATERIAL UI
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
-
+import Avatar from "material-ui/Avatar";
+import List from "material-ui/List/List";
+import ListItem from "material-ui/List/ListItem";
+import SearchBar from "material-ui-search-bar";
 import FlatButton from "material-ui/FlatButton";
 
 class SideNav extends Component {
@@ -44,7 +48,11 @@ class SideNav extends Component {
 
   render() {
     let width = window.screen.width;
-    const styles = { backgroundColor: "transparent", color: "#222" };
+    const styles = {
+      backgroundColor: "transparent",
+      color: "#222",
+      marginTop: "18px"
+    };
     // const leftButtons = {};
     const rightButtons = (
       <div>
@@ -77,36 +85,57 @@ class SideNav extends Component {
                 color: "black",
                 width: "100%"
               }}
-              title={
-                <span style={{ color: "#222" }}>
-                  {width > 457 && this.state.name}
-                </span>
-              }
               onLeftIconButtonClick={() =>
                 this.setState(
-                  // iconClassNameRight="muidocs-icon-navigation-expand-more"
+                  // iconClassNameRight="muidocs-icon-navigation-expand-more" // } //   </span> //     {width > 457 && this.state.name} //   <span style={{ color: "#222" }}> // title={
                   { open: !this.state.open }
                 )
               }
-              iconElementRight={rightButtons}
-              iconElementLeft={
-                <svg
-                  viewBox="0 0 24 24"
-                  style={{
-                    display: "inline-block",
-                    color: "rgb(255, 255, 255)",
-                    fill: "#222",
-                    marginTop: "10px",
-                    height: "24px",
-                    width: "24px",
-                    userSelect: "none",
-                    transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
-                  }}
+              iconElementRight={
+                <ListItem
+                  disabled={false}
+                  leftAvatar={
+                    <Avatar src="http://goodfilmguide.co.uk/wp-content/uploads/2010/04/avatar12.jpg" />
+                  }
+                  onClick={this.logout}
                 >
-                  <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-                </svg>
+                  Logout
+                </ListItem>
+              }
+              iconElementLeft={
+                <div className="appbar-row">
+                  <svg
+                    viewBox="0 0 24 24"
+                    style={{
+                      display: "inline-block",
+                      color: "rgb(255, 255, 255)",
+                      fill: "#222",
+                      marginTop: "25px",
+                      marginLeft: "10px",
+                      height: "24px",
+                      width: "24px",
+                      userSelect: "none",
+                      transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
+                    }}
+                  >
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                  </svg>
+                  <div className="SideNavLogo">
+                    <img
+                      src={require("../../Images/F.png")}
+                      alt="logo"
+                      style={{
+                        height: "50px",
+                        width: "50px",
+                        borderRadius: "50%"
+                      }}
+                    />
+                    <div className="SideNavLogoText">ittr</div>
+                  </div>
+                </div>
               }
             />
+
             <Drawer
               className="drawer"
               containerStyle={{ backgroundColor: "#2d728f", padding: "20px" }}
