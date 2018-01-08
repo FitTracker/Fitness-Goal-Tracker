@@ -998,12 +998,21 @@ h1 {
     text-align: center;
     margin-bottom: 15%; }
 
+@media (max-width: 1216px) {
+  .map-video {
+    height: 100px;
+    width: 200px; } }
+
 @media (max-width: 910px) {
   .about-left-col {
     width: 100vw; }
   .about-description p {
     width: 100%;
     font-size: 20px; } }
+
+@media (max-width: 570px) {
+  .map-photo {
+    width: 100%; } }
 
 h1 {
   font-family: "Open Sans", sans-serif; }
