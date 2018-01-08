@@ -54,7 +54,7 @@ class Goals extends Component {
                 theme={V.VictoryTheme.material}
                 colorScale={["#2d728f", "#EEEEEE"]}
                 innerRadius={70}
-                labelRadius={92}
+                labelRadius={80}
                 padAngle={0}
               />
               <p>
@@ -121,7 +121,7 @@ class Goals extends Component {
                 theme={V.VictoryTheme.material}
                 colorScale={["#2d728f", "#EEEEEE"]}
                 innerRadius={70}
-                labelRadius={92}
+                labelRadius={80}
                 padAngle={0}
               />
 
