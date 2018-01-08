@@ -36,7 +36,7 @@ class SideNav extends Component {
   }
 
   Login() {
-    window.location.href = "http://localhost:3001/api/fitbit/login";
+    window.location.href = "/api/fitbit/login";
   }
 
   logout() {
