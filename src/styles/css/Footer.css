@@ -1,0 +1,23 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 10%; }
+  .footer-container a:link {
+    color: #606065;
+    text-decoration: none; }
+  .footer-container a:visited {
+    color: #606065; }
+
+.footer-logo {
+  color: #99999e; }
+
+.copyright {
+  margin-top: -20px; }
+
+.footer-title {
+  font-weight: 700;
+  color: #606064; }
+
+@media (max-width: 600px) {
+  .footer-container {
+    display: none; } }

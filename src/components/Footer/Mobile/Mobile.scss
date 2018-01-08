@@ -1,0 +1,45 @@
+h1 {
+  font-family: $primary-font;
+}
+
+.mobile-container {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.mobile-header {
+}
+
+.mobile-title {
+}
+
+.mobile-info {
+}
+
+.mobile-downloads {
+  display: flex;
+  img {
+    margin: 0 10px;
+  }
+}
+
+.mobile-gallery {
+}
+
+.mobile-reviews {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 6%;
+  text-align: center;
+  color: #606065;
+  div {
+    margin: 0 1%;
+  }
+  p {
+    font-style: italic;
+  }
+}

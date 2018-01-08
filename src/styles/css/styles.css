@@ -466,7 +466,7 @@ button:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 100vh;
   width: 100%; }
   .landing h1 {
     font-size: 6em;
@@ -514,39 +514,51 @@ header {
   list-style-type: none; }
 
 .dashboard-container {
-  width: 100%;
-  height: auto;
+  justify-content: space-between;
+  padding: 0 5%;
+  width: 100%; }
+
+.dashboard-rows {
+  display: flex;
+  flex-direction: column; }
+
+.dashboard-row1 {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 1% 5%;
-  margin-top: 3%; }
+  justify-content: space-between;
+  margin: 2% 0 2% 0;
+  padding: 0 2% 0 0; }
+  .dashboard-row1 button {
+    border-radius: 500px; }
 
-.response-dash {
-  width: 90vw;
+.dashboard-today {
+  font-weight: 700;
+  font-size: 24px; }
+
+.dashboard-date {
+  font-size: 20px; }
+
+.dashboard-col-1 {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 2%; }
+  flex-direction: column; }
 
-@media (max-width: 1024px) {
-  .dashboard-container {
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center; } }
+@media (min-width: 1024px) {
+  .dashboard-cols {
+    display: flex;
+    flex-direction: row; } }
 
-@media (max-width: 457px) {
-  .response-dash {
-    flex-direction: column; } }
+.appbar-row {
+  display: flex;
+  flex-direction: row; }
 
 .SideNavLogo {
   display: flex;
   flex-direction: row;
-  margin-top: 20px; }
+  margin: 10px 0 10px 30px; }
 
 .SideNavLogoText {
-  margin-top: 21px;
-  font-size: 45px;
+  margin-top: 10px;
+  font-size: 30px;
   font-style: italic;
   color: #353535;
   font-family: "Open Sans", sans-serif; }
@@ -632,7 +644,8 @@ header {
 .timer-container {
   margin-left: auto;
   margin-right: auto;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 10%; }
 
 .text-primary {
   font-size: 3.8rem;
@@ -713,7 +726,8 @@ body {
   margin-right: auto; }
 
 .stopwatch-wrapper {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 10%; }
 
 .stopwatch-header {
   font-size: 76px;
@@ -772,13 +786,10 @@ body {
 
 .card-container {
   margin: 2% 2%;
-  width: 95%; }
+  width: 90%; }
 
 .friends-wrapper {
-  background: white;
-  width: 20vw;
-  height: 20vh;
-  margin-left: 2%; }
+  background: white; }
 
 .friends-header {
   text-align: center;
@@ -787,13 +798,7 @@ body {
 @media (max-width: 1025px) {
   .friends-wrapper {
     height: auto;
-    width: 40vw; } }
-
-@media (max-width: 457px) {
-  .friends-wrapper {
-    height: auto;
-    width: 90vw;
-    margin-left: 0; } }
+    width: 90vw; } }
 
 .friend-card-header:hover {
   cursor: pointer; }
@@ -803,7 +808,7 @@ body {
 
 .goals-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   height: auto;
   width: 50vw;
@@ -814,6 +819,10 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0 40%; }
+
+.goals-header-img {
+  width: 90%;
+  margin-bottom: 2%; }
 
 .all-pies {
   display: flex;
@@ -832,7 +841,7 @@ body {
 
 .pie {
   height: auto;
-  width: 95%;
+  width: 90%;
   margin: 2% 0; }
 
 .goal {
@@ -854,34 +863,196 @@ body {
 .profile-dash-info {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   padding: 20px; }
 
 .profile-dash-pic {
   border-radius: 50%;
   height: 100px;
-  width: 100px; }
+  width: 100px;
+  margin: 0 auto; }
 
 .profile-dash-name {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  font-weight: bold; }
+  font-weight: bold;
+  margin: 0 auto; }
 
 .profile-dash-following {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: -2%; }
 
 .pipe {
-  font-weight: bold;
+  color: #ccd0d1;
   font-size: 1.2em; }
+
+.add-goal-text {
+  color: #3b8ea5;
+  font-weight: bold; }
+
+.profile-dash-text {
+  display: flex; }
 
 @media (max-width: 1025px) {
   p {
     font-size: 0.4em; }
   .pipe {
     font-size: 0.6em; } }
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 10%; }
+  .footer-container a:link {
+    color: #606065;
+    text-decoration: none; }
+  .footer-container a:visited {
+    color: #606065; }
+
+.footer-logo {
+  color: #99999e; }
+
+.copyright {
+  margin-top: -20px; }
+
+.footer-title {
+  font-weight: 700;
+  color: #606064; }
+
+@media (max-width: 600px) {
+  .footer-container {
+    display: none; } }
+
+h1 {
+  font-family: "Open Sans", sans-serif; }
+
+.about-container {
+  margin: 0 6%; }
+
+.about-top-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 3%; }
+
+.about-left-col {
+  width: 30%; }
+
+.about-description {
+  font-size: 2rem; }
+
+.about-right-col {
+  margin-top: 2%; }
+
+.about-second-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .about-second-row a:link {
+    text-decoration: none; }
+
+.follow-row {
+  display: flex;
+  flex-direction: row; }
+  .follow-row img {
+    width: 18px;
+    height: 18px; }
+
+.follow-us {
+  font-weight: bold;
+  background-color: #161616;
+  color: white;
+  width: 15%; }
+
+.follow-us-2 {
+  background-color: #000;
+  color: white;
+  width: 85%; }
+
+.contact-container p {
+  font-size: 2rem; }
+
+.contact-col {
+  width: 50vw; }
+
+.headquarters-col {
+  width: 5vw; }
+
+.map-title {
+  font-weight: 700; }
+
+.about-third-row img {
+  border-radius: 2%; }
+
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .team-row h2 {
+    text-align: center;
+    margin-bottom: 15%; }
+
+@media (max-width: 910px) {
+  .about-left-col {
+    width: 100vw; }
+  .about-description p {
+    width: 100%;
+    font-size: 20px; } }
+
+h1 {
+  font-family: "Open Sans", sans-serif; }
+
+.mobile-container {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%; }
+
+.mobile-downloads {
+  display: flex; }
+  .mobile-downloads img {
+    margin: 0 10px; }
+
+.mobile-reviews {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 6%;
+  text-align: center;
+  color: #606065; }
+  .mobile-reviews div {
+    margin: 0 1%; }
+  .mobile-reviews p {
+    font-style: italic; }
+
+.notFound-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+  .notFound-title img {
+    width: 200px;
+    height: 200px;
+    margin-top: -3%; }
+
+.notFound-row1 {
+  font-size: 80px;
+  font-weight: bold; }
+
+.notFound-row2 {
+  font-size: 60px;
+  margin-top: -5%; }
+
+.notFound-row3 {
+  font-size: 30px; }
+
+.notFound-link {
+  text-decoration: none; }

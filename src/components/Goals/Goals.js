@@ -58,7 +58,6 @@ class Goals extends Component {
                 padAngle={0}
               />
               <p>
-                {" "}
                 You have {moment(element.end_date).fromNow(true)} left to
                 accomplish this goal!
               </p>
@@ -156,11 +155,17 @@ class Goals extends Component {
       <div>
         <div className="goals-container">
           <div className="all-pies">
-            <Card style={{ width: "95%" }}>
-              <div className="goals-header">
-                <h1>{`Goals`}</h1>
-                <AddGoal />
-              </div>
+            <img
+              className="goals-header-img"
+              src="https://lh3.googleusercontent.com/dI6je65aSkgJhLgYVQ9dkIK8B3-CBVRI8ujM79_NiVZxRqWxlu0MaR-BwtQNoA-SIFb8jGNt2F5HkbfFZ9yb36_zIQ-Fop_9m2qSB8_cgN-zgVO5MWu2We62MNs_7VPERg4HmhB6kL2KrvN39PuC_7FwSc9EX93JgKXEvQdlQdLwsEaDL64jjNVOiBQSiz5zG_cq5uPVVDkiHD5AtZAq2M_Rn7IDJ0v_mnhKOP8In-UV-_ogPhxcd404BDaAEivvgfwmPpHh8QhOtvCCYtbfwwJTeXOKZ4eASCIhuOT66jJGPiJXHNqHDDlVTXnOHDZqsaoqSJJJQsL3RoXUM_h26gf05mVlr7uOGza2mZo4MJcjIoJ6NOl8c7vCLLs43ao2jTuQh0gF4oQlLwGedWlGyjOXcalOwl3MGym567oCZk3pGgTqv6jDOl0e2Bp1FCjrXbQfkc9AkiEdWN0qZqqj11KzJq7V6QjYCwCDyAbWyLGY_fcGway8kYvfUkRcg2GJMDAsisj3KE-9T_qmq_y0NzdHR5iMeeKi_vZ5fPD0SfizXqgF9owWqRKOaPHXOfjYkg3QExawPkrlThCuP2gII6P2DVTr_c5pIXAnzNit=w905-h197-no"
+            />
+            <Card style={{ width: "90%" }}>
+              {
+                // <div className="goals-header">
+                //   <h1>{`Goals`}</h1>
+                //   <AddGoal />
+                // </div>
+              }
             </Card>
             {stepGoals}
             {distGoals}

@@ -1,8 +1,5 @@
 .friends-wrapper {
   background: white;
-  width: 20vw;
-  height: 20vh;
-  margin-left: 2%;
 }
 
 .friends-header {
@@ -13,14 +10,14 @@
 @media (max-width: 1025px) {
   .friends-wrapper {
     height: auto;
-    width: 40vw;
+    width: 90vw;
   }
 }
 
-@media (max-width: 457px) {
-  .friends-wrapper {
-    height: auto;
-    width: 90vw;
-    margin-left: 0;
-  }
-}
+// @media (min-width: 460px) {
+//   .friends-wrapper {
+//     height: auto;
+//     width: 90vw;
+//     margin-left: 0;
+//   }
+// }
