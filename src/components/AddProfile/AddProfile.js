@@ -7,11 +7,19 @@ import TextField from "material-ui/TextField";
 import { Card } from "material-ui/Card";
 import RaisedButton from "material-ui/RaisedButton";
 
-const style = {
-  margin: 12,
-  backgroundColor: "#dddbf1"
-};
+// const style = {
+//   margin: 12,
+//   backgroundColor: "#383f51"
+// };
 
+const styles = {
+  floatingLabelStyle: {
+    color: "#383f51"
+  },
+  underlineStyle: {
+    borderColor: "#3b8ea5"
+  }
+};
 class AddProfile extends Component {
   constructor() {
     super();
@@ -123,6 +131,7 @@ class AddProfile extends Component {
                 className="profile-input profile-name"
                 value={this.state.firstName}
                 floatingLabelText="First Name"
+                floatingLabelStyle={styles.floatingLabelStyle}
                 hintText="First Name"
                 disabled={this.state.editDisabled}
               />
@@ -131,6 +140,7 @@ class AddProfile extends Component {
                 className="profile-input profile-lastName"
                 value={this.state.lastName}
                 floatingLabelText="Last Name"
+                floatingLabelStyle={styles.floatingLabelStyle}
                 hintText="Last Name"
                 disabled={this.state.editDisabled}
               />
@@ -140,6 +150,7 @@ class AddProfile extends Component {
                 className="profile-input profile-city"
                 value={this.state.city}
                 floatingLabelText="City"
+                floatingLabelStyle={styles.floatingLabelStyle}
                 hintText="City"
                 disabled={this.state.editDisabled}
               />
@@ -148,6 +159,7 @@ class AddProfile extends Component {
                 className="profile-input profile-state"
                 value={this.state.us_state}
                 floatingLabelText="State"
+                floatingLabelStyle={styles.floatingLabelStyle}
                 hintText="State"
                 disabled={this.state.editDisabled}
               />
@@ -156,6 +168,7 @@ class AddProfile extends Component {
                 className="profile-input profile-email"
                 value={this.state.email}
                 floatingLabelText="Email"
+                floatingLabelStyle={styles.floatingLabelStyle}
                 hintText="Email"
                 disabled={this.state.editDisabled}
               />
@@ -165,6 +178,7 @@ class AddProfile extends Component {
                 className="profile-input profile-avatar"
                 value={this.state.avatarURL}
                 floatingLabelText="Avatar URL"
+                floatingLabelStyle={styles.floatingLabelStyle}
                 hintText="Avatar URL"
                 disabled={this.state.editDisabled}
               />
@@ -175,13 +189,13 @@ class AddProfile extends Component {
                 onClick={() => this.handleEditToggle()}
                 label="EDIT"
                 primary={true}
-                style={style}
+                style={{ backgroundColor: "#383f51" }}
                 disabled={!this.state.editDisabled}
               />
               <RaisedButton
                 label="SAVE"
                 primary={true}
-                style={style}
+                style={{ backgroundColor: "#383f51" }}
                 type="submit"
                 disabled={this.state.editDisabled}
               />

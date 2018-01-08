@@ -147,7 +147,11 @@ class SideNav extends Component {
                 <img
                   src={require("../../Images/F.png")}
                   alt="logo"
-                  style={{ height: "85px", width: "85px", borderRadius: "50%" }}
+                  style={{
+                    height: "85px",
+                    width: "85px",
+                    borderRadius: "50%"
+                  }}
                 />
                 <div className="SideNavLogoText">ittr</div>
               </div>
