@@ -18,6 +18,21 @@
   font-weight: 700;
   color: #606064; }
 
-@media (max-width: 600px) {
-  .footer-container {
-    display: none; } }
+.grid-footer {
+  display: grid;
+  margin: 0 8%;
+  grid-gap: 3px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 50px); }
+  .grid-footer a:link {
+    color: #606065;
+    text-decoration: none; }
+  .grid-footer a:visited {
+    color: #606065; }
+
+@media (max-width: 374px) {
+  .grid-footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; } }
