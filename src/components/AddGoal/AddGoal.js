@@ -4,7 +4,7 @@ import axios from "axios";
 
 import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
-import FloatingActionButton from "material-ui/FloatingActionButton";
+// import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
 import DatePicker from "material-ui/DatePicker";
 import DropDownMenu from "material-ui/DropDownMenu";

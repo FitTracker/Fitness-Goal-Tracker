@@ -8,7 +8,6 @@
     "axios": "^0.17.1",
     "babel-preset-env": "^1.6.1",
     "body-parser": "^1.18.2",
-    "bootstrap": "4.0.0-beta.3",
     "concurrently": "^3.5.1",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
@@ -48,15 +47,12 @@
     "victory": "^0.24.3"
   },
   "scripts": {
-    "start":
-      "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\"",
+    "start": "concurrently --kill-others \"nodemon server index.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
-    "build-css":
-      "node-sass-chokidar  src/styles/scss/styles.scss -o src/styles/css",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar src/styles/scss/*.scss -o src/styles/css/ --watch --recursive"
+    "build-css": "node-sass-chokidar  src/styles/scss/styles.scss -o src/styles/css",
+    "watch-css": "npm run build-css && node-sass-chokidar src/styles/scss/*.scss -o src/styles/css/ --watch --recursive"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
@@ -75,7 +71,10 @@
     }
   },
   "nodemonConfig": {
-    "ignore": ["src/*", "build/*"],
+    "ignore": [
+      "src/*",
+      "build/*"
+    ],
     "delay": "1500"
   },
   "engines": {
